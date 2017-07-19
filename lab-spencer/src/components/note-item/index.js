@@ -9,7 +9,6 @@ class NoteItem extends React.Component {
 
   deleteNote(event) {
     event.preventDefault();
-    console.log(this.state.id);
     this.props.getApp().setState(state => ({
       allNotes: state.allNotes.filter(note => note.id !== this.props.curNote.id)
     }));
