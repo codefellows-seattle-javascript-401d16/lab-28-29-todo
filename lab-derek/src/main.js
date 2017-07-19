@@ -1,17 +1,27 @@
 import React from 'react';
-import uuid from 'uuid/v1';
 import ReactDom from 'react-dom';
-import superagent from 'superagent';
+import {BrowserRouter, Router} from 'react-router-dom';
 
-import NoteList from './note-list/index.js';
-import NoteCreateForm from './note-create-form/index.js';
+import NoteList from './component/note-list';
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       notes: [],
+    };
 
+    this.getApp = this.getApp.bind(this);
+  }
+
+  componentDidUpdate(){
+    console.log('<<<<<<<<<<<<<<<STATE>>>>>>>>>>>>>', this.state);
+  }
+
+  getApp(){
+    return {
+      state: this.state,
+      setState: this.setState.bind(this),
     };
   }
 
@@ -19,8 +29,12 @@ class App extends React.Component {
     return (
       <div>
         <h1> hello todo app </h1>
-        <NoteCreateForm />
-        <NoteList />
+        <BrowserRouter>
+          <div>
+            <Router exact path='/notelist'
+              component={() => <NoteList app={this.getApp()} />} /> 
+          </div>
+        </BrowserRouter>
       </div>
     );
   }
