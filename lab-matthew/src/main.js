@@ -6,6 +6,7 @@ import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 // app modules
+import NoteList from './component/note-list/index.js';
 // Component tree:
 // App
 //  NoteCreateForm
@@ -16,7 +17,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      notes: null,
+      notes: [],
     };
 
     this.getApp = this.getApp.bind(this);
@@ -40,6 +41,7 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <p> Soli Deo Gloria</p>
+            <NoteList app={this.getApp()} />
           </div>
         </BrowserRouter>
       </main>

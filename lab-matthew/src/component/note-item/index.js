@@ -3,9 +3,19 @@ import React from 'react';
 class NoteItem extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      something: null,
-    };
+  }
+
+  render() {
+    return (
+
+      <ul>
+        {this.props.notes.map((item, i) =>
+          <li key={i}>
+        {item.content}
+        </li>
+      )}
+      </ul>
+    );
   }
 }
 
