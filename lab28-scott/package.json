@@ -4,6 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "eslint": "^4.2.0",
     "extract-text-webpack-plugin": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.1.0"
   }
 }
