@@ -2,6 +2,7 @@ import React from 'react';
 
 class NoteCreateForm extends React.Component{
   constructor(props){
+    console.log('props', props);
     super(props);
     this.state = {
       title: '',
@@ -14,11 +15,17 @@ class NoteCreateForm extends React.Component{
   }
 
   handleChange(e){
-
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   }
 
   handleFormSubmit(e){
-
+    e.preventDefault();
+    console.log('this.state', this.state);
+    console.log('this.props', this.props);
+    console.log('form was submitted');
+    this.props.noteCreate(this.state);
   }
 
   render(){

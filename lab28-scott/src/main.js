@@ -1,3 +1,4 @@
+import uuid from 'uuid/v1';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
@@ -12,9 +13,10 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      notes: null,
+      notes: [],
     };
     this.getApp = this.getApp.bind(this);
+    this.handleNoteCreate = this.handleNoteCreate.bind(this);
   }
 
   //show the state in the console
@@ -29,12 +31,29 @@ class App extends React.Component{
     };
   }
 
+  //create the note from the form data
+  handleNoteCreate(note){
+    console.log('note', note);
+    note.id = uuid();
+    console.log('note id', note.id);
+    this.setState(state => ({
+      notes: [...state.notes, note],
+    }));
+    console.log('nrbeak');
+  }
+
   render(){
     return(
       <main>
         <h1>ToDo App!</h1>
         <div>
-          <NoteCreateFormContainer app={this.getApp()}/>
+          <NoteCreateFormContainer
+            app={this.getApp()}
+            noteCreate={this.handleNoteCreate}
+          />
+          <NoteItemContainer
+            app={this.getApp()}
+          />
         </div>
       </main>
     );
