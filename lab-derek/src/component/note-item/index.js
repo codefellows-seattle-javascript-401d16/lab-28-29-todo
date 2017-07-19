@@ -3,15 +3,18 @@ import React from 'react';
 class NoteItem extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-    };
   }
 
   render(){
+    console.log('notes', this.props.notes);
     return (
-      <div>
-        <h1> hello noteItem </h1>
-      </div>
+      <ul>
+        {this.props.notes.map((item, i) =>
+          <li key={i}>
+            {item.content}
+          </li>
+        )}
+      </ul>
     );
   }
 }

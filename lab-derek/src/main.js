@@ -1,7 +1,9 @@
 import React from 'react';
+import uuid from 'uuid/v1';
 import ReactDom from 'react-dom';
-import {BrowserRouter, Router} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 
+import NoteCreateForm from './component/note-create-form';
 import NoteList from './component/note-list';
 
 class App extends React.Component {
@@ -12,6 +14,7 @@ class App extends React.Component {
     };
 
     this.getApp = this.getApp.bind(this);
+    this.noteCreate = this.noteCreate.bind(this);
   }
 
   componentDidUpdate(){
@@ -25,19 +28,30 @@ class App extends React.Component {
     };
   }
 
+  noteCreate(note){
+    note.id = uuid();
+    this.setState( state => ({
+      notes: [...state.notes, note],
+    }));
+  }
+
   render(){
     return (
-      <div>
+      <main>
         <h1> hello todo app </h1>
-        <BrowserRouter>
-          <div>
-            <Router exact path='/notelist'
-              component={() => <NoteList app={this.getApp()} />} /> 
-          </div>
-        </BrowserRouter>
-      </div>
+        <NoteCreateForm
+          handleNoteCreate={this.noteCreate} />
+        <NoteList app={this.getApp()} />
+      </main>
     );
   }
 }
 
 ReactDom.render(<App />, document.getElementById('root'));
+
+// <BrowserRouter>
+//   <div>
+//     <Route exact path='/notelist'
+//       component={() =>
+//   </div>
+// </BrowserRouter>
