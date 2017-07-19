@@ -20,7 +20,8 @@ class NoteContainer extends React.Component {
     return (
       <div className='note-container'>
         <NoteCreateForm
-          handleNoteCreate={this.noteCreate} />
+          handleNoteCreate={this.noteCreate}
+         />
         <p>note arrived</p>
       </div>
     )

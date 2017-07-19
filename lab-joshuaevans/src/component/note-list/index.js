@@ -1,4 +1,5 @@
 import React from 'react'
+import NoteItem from '../note-item'
 
 class NoteList extends React.Component{
   constructor(props){
@@ -6,17 +7,11 @@ class NoteList extends React.Component{
   }
 
   render(){
-    console.log(this.props.notes);
     return (
       <ul>
-        {this.props.notes.map((note, n) => {
-          return (
-            <li key={n}>
-            {note.content}
-            </li>
-          )
-        })}
-        </ul>
+        {this.props.notes.map(note =>
+          <NoteItem key={note.id} note={note} noteRemove={this.props.noteRemove}/>)}
+      </ul>
     )
   }
 }
