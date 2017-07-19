@@ -5,8 +5,8 @@ const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports =  {
 
-  devTool: 'eval',
-  devServer: {historyAPIFallback: true},
+  devtool: 'eval',
+  devServer: {historyApiFallback: true},
 
   entry: `${__dirname}/src/main.js`,
   output: {
