@@ -13,8 +13,6 @@ class About extends React.Component {
   }
 }
 
-//asdasdasd
-
 class NoteItem extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +30,6 @@ class NoteItem extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <li>
         <p>{this.state.content}</p>
@@ -80,7 +77,7 @@ class NoteCreateForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input placeholder='new todo' type='text' onChange={this.handleChange}/>
+        <input className='input' placeholder='new todo' type='text' onChange={this.handleChange}/>
         <input type='submit' />
       </form>
     )
@@ -143,6 +140,9 @@ class App extends React.Component {
   }
 }
 
+
 const container = document.createElement('div')
 document.body.appendChild(container)
 ReactDom.render(<App />, container)
+
+export { NoteCreateForm, NoteItem }
