@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
 
 import './style/_reset.scss';
 import './style/main.scss';
@@ -16,7 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allNotes = null;
+      allNotes: [],
     };
 
     this.getApp = this.getApp.bind(this);
@@ -36,8 +35,8 @@ class App extends React.Component {
   render() {
     return (
       <main>
-        <NoteCreateForm getApp=${this.getApp} />
-        <NoteList getApp=${this.getApp} />
+        <NoteCreateForm getApp={this.getApp} />
+        <NoteList getApp={this.getApp} />
       </main>
     );
   }

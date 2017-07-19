@@ -1,5 +1,7 @@
 import React from 'react';
 
+import NoteItem from '../note-item';
+
 class NoteList extends React.Component {
   constructor(props) {
     super(props);
@@ -11,8 +13,16 @@ class NoteList extends React.Component {
   render() {
     return (
       <ul>
-        <NoteItem />
+        {this.props.getApp().state.allNotes.map((note, i) => {
+          return (
+            <li key={i}>
+              <NoteItem getApp={this.props.getApp} curNote={note} />
+            </li>
+          );
+        })}
       </ul>
     );
   }
 }
+
+export default NoteList;

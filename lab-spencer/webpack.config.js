@@ -1,7 +1,7 @@
 'use strict';
 
 const HtmlPlugin = require('html-webpack-plugin');
-const ExractPlugin = require('extract-text-webpack-plugin');
+const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
