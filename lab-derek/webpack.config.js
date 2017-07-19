@@ -26,7 +26,7 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractPlugin.extract(['css-loader', 'sass-loader']),
-      }
-    ]
+      },
+    ],
   },
-}
+};

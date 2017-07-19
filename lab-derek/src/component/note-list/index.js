@@ -1,5 +1,4 @@
 import React from 'react';
-import uuid from 'uuid/v1';
 
 import NoteCreateForm from '../note-create-form';
 import NoteItem from '../note-item';
@@ -13,7 +12,7 @@ class NoteList extends React.Component {
   render(){
     return (
       <div className='note-list'>
-        <NoteItem notes={this.props.app.state.notes}/>
+        <NoteItem notes={this.props.app.state.notes} app={this.props.app}/>
       </div>
     );
   }
