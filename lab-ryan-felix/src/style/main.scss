@@ -1,0 +1,30 @@
+@import '_vars';
+@import '_reset';
+@import '_base';
+@import '_layout';
+
+
+.create-note-form {
+  margin-left: 3em;
+  margin-top: 3em;
+}
+
+.create-note-form > input {
+  margin-bottom: 1em;
+  .invalid {
+    border: 2px solid $invalid_input_border_color;
+  }
+}
+
+.note > .delete-note:hover {
+  cursor: pointer;
+}
+
+.note-list {
+  margin-top: 3em;
+  margin-left: 3em;
+}
+
+.note-list > h1 {
+  margin-bottom: 1em;
+}
