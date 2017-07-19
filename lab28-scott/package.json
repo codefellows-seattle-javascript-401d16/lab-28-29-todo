@@ -1,0 +1,9 @@
+{
+  "name": "lab28-scott",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "extract-text-webpack-plugin": "^3.0.0"
+  }
+}
