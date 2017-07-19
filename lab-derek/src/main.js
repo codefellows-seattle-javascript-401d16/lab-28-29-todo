@@ -1,13 +1,17 @@
 import React from 'react';
+import uuid from 'uuid/v1';
 import ReactDom from 'react-dom';
 import superagent from 'superagent';
-import uuid from 'uuid/v1';
+
+import NoteList from './note-list/index.js';
+import NoteCreateForm from './note-create-form/index.js';
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      content: '',
+      notes: [],
+
     };
   }
 
@@ -15,6 +19,8 @@ class App extends React.Component {
     return (
       <div>
         <h1> hello todo app </h1>
+        <NoteCreateForm />
+        <NoteList />
       </div>
     );
   }
