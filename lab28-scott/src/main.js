@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 //import child containers
-import './note-create-form-container/note-create-form.js';
-import './note-item-container/note-item.js';
-import './note-list-container/note-list.js';
+import NoteCreateFormContainer from './note-create-form-container/index.js';
+import NoteItemContainer from './note-item-container/index.js';
+import NoteListContainer from './note-list-container/index.js';
 
 //holding my main application
 
@@ -14,10 +14,15 @@ class App extends React.Component{
     this.state = {
       notes: null,
     };
+    this.getApp = this.getApp.bind(this);
   }
 
+  //show the state in the console
+  componentDidUpdate(){
+    console.log('--STATE-CHANGE--', this.state);
+  }
   //create app function for sending children data to parent
-  appGet(){
+  getApp(){
     return{
       state: this.state,
       setState: this.setState.bind(this),
@@ -27,11 +32,10 @@ class App extends React.Component{
   render(){
     return(
       <main>
-        <BrowserRouter>
-          <div>
-            notes app  yay
-          </div>
-        </BrowserRouter>
+        <h1>ToDo App!</h1>
+        <div>
+          <NoteCreateFormContainer app={this.getApp()}/>
+        </div>
       </main>
     );
   }
