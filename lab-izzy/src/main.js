@@ -4,7 +4,6 @@ import React from 'react';
 import './style/main.scss';
 
 import ReactDom from 'react-dom';
-import PropTypes from 'prop-types';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 import NoteItem from './component/note-item';
@@ -58,12 +57,6 @@ class App extends React.Component {
     );
   }
 }
-
-App.propTypes = {
-  notes: PropTypes.array,
-  addNote: PropTypes.func,
-  removeNote: PropTypes.func,
-};
 
 // identical statements
 // <DashboardContainer app = {this.getApp()} />   <--- JSX

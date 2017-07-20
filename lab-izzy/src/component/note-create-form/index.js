@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class NoteCreateForm extends React.Component {
   constructor(props){
@@ -37,11 +36,5 @@ class NoteCreateForm extends React.Component {
     );
   }
 }
-
-NoteCreateForm.propTypes = {
-  addNote: PropTypes.func,
-  handleChange: PropTypes.func,
-  handleSubmit: PropTypes.func,
-};
 
 export default NoteCreateForm;
