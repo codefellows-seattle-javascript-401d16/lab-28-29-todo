@@ -22,7 +22,7 @@ class NoteItem extends React.Component {
     return (
       <li>
         <p>{this.state.content}</p>
-        <button onClick={this.handleDelete}>Delete</button>
+        <button onClick={this.handleDelete} className='delete-note'>Delete</button>
       </li>
     )
   }
