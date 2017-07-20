@@ -4,7 +4,7 @@ const ExtractPlugin = require('extract-text-webpack-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     historyApiFallback: true,
   },

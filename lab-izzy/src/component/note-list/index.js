@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NoteItem from './component/note-item';
 
-
 class NoteList extends React.Component {
   constructor(props){
     super(props);

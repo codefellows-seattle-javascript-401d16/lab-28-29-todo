@@ -7,10 +7,10 @@ import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-import NoteCreateForm from './component/note-create-form';
 import NoteItem from './component/note-item';
 import NoteList from './component/note-list';
-import About from './component/about-container';
+import AboutContainer from './component/about-container';
+import NoteCreateForm from './component/note-create-form';
 
 class App extends React.Component {
   constructor(props){
@@ -30,11 +30,11 @@ class App extends React.Component {
   }
 
   addNote(content){
-    const notes = this.state.notes;
-    const id = uuid.v1();
-    const editing = false;
-    const completed = false;
-    const note = {content, id, editing, completed};
+    let notes = this.state.notes;
+    let id = uuid.v1();
+    let editing = false;
+    let completed = false;
+    let note = {content, id, editing, completed};
     notes.push(note);
     this.setState({notes});
   }
@@ -52,7 +52,7 @@ class App extends React.Component {
           <Route exact path='/' component={() => <div>
             <NoteCreateForm addNote={this.addNote} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
             <NoteList notes={this.state.notes} addNote={this.addNote} removeNote={this.removeNote} /></div>} />
-          <Route exact path='/about' component={About} />
+          <Route exact path='/about' component={AboutContainer} />
         </div>
       </BrowserRouter>
     );
@@ -65,6 +65,8 @@ App.propTypes = {
   removeNote: PropTypes.func,
 };
 
-
+// identical statements
+// <DashboardContainer app = {this.getApp()} />   <--- JSX
+// new DashboardContainer({app: this.getApp()})  <--- Vanilla JS
 
 ReactDom.render(<App />, document.getElementById('root'));
