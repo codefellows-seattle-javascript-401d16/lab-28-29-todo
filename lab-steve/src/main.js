@@ -18,18 +18,30 @@ class App extends React.Component {
     };
     this.getApp = this.getApp.bind(this);
   }
+  //hooks
   componentDidUpdate() {
     console.log(':::STATE:::', this.state);
   }
+  //methods
   getApp() {
     return {
       state: this.state,
       setState: this.setState.bind(this),
     };
   }
+  //render
   render() {
     return (
-      <main>
+      <main className='app'>
+        <header>
+          <h1> Budget Tracker </h1>
+          <nav>
+            <ul>
+              <li> <a href='/'> Dashboard </a> </li>
+              <li> <a href='/about'> About </a> </li>
+            </ul>
+          </nav>
+        </header>
         <BrowserRouter>
           <div>
             <Route exact path='/' component={AboutContainer} />
