@@ -7,23 +7,25 @@ class NoteList extends React.Component{
 
     };
     console.log('props from LIST: ', props);
-    console.log('this from LIST: ', this);
+    console.log('this from LIST: ', this.props);
   }
 
   render(){
-    console.log('LIST this.props.noteList: ', this.props.noteList);
     return(
       <div>
         <h2> List of Notes </h2>
         <ul>
-          {this.props.noteList.map((note, i) => {
+          {this.props.notes.map((note, i) => {
             return(
               <li key={i}>
                 <p>Title: {note.title}</p>
                 <p>Content: {note.content}</p>
-                <p>Editing: {note.editing ? 'True' : 'False'}</p>
-                <p>Completed: {note.completed ? 'True' : 'False'}</p>
-              </li>);
+                <button
+                  onClick={() => this.props.noteRemove(note)}>
+                  Delete Note
+                </button>
+              </li>
+            );
           })}
         </ul>
       </div>

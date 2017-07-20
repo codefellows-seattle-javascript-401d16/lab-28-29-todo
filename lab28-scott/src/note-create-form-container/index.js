@@ -10,8 +10,8 @@ class NoteCreateForm extends React.Component{
       editing: false,
       completed: false,
     };
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleChange(e){
@@ -31,7 +31,7 @@ class NoteCreateForm extends React.Component{
 
   render(){
     return(
-      <form onSubmit={this.handleFormSubmit}>
+      <form className='note-create-form' onSubmit={this.handleFormSubmit}>
         <input
           type='text'
           name='content'
@@ -39,7 +39,7 @@ class NoteCreateForm extends React.Component{
           value={this.state.content}
           onChange={this.handleChange}
         />
-        <button type='submit'>Submit</button>
+        <button type='submit'>Create Note</button>
       </form>
     );
   }
