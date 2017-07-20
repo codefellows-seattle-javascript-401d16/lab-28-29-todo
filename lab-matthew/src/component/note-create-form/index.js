@@ -24,6 +24,9 @@ class NoteCreateForm extends React.Component {
     e.preventDefault();
     console.log('TEST', this.state);
     this.noteCreate(this.state);
+    this.setState(state => ({
+      content: '',
+    }));
   }
 
   noteCreate(note){
@@ -41,6 +44,7 @@ class NoteCreateForm extends React.Component {
         <input
           name='content'
           type='text'
+          placeholder='make a note'
           value={this.state.content}
           onChange={this.handleChange}
           />
