@@ -13,6 +13,11 @@ class NoteItem extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleEditSubmit = this.handleEditSubmit.bind(this);
+    this.cancelEdit = this.cancelEdit.bind(this);
+  }
+
+  cancelEdit() {
+    this.setState({ view: 'default'});
   }
 
   deleteNote(event) {
@@ -45,7 +50,7 @@ class NoteItem extends React.Component {
   render() {
     return (
       this.state.view === 'default' ?
-        <p>
+        <content>
           <span
             onDoubleClick={this.handleEdit}>
               {this.props.curNote.content}
@@ -56,13 +61,21 @@ class NoteItem extends React.Component {
             value='x'
             onClick={this.deleteNote}
           />
-        </p>
+        </content>
       :
-        <NoteForm
-          handleSubmit={this.handleEditSubmit}
-          content={this.props.curNote.content}
-          buttonTitle='Change'
-        />
+        <content>
+          <NoteForm
+            handleSubmit={this.handleEditSubmit}
+            content={this.props.curNote.content}
+            buttonTitle='Change'
+          />
+          <input
+            type='button'
+            name='cancel'
+            value='Cancel'
+            onClick={this.cancelEdit}
+          />
+        </content>
     );
   }
 }
