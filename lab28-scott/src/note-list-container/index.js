@@ -14,13 +14,15 @@ class NoteList extends React.Component{
     console.log('LIST this.props.noteList: ', this.props.noteList);
     return(
       <div>
-        <h1> List of Notes </h1>
+        <h2> List of Notes </h2>
         <ul>
           {this.props.noteList.map((note, i) => {
             return(
               <li key={i}>
-                <h2>{note.title}</h2>
-                <p>{note.content}</p>
+                <p>Title: {note.title}</p>
+                <p>Content: {note.content}</p>
+                <p>Editing: {note.editing ? 'True' : 'False'}</p>
+                <p>Completed: {note.completed ? 'True' : 'False'}</p>
               </li>);
           })}
         </ul>

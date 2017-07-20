@@ -22,7 +22,8 @@ class NoteCreateForm extends React.Component{
 
   handleFormSubmit(e){
     e.preventDefault();
-    console.log('this.state', this.state);
+    console.log('createVALUE:', e.target.value);
+    console.log('this.state.id', this.state.id);
     console.log('this.props', this.props);
     console.log('form was submitted');
     this.props.noteCreate(this.state);
@@ -31,13 +32,6 @@ class NoteCreateForm extends React.Component{
   render(){
     return(
       <form onSubmit={this.handleFormSubmit}>
-        <input
-          type='text'
-          name='title'
-          placeholder='Title'
-          value={this.state.title}
-          onChange={this.handleChange}
-        />
         <input
           type='text'
           name='content'
