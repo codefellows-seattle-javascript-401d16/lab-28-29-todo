@@ -37,14 +37,12 @@ class App extends React.Component {
     };
   }
 
-
-
   render() {
     return (
       <main>
         <BrowserRouter>
           <div>
-            <p> Soli Deo Gloria</p>
+            <p> TODO Notes </p>
             <NoteCreateForm app={this.getApp()} />
             <NoteList app={this.getApp()} />
           </div>
