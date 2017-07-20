@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NoteCreateForm extends React.Component {
+class NoteUpdateForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -21,10 +21,11 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.handleNoteCreate(this.state);
+    console.log('parparval', e.currentTarget.parentElement.getAttribute('value'));
+    this.props.handleNoteUpdate(this.state, e.currentTarget.parentElement.getAttribute('value'));
     this.setState({
       content: '',
-    })
+    });
   }
 
   render(){
@@ -37,11 +38,11 @@ class NoteCreateForm extends React.Component {
           onChange={this.handleChange}
         />
 
-        <button type='submit'> + </button>
+        <button type='submit'> Update </button>
 
       </form>
     );
   }
 }
 
-export default NoteCreateForm;
+export default NoteUpdateForm;

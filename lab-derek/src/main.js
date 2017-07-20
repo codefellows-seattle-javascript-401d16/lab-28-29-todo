@@ -30,6 +30,7 @@ class App extends React.Component {
 
   noteCreate(note){
     note.id = uuid();
+    console.log('note.id', note.id);
     this.setState( state => ({
       notes: [...state.notes, note],
     }));
