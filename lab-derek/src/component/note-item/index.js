@@ -1,11 +1,18 @@
 import React from 'react';
+import Modal from '../modal'
 import NoteUpdateForm from '../note-update-form';
+
+let renderIf = (test, component) => test ? component : undefined;
 
 class NoteItem extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      shown: false,
+    }
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleModalDblClick = this.handleModalDblClick.bind(this);
     this.noteUpdate = this.noteUpdate.bind(this);
   }
 
@@ -16,6 +23,14 @@ class NoteItem extends React.Component {
     this.props.app.setState( prevState => ({
       notes: result})
     );
+  }
+
+  handleModalDblClick(e){
+    e.preventDefault();
+    this.setState(prevState => ({
+        shown: !prevState.shown,
+      })
+    )
   }
 
   noteUpdate(update, updateId){
@@ -35,10 +50,12 @@ class NoteItem extends React.Component {
     return (
       <ul>
         {this.props.notes.map((item, i) =>
-          <li key={i} value={item.id}>
+          <li key={i} value={item.id} onDoubleClick={this.handleModalDblClick}>
             {item.content}
             <button type='button' onClick={this.handleClick}> - </button>
-            <NoteUpdateForm handleNoteUpdate={this.noteUpdate} app={this.props.app}/>
+          {renderIf(this.state.shown,
+            <NoteUpdateForm   handleNoteUpdate={this.noteUpdate} app={this.props.app}/>
+          )}
           </li>
         )}
       </ul>
