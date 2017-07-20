@@ -29,8 +29,7 @@ class NoteUpdateForm extends React.Component {
     const note = {
       id: this.props.note.id,
       content: this.state.content,
-      editing: false,
-      completed: true,
+      completed: false,
     }
     this.props.updateNote(note);
   }
@@ -40,7 +39,6 @@ class NoteUpdateForm extends React.Component {
     const note = {
       id: this.props.note.id,
       content: this.props.note.content,
-      editing: false,
       completed: false,
     }
     this.props.updateNote(note);
@@ -67,7 +65,6 @@ class NoteItem extends React.Component {
     super(props);
     this.state = {
       id: this.props.note.id,
-      editing: this.props.note.editing,
       content: this.props.note.content,
       completed: this.props.note.completed,
     }
@@ -80,14 +77,13 @@ class NoteItem extends React.Component {
   }
 
   handleDoubleClick() {
-    const editing = !this.state.editing;
-    this.setState({ editing });
+    this.props.toggleMode();
   }
 
   render() {
     return (
       <li>
-        {this.state.editing ? (
+        {this.props.editing ? (
           <NoteUpdateForm
             note={this.state}
             updateNote={this.props.updateNote}/>
@@ -114,8 +110,10 @@ class NoteList extends React.Component {
           <NoteItem
             key={note.id}
             note={note}
+            editing={this.props.editing}
             removeNote={this.props.removeNote}
-            updateNote={this.props.updateNote}/>)}
+            updateNote={this.props.updateNote}
+            toggleMode={this.props.toggleMode}/>)}
       </ul>
     )
   }
@@ -154,16 +152,27 @@ class NoteCreateForm extends React.Component {
 class Note extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      editing: false,
+    }
+    this.toggleMode = this.toggleMode.bind(this);
+  }
+
+  toggleMode() {
+    const editing = !this.state.editing;
+    this.setState({ editing })
   }
 
   render() {
     return (
       <div>
-        <NoteCreateForm addNote={this.props.addNote} />
+        {!this.state.editing && <NoteCreateForm addNote={this.props.addNote} />}
         <NoteList
           notes={this.props.notes}
+          editing={this.state.editing}
           removeNote={this.props.removeNote}
-          updateNote={this.props.updateNote}/>
+          updateNote={this.props.updateNote}
+          toggleMode={this.toggleMode}/>
       </div>
     )
   }
@@ -183,9 +192,8 @@ class App extends React.Component {
   addNote(content) {
     const notes = [...this.state.notes]
     const id = uuid.v1();
-    const editing = false;
     const completed = false;
-    const note = { content, id, editing, completed };
+    const note = { content, id, completed };
     notes.push(note);
     this.setState({ notes })
   }
