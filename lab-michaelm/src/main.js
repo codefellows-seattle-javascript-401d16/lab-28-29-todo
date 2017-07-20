@@ -10,23 +10,23 @@ import DashboardContainer from './component/dashboard-container';
 
 class App extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       notes: [],
-    }
+    };
 
     this.getApp = this.getApp.bind(this);
   }
 
   componentDidUpdate(){
-    console.log(':::STATE:::', this.state)
+    console.log(':::STATE:::', this.state);
   }
 
   getApp(){
     return {
       state: this.state,
       setState: this.setState.bind(this),
-    }
+    };
   }
 
   render(){
@@ -46,8 +46,8 @@ class App extends React.Component {
           </div>
         </BrowserRouter>
       </main>
-    )
+    );
   }
 }
 
-ReactDom.render(<App />, document.getElementById('root'))
+ReactDom.render(<App />, document.getElementById('root'));

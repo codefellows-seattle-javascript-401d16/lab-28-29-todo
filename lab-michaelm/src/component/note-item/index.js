@@ -1,14 +1,14 @@
-import React from 'react'
-import './_note-item.scss'
+import React from 'react';
+import './_note-item.scss';
 class NoteItem extends React.Component {
 
   handleDelete(e) {
-    e.preventDefault()
-    let arr = this.props.notes
-    arr.splice(e.target.parentElement.value, 1)
+    e.preventDefault();
+    let arr = this.props.notes;
+    arr.splice(e.target.parentElement.value, 1);
     this.props.app.setState(state => ({
       notes: arr
-    }))
+    }));
   }
 
   constructor(props) {
@@ -29,4 +29,4 @@ class NoteItem extends React.Component {
   }
 }
 
-export default NoteItem
+export default NoteItem;

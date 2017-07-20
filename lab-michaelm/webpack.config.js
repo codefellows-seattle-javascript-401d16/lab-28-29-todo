@@ -1,5 +1,3 @@
-'use strict';
-
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractPlugin = require('extract-text-webpack-plugin');
 
