@@ -6,6 +6,7 @@ export default class NoteCreateForm extends React.Component {
     this.state = {
       content: '',
     }
+    this.clearForm = this.clearForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -20,11 +21,22 @@ export default class NoteCreateForm extends React.Component {
     this.setState({ content });
   }
 
+  clearForm() {
+    this.textInput.value = '';
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input className='input' placeholder='new todo' type='text' onChange={this.handleChange}/>
-        <input type='submit' />
+        <input
+          className='input'
+          placeholder='new todo'
+          type='text'
+          onChange={this.handleChange}
+          ref={input => this.textInput = input} />
+        <input
+          type='submit'
+          onClick={this.clearForm} />
       </form>
     )
   }

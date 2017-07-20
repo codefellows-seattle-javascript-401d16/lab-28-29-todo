@@ -4,33 +4,29 @@ import NoteUpdateForm from './note-update-form';
 export default class NoteItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: this.props.note.id,
-      content: this.props.note.content,
-      completed: this.props.note.completed,
-    }
     this.handleDelete = this.handleDelete.bind(this);
     this.handleDoubleClick = this.handleDoubleClick.bind(this);
   }
 
   handleDelete() {
-    this.props.removeNote(this.state.id);
+    this.props.removeNote(this.props.note.id);
   }
 
   handleDoubleClick() {
-    this.props.toggleMode();
+    const note = Object.assign({}, this.props.note, { editing: true });
+    this.props.updateNote(note);
   }
 
   render() {
     return (
       <li>
-        {this.props.editing ? (
+        {this.props.note.editing ? (
           <NoteUpdateForm
-            note={this.state}
+            note={this.props.note}
             updateNote={this.props.updateNote}/>
         ) : (
           <span>
-            <p onDoubleClick={this.handleDoubleClick}>{this.state.content}</p>
+            <p onDoubleClick={this.handleDoubleClick}>{this.props.note.content}</p>
             <button className='delete' onClick={this.handleDelete}>Delete</button>
           </span>
         )}
