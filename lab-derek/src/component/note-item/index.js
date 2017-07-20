@@ -9,7 +9,8 @@ class NoteItem extends React.Component {
 
   handleClick(e){
     e.preventDefault();
-    let result = this.props.app.state.notes.filter(note => note.content !== e.currentTarget.textContent.split(' ')[0]);
+    console.log('e.currentTarget.value', e.currentTarget.value);
+    let result = this.props.app.state.notes.filter(note => note.id !== e.parentTarget.value);
     this.props.app.setState( state => ({
       notes: result})
     );
@@ -20,7 +21,7 @@ class NoteItem extends React.Component {
     return (
       <ul>
         {this.props.notes.map((item, i) =>
-          <li key={i} onClick={this.handleClick}>
+          <li key={i} value={i} onClick={this.handleClick}>
             {item.content}
             <button type='button'> - </button>
           </li>
