@@ -6,7 +6,9 @@ import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 // app modules
+// import NoteItem from './component/note-item/index.js';
 import NoteList from './component/note-list/index.js';
+import NoteCreateForm from './component/note-create-form/';
 // Component tree:
 // App
 //  NoteCreateForm
@@ -35,12 +37,15 @@ class App extends React.Component {
     };
   }
 
+
+
   render() {
     return (
       <main>
         <BrowserRouter>
           <div>
             <p> Soli Deo Gloria</p>
+            <NoteCreateForm app={this.getApp()} />
             <NoteList app={this.getApp()} />
           </div>
         </BrowserRouter>
