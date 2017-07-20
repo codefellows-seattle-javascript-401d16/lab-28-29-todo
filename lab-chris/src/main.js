@@ -5,7 +5,6 @@ import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 import NoteCreate from './component/note-create-form/';
-import NoteItem from './component/note-item/';
 import NoteList from './component/note-list/';
 
 class App extends React.Component {

@@ -3,6 +3,7 @@ import React from 'react';
 class NoteItem extends React.Component{
   constructor(props){
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleDelete(e){
@@ -11,9 +12,14 @@ class NoteItem extends React.Component{
 
   render(){
     return(
-      <div>
-      </div>
-    );
+      <ul>
+        {this.props.app.notes.map((note) =>
+          <li key={note.id}>
+            {note.content}
+            <button onClick={this.handleDelete}> Delete </button>
+          </li>
+        )}
+      </ul>    );
   }
 }
 

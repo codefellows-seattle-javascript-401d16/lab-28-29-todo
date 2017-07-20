@@ -1,4 +1,5 @@
 import React from 'react';
+import NoteItem from '../note-item/';
 
 class NoteList extends React.Component {
   constructor(props){
@@ -8,7 +9,7 @@ class NoteList extends React.Component {
   render(){
     return(
       <div>
-        <h2>NoteList</h2>
+        <NoteItem />
       </div>
     );
   }
