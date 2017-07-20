@@ -8,9 +8,6 @@ class ExpenseList extends React.Component {
         <ul>
           {this.props.expenses.map((item, i) =>
             <li key={i}>
-              <button onClick={() => this.props.expenseRemove(item)}>
-                delete
-              </button>
               <p>title: {item.title}</p>
               <p>price: {item.price}</p>
               <ExpenseForm
@@ -20,6 +17,9 @@ class ExpenseList extends React.Component {
                   expense.id = item.id,
                   this.props.expenseUpdate(expense)
                 }} />
+              <button onClick={() => this.props.expenseRemove(item)}>
+              Delete Expense
+              </button>
             </li>
           )}
         </ul>

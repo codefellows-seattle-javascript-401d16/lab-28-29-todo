@@ -29,7 +29,7 @@ class ExpenseForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     // /*eslint-disable */
-    this.props.expenseCreate(this.state);
+    this.props.handleSubmit(this.state);
     // /*eslint-enable */
   }
   render(){

@@ -2,10 +2,10 @@ import './_dashboard-container.scss';
 import React from 'react';
 import uuid from 'uuid/v1';
 
-import ExpenseForm from '../expense-form';
-import ExpenseList from '../expense-list';
 import Modal from '../modal';
 import Navbar from '../navbar';
+import ExpenseList from '../expense-list';
+import ExpenseForm from '../expense-form';
 
 let renderIf = (test, component) => test ? component : undefined;
 
@@ -52,9 +52,10 @@ class DashboardContainer extends React.Component {
 
     return (
       <div className='dashboard-container'>
-        <p> Total Budget: ${app.state.total} </p>
-        <p> Total Spent: ${totalSpent}</p>
-        <p> Remaining Budget: ${remainingBudget}</p>
+        <Navbar />
+        <p> Total Budget: {app.state.total} </p>
+        <p> Total Spent: {totalSpent}</p>
+        <p> Remaining Budget: {remainingBudget}</p>
         <ExpenseForm
           handleSubmit={this.expenseCreate}
           submitTitle='Add Expense' />
@@ -66,7 +67,7 @@ class DashboardContainer extends React.Component {
         {renderIf(remainingBudget < 0 && this.state.showErrors,
           <Modal close={() => this.setState({showErrors: false})}>
             <p> You have no money! </p>
-            <p> Current Balance: ${remainingBudget} </p>
+            <p> Current Balance: {remainingBudget} </p>
           </Modal>
         )}
       </div>
