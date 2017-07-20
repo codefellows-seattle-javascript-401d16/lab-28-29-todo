@@ -3,125 +3,14 @@ import React from 'react';
 
 import './style/main.scss';
 
-import PropTypes from 'prop-types';
-
 import ReactDom from 'react-dom';
+import PropTypes from 'prop-types';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-class About extends React.Component {
-  render() {
-    return (
-      <div>
-        <h2> About </h2>
-      </div>
-    );
-  }
-}
-
-class NoteItem extends React.Component {
-  constructor(props){
-    super(props);
-    console.log(props, 'props');
-    this.state = {
-      id: props.note.id,
-      editing: props.note.editing,
-      content: props.note.content,
-      completed: props.note.completed,
-    };
-    this.handleDelete = this.handleDelete.bind(this);
-  }
-
-  handleDelete(){
-    console.log('state', this.state);
-    this.props.removeNote(this.state.id);
-  }
-
-  render() {
-    return (
-      <ul>
-        <li>
-          <p>{this.state.content}</p>
-          <button onClick={this.handleDelete}> Delete Note </button>
-        </li>
-      </ul>
-    );
-  }
-}
-
-NoteItem.propTypes = {
-  note: PropTypes.shape({
-    id: PropTypes.string,
-    editing: PropTypes.bool,
-    content: PropTypes.string,
-    completed: PropTypes.bool,
-  }),
-  handleDelete: PropTypes.func,
-  removeNote: PropTypes.func,
-};
-
-class NoteList extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
-  render() {
-    let notes = this.props.notes || [];
-    return (
-
-      <ul>
-        {notes.map(note => {
-          return <NoteItem key={note.id} note={note} removeNote={this.props.removeNote} />;
-        })}
-      </ul>
-    );
-  }
-}
-
-NoteList.propTypes = {
-  notes: PropTypes.array,
-  removeNote: PropTypes.func,
-};
-
-class NoteCreateForm extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      content: '',
-    };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleSubmit(e){
-    e.preventDefault();
-    this.props.addNote(this.state.content);
-  }
-
-  handleChange(e) {
-    const content = e.target.value;
-    this.setState({content});
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type='text'
-          placeholder='create a new to do list'
-          onChange={this.handleChange}
-        />
-        <button type='submit'> Submit </button>
-      </form>
-    );
-  }
-}
-
-NoteCreateForm.propTypes = {
-  addNote: PropTypes.func,
-  handleChange: PropTypes.func,
-  handleSubmit: PropTypes.func,
-};
+import NoteCreateForm from './component/note-create-form';
+import NoteItem from './component/note-item';
+import NoteList from './component/note-list';
+import About from './component/about-container';
 
 class App extends React.Component {
   constructor(props){
