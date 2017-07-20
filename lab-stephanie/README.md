@@ -1,6 +1,6 @@
-# React with reddit  
+# React Todo   
 
-This app can be used to find subreddits. You can search by name and set a limit to the number of topics you want to read.  
+This app is a todo list. The user can create, read, and delete their list items.    
 
 see package.json for dependancies.  
 
