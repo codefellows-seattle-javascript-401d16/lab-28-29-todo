@@ -1,0 +1,22 @@
+.input-form {
+  width: 60%;
+  margin: 0 auto;
+}
+.input-form form {
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.input-form input[type=text] {
+  width: 60%;
+  height: 30px;
+  font-family: monospace;
+  font-size: 20px;
+}
+.input-form button {
+  margin-left: 1px;
+  width: 38%;
+  height: 37px;
+  font-family: monospace;
+  font-size: 17px;
+  margin-bottom: 5px;
+}
