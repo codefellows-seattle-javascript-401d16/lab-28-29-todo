@@ -5,10 +5,14 @@ class NoteItem extends React.Component{
     super(props);
   }
 
+  handleDelete(e){
+
+  }
+
   render(){
     return(
-      <ul>
-      </ul>
+      <div>
+      </div>
     );
   }
 }

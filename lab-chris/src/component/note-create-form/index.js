@@ -28,6 +28,9 @@ class NoteCreateForm extends React.Component {
 
   handleNoteCreate(note){
     note.id = uuid();
+    this.props.app.setState(state => ({
+      notes: [...state.notes, note],
+    }));
   }
 
   render(){
