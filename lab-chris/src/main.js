@@ -32,7 +32,8 @@ class App extends React.Component {
       <main>
         <BrowserRouter>
           <div>
-            <Route exact path='/' component={NoteCreate} />
+
+            <Route exact path='/' component={() => <NoteCreate app={this.getApp()}/>} />
           </div>
         </BrowserRouter>
       </main>

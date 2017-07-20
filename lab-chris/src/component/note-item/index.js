@@ -15,6 +15,7 @@ class NoteItem extends React.Component{
       <ul>
         {this.props.app.notes.map((note) =>
           <li key={note.id}>
+            console.log(note);
             {note.content}
             <button onClick={this.handleDelete}> Delete </button>
           </li>

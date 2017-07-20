@@ -10,9 +10,9 @@ class NoteCreateForm extends React.Component {
       complete: false,
     };
 
-    this.handleChange = this.handleChange.bind(this.state);
-    this.handleSubmit = this.handleSubmit.bind(this.state);
-    this.handleNoteCreate = this.handleNoteCreate.bind(this.state);
+    this.NoteCreate = this.NoteCreate.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e){
@@ -22,11 +22,14 @@ class NoteCreateForm extends React.Component {
   }
 
   handleSubmit(e){
+    console.log('submit hit', this);
     e.preventDefault();
-    this.handleNoteCreate(this.state);
+    this.NoteCreate(this.state);
   }
 
-  handleNoteCreate(note){
+  NoteCreate(note){
+    console.log('create hit', this);
+    console.log('props', this.props);
     note.id = uuid();
     this.props.app.setState(state => ({
       notes: [...state.notes, note],
