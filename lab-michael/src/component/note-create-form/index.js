@@ -1,28 +1,35 @@
 import React from 'react'
 
-class NoteCreateForm extends React.component {
+class NoteCreateForm extends React.Component {
   constructor(props){
     super(props)
     this.state = {
       subject: '',
       textContent:'',
-      date: new Date(),
     }
+    // date: new Date(),
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+
   handleChange(e){
-    [e.target.name] = e.target.value
+    this.setState({
+    [e.target.name]: e.target.value,
+    })
   }
+
+
   handleSubmit(e){
     e.preventDefault()
     this.props.handleNoteCreate(this.state)
   }
 
+
   render(){
     return(
-      <form onSubmit={this.handleSumit}>
+      <form onSubmit={this.handleSubmit}>
         <input
           name='subject'
           type='text'
@@ -34,8 +41,8 @@ class NoteCreateForm extends React.component {
         <input
           name='textContent'
           type='textarea'
-          value={this.state.subject}
-          placeholder='Note Subject'
+          value={this.state.textContent}
+          placeholder='Content'
           onChange={this.handleChange}
         />
 
@@ -44,6 +51,4 @@ class NoteCreateForm extends React.component {
     )
   }
 }
-let div = document.createElement('div')
-document.body.appendChild(div)
-ReactDom.render(</app >, div)
+export default NoteCreateForm
