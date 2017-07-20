@@ -13,6 +13,55 @@ class About extends React.Component {
   }
 }
 
+class NoteUpdateForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      content: '',
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const note = {
+      id: this.props.note.id,
+      content: this.state.content,
+      editing: false,
+      completed: true,
+    }
+    this.props.updateNote(note);
+  }
+
+  handleCancel(e) {
+    e.preventDefault();
+    const note = {
+      id: this.props.note.id,
+      content: this.props.note.content,
+      editing: false,
+      completed: false,
+    }
+    this.props.updateNote(note);
+  }
+
+  handleChange(e) {
+    const content = e.target.value;
+    this.setState({ content });
+  }
+
+  render() {
+    return (
+      <div>
+        <input type='text' value={this.state.content} onChange={this.handleChange} />
+        <button className='update' onClick={this.handleSubmit}>Submit</button>
+        <button onClick={this.handleCancel}>Cancel</button>
+      </div>
+    )
+  }
+}
+
 class NoteItem extends React.Component {
   constructor(props) {
     super(props);
@@ -23,17 +72,31 @@ class NoteItem extends React.Component {
       completed: this.props.note.completed,
     }
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleDoubleClick = this.handleDoubleClick.bind(this);
   }
 
   handleDelete() {
     this.props.removeNote(this.state.id);
   }
 
+  handleDoubleClick() {
+    const editing = !this.state.editing;
+    this.setState({ editing });
+  }
+
   render() {
     return (
       <li>
-        <p>{this.state.content}</p>
-        <button onClick={this.handleDelete}>Delete</button>
+        {this.state.editing ? (
+          <NoteUpdateForm
+            note={this.state}
+            updateNote={this.props.updateNote}/>
+        ) : (
+          <span>
+            <p onDoubleClick={this.handleDoubleClick}>{this.state.content}</p>
+            <button className='delete' onClick={this.handleDelete}>Delete</button>
+          </span>
+        )}
       </li>
     )
   }
@@ -48,7 +111,11 @@ class NoteList extends React.Component {
     return (
       <ul>
         {this.props.notes.map(note =>
-          <NoteItem key={note.id} note={note} removeNote={this.props.removeNote}/>)}
+          <NoteItem
+            key={note.id}
+            note={note}
+            removeNote={this.props.removeNote}
+            updateNote={this.props.updateNote}/>)}
       </ul>
     )
   }
@@ -93,7 +160,10 @@ class Note extends React.Component {
     return (
       <div>
         <NoteCreateForm addNote={this.props.addNote} />
-        <NoteList notes={this.props.notes} removeNote={this.props.removeNote} />
+        <NoteList
+          notes={this.props.notes}
+          removeNote={this.props.removeNote}
+          updateNote={this.props.updateNote}/>
       </div>
     )
   }
@@ -107,6 +177,7 @@ class App extends React.Component {
     }
     this.addNote = this.addNote.bind(this);
     this.removeNote = this.removeNote.bind(this);
+    this.updateNote = this.updateNote.bind(this);
   }
 
   addNote(content) {
@@ -125,6 +196,13 @@ class App extends React.Component {
     this.setState({ notes });
   }
 
+  updateNote(newNote) {
+    const notes = this.state.notes.map(note => {
+      return note.id === newNote.id ? newNote : note;
+    })
+    this.setState({ notes })
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -133,7 +211,12 @@ class App extends React.Component {
           <Route
             exact
             path={'/'}
-            component={() => <Note notes={this.state.notes} addNote={this.addNote} removeNote={this.removeNote} />} />
+            component={() =>
+              <Note
+                notes={this.state.notes}
+                addNote={this.addNote}
+                removeNote={this.removeNote}
+                updateNote={this.updateNote}/>} />
         </Switch>
       </BrowserRouter>
     )
@@ -145,4 +228,4 @@ const container = document.createElement('div')
 document.body.appendChild(container)
 ReactDom.render(<App />, container)
 
-export { NoteCreateForm, NoteItem }
+export { NoteCreateForm, NoteItem, NoteUpdateForm }

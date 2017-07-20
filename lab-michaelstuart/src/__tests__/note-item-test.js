@@ -14,6 +14,6 @@ describe('testing delete note', () => {
     const removeNote = jest.fn();
     const deleteNote = () => expect(removeNote).toHaveBeenCalled();
     const wrapper = shallow(<NoteItem note={note} removeNote={removeNote} handleClick={deleteNote} />);
-    wrapper.find('button').simulate('click');
+    wrapper.find('.delete').simulate('click');
   })
 })
