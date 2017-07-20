@@ -1,33 +1,39 @@
-import React from 'react';
+import React from 'react'
+import uuid from 'uuid/v1'
 
-import NoteCreateForm from '../note-create-form';
-import NoteListContainer from '../note-list-container';
+import NoteForm from '../note-form'
+import NoteList from '../note-list'
 
 class DashboardContainer extends React.Component {
 
   constructor(props) {
-    super(props);
-    this.state = {
-      content: '',
-    };
+    super(props)
 
-    console.log('hit Dashboard');
-    this.getContent = this.getContent.bind(this);
+    this.noteCreate = this.noteCreate.bind(this)
+    this.noteRemove = this.noteRemove.bind(this)
   }
 
-  getContent(words) {
-    console.log('words', words);
-    this.props.app.setState({content: words});
+  noteCreate(note) {
+    note.id = uuid()
+    this.props.app.setState(state => ({notes: [...state.notes, note]}))
+  }
+
+  noteRemove(note) {
+    this.props.app.setState(state => ({notes: state.notes.filter(item => item.id !== note.id)}))
   }
 
   render() {
+    let {app} = this.props
     return (
       <div className='dashboard-container'>
-        <NoteCreateForm app={this.props.app} getContent={this.getContent} />
-        <NoteListContainer app={this.props.app} content={this.state.content}/>
+        <NoteForm handleSubmit={this.noteCreate} />
+        <NoteList
+          notes={app.state.notes}
+          noteRemove={this.noteRemove}
+        />
       </div>
-    );
+    )
   }
 }
 
-export default DashboardContainer;
+export default DashboardContainer

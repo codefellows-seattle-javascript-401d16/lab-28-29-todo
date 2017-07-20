@@ -1,41 +1,18 @@
-import React from 'react';
-import uuid from 'uuid/v1';
+import React from 'react'
 
 class NoteItem extends React.Component {
-
   constructor(props) {
-    super(props);
-    this.state = {
-      id: '',
-      editing: false,
-      completed: false,
-      content: '',
-    };
-
-    console.log('hit note item');
-  }
-
-  componentDidMount(){
-    console.log('did mount');
-    this.setState({
-      id: uuid(),
-      content: this.props.content,
-    });
-    console.log(this.props.app);
-    this.props.app.setState( state => ({
-      notes: [...state.notes, this.state],
-    }));
+    super(props)
   }
 
   render() {
     return (
       <div className='note-item'>
-        <p>
-          {this.state.content}
-        </p>
+        <p>{this.props.item.content}</p>
+        <button onClick={() => this.props.noteRemove(this.props.item)} > X </button>
       </div>
-    );
+    )
   }
 }
 
-export default NoteItem;
+export default NoteItem
