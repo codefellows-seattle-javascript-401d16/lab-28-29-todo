@@ -25,6 +25,7 @@ class NoteItem extends React.Component {
       <ul>
         {this.props.notes.map((item, i) =>
           <li key={i} value={i}>
+            {item.title}<br/>
             {item.content}
           <button onClick={this.handleDelete.bind(this)}>-</button>
           </li>
