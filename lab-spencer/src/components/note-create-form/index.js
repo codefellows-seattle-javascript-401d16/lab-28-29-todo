@@ -41,11 +41,10 @@ class NoteCreateForm extends React.Component {
           value={this.state.content}
           onChange={this.handleChange}
         />
-        <input
+        <button
           type='submit'
           name='addNote'
-          value='Add Note'
-        />
+        >Add Note</button>
       </form>
     );
   }
