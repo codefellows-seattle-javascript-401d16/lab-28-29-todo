@@ -24,6 +24,9 @@ class NoteCreateForm extends React.Component {
     e.preventDefault();
     console.log('TEST', this.state);
     this.noteCreate(this.state);
+    this.setState(state => ({
+      content: '',
+    }));
   }
 
   noteCreate(note){
