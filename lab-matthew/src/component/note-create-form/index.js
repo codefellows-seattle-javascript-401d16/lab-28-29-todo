@@ -5,6 +5,7 @@ class NoteCreateForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      title: '',
       content: '',
       editing: false,
       completed: false,
@@ -22,9 +23,10 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    console.log('TEST', this.state);
+    // console.log('TEST', this.state);
     this.noteCreate(this.state);
     this.setState(state => ({
+      title: '',
       content: '',
     }));
   }
@@ -40,6 +42,14 @@ class NoteCreateForm extends React.Component {
   render(){
     return(
       <form onSubmit={this.handleSubmit} >
+
+        <input
+          name='title'
+          type='text'
+          placeholder='title'
+          value={this.state.title}
+          onChange={this.handleChange}
+          />
 
         <input
           name='content'
