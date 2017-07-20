@@ -37,9 +37,9 @@ class App extends React.Component {
     }));
   }
 
-  updateNote(id, updatedNote) {
+  updateNote(id, updatedContent) {
     this.setState((prevState) => ({
-      notes: prevState.notes.map(note => note.id === id ? note : updatedNote),
+      notes: prevState.notes.map(note => note.id === id ? { ...note, content: updatedContent } : note),
     }));
   }
 

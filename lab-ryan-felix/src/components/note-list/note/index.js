@@ -13,10 +13,11 @@ const TrashCan = () => (<svg className='delete-note' x="0px" y="0px" width="1em"
 </svg>
 );
 
-export default function Note({content, removeThisNote}) {
+export default function Note({content, removeThisNote, editThisNote}) {
   return (
     <div
       className='note'
+      onDoubleClick={editThisNote}
     >
       <span
         className='delete-note'
@@ -35,4 +36,5 @@ export default function Note({content, removeThisNote}) {
 Note.propTypes = {
   content: PropTypes.string.isRequired,
   removeThisNote: PropTypes.func.isRequired,
+  editThisNote: PropTypes.func.isRequired,
 };
