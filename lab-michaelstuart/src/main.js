@@ -71,7 +71,7 @@ class NoteCreateForm extends React.Component {
 
   handleChange(e) {
     const content = e.target.value;
-    this.setState({ content });
+    this.setState({ content: content });
   }
 
   render() {
@@ -110,11 +110,11 @@ class App extends React.Component {
   }
 
   addNote(content) {
-    const notes = this.state.notes;
+    const notes = [...this.state.notes]
     const id = uuid.v1();
     const editing = false;
-    const compelted = false;
-    const note = { content, id, editing, compelted };
+    const completed = false;
+    const note = { content, id, editing, completed };
     notes.push(note);
     this.setState({ notes })
   }
