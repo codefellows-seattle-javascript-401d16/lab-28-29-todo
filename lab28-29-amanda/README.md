@@ -41,7 +41,7 @@ Feature Tasks
 Create the following components and structure them according to the following diagram.
 
 App
-  NoteCreateForm
+  NoteForm
   NoteList
     Noteitem
 App Component
@@ -53,9 +53,9 @@ id: allways should contain the result of uuid.v1()
 editing: false by default
 completed: false by default
 content: user provided content
-NoteCreateForm Component
+NoteForm Component
 
-onSubmit the NoteCreateForm should add a note to the application state
+onSubmit the NoteForm should add a note to the application state
 NoteList Component
 
 should display an unordered list of NoteItem components
@@ -66,7 +66,7 @@ should display a delete button
 onClick the note should be removed from the application state
 Test
 
-Test NoteCreateForm
+Test NoteForm
 Test your onChange handler
 Test your onSubmit handler
 Test NoteItem

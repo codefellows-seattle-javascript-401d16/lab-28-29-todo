@@ -1,46 +1,49 @@
-import './style/main.scss'
+import './style/main.scss';
 
-import React from 'react'
-import ReactDom from 'react-dom'
-import {BrowserRouter, Route} from 'react-router-dom'
-import NoteCreateForm from './component/note-create-form'
-import NoteItem from './component/note-item'
-import NoteList from './component/note-list'
-import uuid from 'uuid/v1'
+import React from 'react';
+import ReactDom from 'react-dom';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+import NoteForm from './component/note-form';
+import NoteContainer from './component/note-container';
+import NoteList from './component/note-list';
+
 
 class App extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       notes: [],
-    }
-    this.noteCreate = this.noteCreate.bind(this)
+    };
+
+    this.getApp = this.getApp.bind(this);
   }
+
   componentDidUpdate(){
-    console.log('::::STATE::::')
+    console.log('::::STATE::::', this.state);
   }
 
-  noteCreate(note){
-    note.id = uuid()
-    this.setState( state => ({
-      notes: [...state.notes, note],
-    }))
-
+  getApp(){
+    return{
+      state: this.state,
+      setState: this.setState.bind(this),
+    };
   }
 
   render(){
+    let {app} = this.props;
     return(
-      <main>
+      <main className='app'>
         <div>
-          <NoteCreateForm note={this.note} noteCreate={this.noteCreate} />
+          <NoteContainer app={this.getApp()}
+          />
           <NoteList notes={this.state.notes} />
           <div className="inputBox"> </div>
           <p>testing APP render </p>
         </div>
       </main>
-    )
+    );
   }
 }
 
-ReactDom.render(<App />, document.getElementById('root'))
-document.body.appendChild
+ReactDom.render(<App />, document.getElementById('root'));
+document.body.appendChild;
