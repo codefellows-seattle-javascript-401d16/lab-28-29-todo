@@ -1,4 +1,6 @@
 import React from 'react';
+import './_note-list.scss'
+import NoteItem from '../note-item'
 
 class NoteList extends React.Component {
   constructor(props) {
@@ -7,10 +9,12 @@ class NoteList extends React.Component {
     }
   }
   render() {
-    return (
-      console.log('note-list: this.props:\n',this.props)
+    return(
+      <div className="note-list">
+        <NoteItem notes={this.props.app.state.notes} app={this.props.app}/>
+      </div>
     )
+
   }
 }
-
 export default NoteList

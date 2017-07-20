@@ -1,4 +1,5 @@
 import React from 'react'
+import './_note-create-form.scss'
 
 class NoteCreateForm extends React.Component {
   constructor(props){
@@ -14,7 +15,6 @@ class NoteCreateForm extends React.Component {
   }
 
   handleChange(e){
-    console.log(e.target);
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -36,7 +36,7 @@ class NoteCreateForm extends React.Component {
           onChange={this.handleChange}
           />
 
-        <label for="editing">Editing</label>
+        <p>Editing</p>
         <input
           name='editing'
           type='checkbox'
@@ -44,7 +44,7 @@ class NoteCreateForm extends React.Component {
           onChange={this.handleChange}
           />
 
-        <label for="completed">Completed</label>
+        <p>Completed</p>
         <input
           name='completed'
           type='checkbox'
