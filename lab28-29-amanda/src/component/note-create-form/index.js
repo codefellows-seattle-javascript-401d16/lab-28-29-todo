@@ -6,17 +6,19 @@ class NoteCreateForm extends React.Component {
     this.state = {
       title: '',
     }
+    this.handelChange=this.handelChange.bind(this)
+    this.handleSubmit=this.handleSubmit.bind(this)
   }
 
   handelChange(e){
     this.setState({
-      [e.target.name]: e.target.value,
+      title: e.target.value,
     })
   }
 
   handleSubmit(e){
     e.preventDefault()
-    this.props.handelNoteCreateForm(this.state)
+    this.props.noteCreate(this.state)
   }
 
   render() {
@@ -25,10 +27,9 @@ class NoteCreateForm extends React.Component {
         <input
           name='note'
           type='text'
-          value={this.state.note}
-          onChange={this.handel}
+          value={this.state.title}
+          onChange={this.handelChange}
         />
-
         <button type= 'submit'> + </button>
       </form>
     )

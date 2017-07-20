@@ -14,8 +14,7 @@ class App extends React.Component {
     this.state = {
       notes: [],
     }
-
-    this.getApp = this.getApp.bind(this)
+    this.noteCreate = this.noteCreate.bind(this)
   }
   componentDidUpdate(){
     console.log('::::STATE::::')
@@ -26,14 +25,15 @@ class App extends React.Component {
     this.setState( state => ({
       notes: [...state.notes, note],
     }))
+
   }
 
   render(){
     return(
       <main>
         <div>
-          <NoteCreateForm note ={this.note} />
-          <NoteList note ={this.note} />
+          <NoteCreateForm note={this.note} noteCreate={this.noteCreate} />
+          <NoteList notes={this.state.notes} />
           <div className="inputBox"> </div>
           <p>testing APP render </p>
         </div>
