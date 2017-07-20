@@ -16,7 +16,7 @@ export default class NoteUpdateForm extends React.Component {
     const note = {
       id: this.props.note.id,
       content: this.state.content,
-      completed: false,
+      editing: false,
     }
     this.props.updateNote(note);
   }
@@ -26,7 +26,7 @@ export default class NoteUpdateForm extends React.Component {
     const note = {
       id: this.props.note.id,
       content: this.props.note.content,
-      completed: false,
+      editing: false,
     }
     this.props.updateNote(note);
   }

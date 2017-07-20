@@ -13,10 +13,8 @@ export default class NoteList extends React.Component {
           <NoteItem
             key={note.id}
             note={note}
-            editing={this.props.editing}
             removeNote={this.props.removeNote}
-            updateNote={this.props.updateNote}
-            toggleMode={this.props.toggleMode}/>)}
+            updateNote={this.props.updateNote} />)}
       </ul>
     )
   }
