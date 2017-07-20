@@ -1,11 +1,11 @@
 import React from 'react';
 
-class NoteCreateForm extends React.Component {
+class NoteForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      content: '',
-    };
+    let content = props.note ? props.note.content : '';
+
+    this.state = {content};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,23 +18,26 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.addNote(this.state);
+    this.props.handleSubmit(this.state);
   }
 
   render() {
     return (
       <form
-        className='input-change'
+        className='note-form'
         onSubmit={this.handleSubmit}>
+
         <input
+          name='note'
           type='text'
+          value={this.state.content}
           placeholder='create a new to do list'
           onChange={this.handleChange}
         />
-        <button type='submit'> Submit </button>
+        <button type='submit'> {this.props.buttonName} </button>
       </form>
     );
   }
 }
 
-export default NoteCreateForm;
+export default NoteForm;

@@ -14,7 +14,3 @@ class Modal extends React.Component {
 }
 
 export default Modal;
-
-<Modal close={() => console.log('booya')}>
-  <p> cool beans </p>
-</Modal>

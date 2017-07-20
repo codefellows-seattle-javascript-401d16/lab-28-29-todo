@@ -6,54 +6,49 @@ import './style/main.scss';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-import NoteItem from './component/note-item';
-import NoteList from './component/note-list';
+import DashboardContainer from './component/dashboard-container';
 import AboutContainer from './component/about-container';
-import NoteCreateForm from './component/note-create-form';
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       notes: [
-        {
-          id: 'Izzy',
-          editing: true,
-          content: 'I love Code Fellows!',
-          completed: false,
-        },
+        // {
+        //   id: 'Izzy',
+        //   editing: true,
+        //   content: 'I love Code Fellows!',
+        //   completed: false,
+        // },
       ],
     };
-    this.addNote = this.addNote.bind(this);
-    this.removeNote = this.removeNote.bind(this);
+
+    this.getApp = this.getApp.bind(this);
   }
 
-  addNote(content){
-    let notes = this.state.notes;
-    let id = uuid.v1();
-    let editing = false;
-    let completed = false;
-    let note = {content, id, editing, completed};
-    notes.push(note);
-    this.setState({notes});
+  componentDidUpdate(){
+    console.log('component updated', this.state);
   }
 
-  removeNote(id){
-    let notes = this.state.notes;
-    notes = notes.filter(note => note.id !== id);
-    this.setState({notes});
+  getApp(){
+    console.log('STAAAATE^^^^^^^^', this.state);
+    return {
+      state: this.state,
+      setState: this.setState.bind(this),
+    };
   }
 
   render() {
     return (
-      <BrowserRouter>
-        <div>
-          <Route exact path='/' component={() => <div>
-            <NoteCreateForm addNote={this.addNote} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-            <NoteList notes={this.state.notes} addNote={this.addNote} removeNote={this.removeNote} /></div>} />
-          <Route exact path='/about' component={AboutContainer} />
-        </div>
-      </BrowserRouter>
+      <main className='app'>
+        <BrowserRouter>
+          <div>
+            <Route exact path='/' component={() =>
+              <DashboardContainer app={this.getApp()} />} />
+            <Route exact path='/about' component={AboutContainer} />
+          </div>
+        </BrowserRouter>
+      </main>
     );
   }
 }

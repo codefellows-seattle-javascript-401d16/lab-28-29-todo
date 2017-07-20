@@ -1,6 +1,5 @@
 import React from 'react';
 import uuid from 'uuid';
-import PropTypes from 'prop-types';
 
 class NoteItem extends React.Component {
   constructor(props){
@@ -15,7 +14,7 @@ class NoteItem extends React.Component {
   }
 
   handleDelete(){
-    this.props.removeNote(this.state.id);
+    this.props.noteRemove(this.state.id);
   }
 
   render() {
@@ -30,15 +29,5 @@ class NoteItem extends React.Component {
   }
 }
 
-NoteItem.propTypes = {
-  note: PropTypes.shape({
-    id: PropTypes.string,
-    editing: PropTypes.bool,
-    content: PropTypes.string,
-    completed: PropTypes.bool,
-  }),
-  handleDelete: PropTypes.func,
-  removeNote: PropTypes.func,
-};
 
 export default NoteItem;
