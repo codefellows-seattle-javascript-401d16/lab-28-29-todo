@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NoteCreateForm } from '../main.js';
+import NoteCreateForm from '../components/note-create-form';
 
 const event = {
   preventDefault: () => null,

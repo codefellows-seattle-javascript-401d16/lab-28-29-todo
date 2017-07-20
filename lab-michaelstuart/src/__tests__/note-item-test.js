@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NoteItem } from '../main.js';
+import NoteItem from '../components/note-item';
 
 const note = {
   id: null,
