@@ -15,16 +15,9 @@ class App extends React.Component {
     this.getApp = this.getApp.bind(this)
   }
 
-  componentDidUpdate(){
-    console.log('###STATE###', this.state)
-  }
+  componentDidUpdate() {console.log('###STATE###', this.state)}
 
-  getApp() {
-    return {
-      state: this.state,
-      setState: this.setState.bind(this),
-    }
-  }
+  getApp() {return {state: this.state, setState: this.setState.bind(this)}}
 
   render() {
     return (

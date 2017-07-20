@@ -17,6 +17,7 @@ class NoteList extends React.Component {
               <NoteItem
                 notes={this.props.notes}
                 item={item}
+                noteUpdate={this.props.noteUpdate}
                 noteRemove={this.props.noteRemove}
               />
             </li>
