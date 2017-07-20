@@ -71,7 +71,7 @@ class NoteCreateForm extends React.Component {
 
   handleChange(e) {
     const content = e.target.value;
-    this.setState({ content: content });
+    this.setState({ content });
   }
 
   render() {
