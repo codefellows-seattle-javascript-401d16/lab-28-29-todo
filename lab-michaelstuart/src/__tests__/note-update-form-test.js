@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NoteUpdateForm } from '../main.js';
+import NoteUpdateForm from '../components/note-update-form';
 
 const note = {
   id: null,
