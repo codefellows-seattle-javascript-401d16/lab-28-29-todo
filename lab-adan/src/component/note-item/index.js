@@ -10,7 +10,7 @@ class NoteItem extends React.Component {
   deleteNote(event) {
     event.preventDefault();
     this.props.getApp().setState(state => ({
-      allNotes: state.notes.filter(note => note.id !== this.props.currentNote.id)
+      notes: state.notes.filter(note => note.id !== this.props.currentNote.id)
     }));
   }
 
@@ -22,7 +22,7 @@ class NoteItem extends React.Component {
           type='button'
           name='delete'
           id={this.props.currentNote.id}
-          value='x'
+          value='X'
           onClick={this.deleteNote}
         />
       </p>
