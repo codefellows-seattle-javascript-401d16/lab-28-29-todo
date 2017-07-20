@@ -1,3 +1,5 @@
+import './_note-list.scss';
+
 import React from 'react';
 
 import NoteItemDelete from '../note-delete';
@@ -9,8 +11,8 @@ class NoteList extends React.Component {
 
   render(){
     return (
-      <div>
-        <h1>test</h1>
+      <div className='list-item'>
+        <h1>Todo List</h1>
         <ul>
           {this.props.note.map((item, i) => {
             return (
