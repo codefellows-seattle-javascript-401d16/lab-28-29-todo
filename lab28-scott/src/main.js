@@ -38,7 +38,7 @@ class App extends React.Component{
     this.setState(state => ({
       notes: [...state.notes, note],
     }));
-    console.log('notes from main:', this.state.notes);
+    console.log('MAIN this.state.notes:', this.state.notes);
   }
 
   render(){
@@ -52,6 +52,7 @@ class App extends React.Component{
           />
           <NoteListContainer
             app={this.getApp()}
+            noteList={this.state.notes}
           />
           <NoteItemContainer
             app={this.getApp()}

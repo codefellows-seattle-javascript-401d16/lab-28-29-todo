@@ -6,8 +6,6 @@ class NoteItem extends React.Component{
     this.state = {
 
     };
-    console.log('props note item', props);
-    console.log('this note item', this);
   }
 
 
