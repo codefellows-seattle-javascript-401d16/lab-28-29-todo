@@ -7,7 +7,7 @@ class NoteCreateForm extends React.Component {
       id: null,
       editing: false,
       completed: false,
-      content: '',
+      content: props.content || '',
     };
 
     this.handleChange = this.handleChange.bind(this);
