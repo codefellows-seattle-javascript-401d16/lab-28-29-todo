@@ -1,15 +1,17 @@
 import React from 'react';
-import uuid from 'uuid/v1';
 
 class NoteCreateForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: null,
+      editing: false,
+      completed: false,
       content: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.createNote = this.createNote.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -18,23 +20,15 @@ class NoteCreateForm extends React.Component {
     });
   }
 
-  createNote(event) {
+  handleSubmit(event) {
     event.preventDefault();
-    let note = {
-        id: uuid(),
-        editing: false,
-        completed: true,
-        content: event.target.content.value,
-    };
-    this.props.getApp().setState(state => {
-      state.allNotes = [...state.allNotes, note];
-    });
-    this.state.content = '';
+    this.props.handleSubmit(this.state);
+    this.setState({ content: '' })
   }
 
   render() {
     return (
-      <form className='note-create-form' onSubmit={this.createNote}>
+      <form className='note-form' onSubmit={this.handleSubmit}>
         <input
           name='content'
           type='text'
@@ -44,7 +38,7 @@ class NoteCreateForm extends React.Component {
         <button
           type='submit'
           name='addNote'
-        >Add Note</button>
+        >{this.props.buttonTitle}</button>
       </form>
     );
   }
