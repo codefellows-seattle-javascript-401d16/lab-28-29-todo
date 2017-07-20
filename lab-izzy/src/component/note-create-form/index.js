@@ -13,7 +13,7 @@ class NoteCreateForm extends React.Component {
   }
 
   handleChange(e) {
-    const content = e.target.value;
+    let content = e.target.value;
     this.setState({content});
   }
 
@@ -24,10 +24,11 @@ class NoteCreateForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        className='input-change'
+        onSubmit={this.handleSubmit}>
         <input
           type='text'
-          className='input-change'
           placeholder='create a new to do list'
           onChange={this.handleChange}
         />

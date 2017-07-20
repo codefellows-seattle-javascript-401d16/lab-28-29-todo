@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 class NoteItem extends React.Component {
   constructor(props){
     super(props);
-    console.log(props, 'props');
     this.state = {
       id: props.note.id,
       editing: props.note.editing,
@@ -16,7 +15,6 @@ class NoteItem extends React.Component {
   }
 
   handleDelete(){
-    console.log('state', this.state);
     this.props.removeNote(this.state.id);
   }
 
