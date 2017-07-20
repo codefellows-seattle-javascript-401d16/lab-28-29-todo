@@ -33,23 +33,10 @@ class App extends React.Component {
   render() {
     return (
       <main className='app'>
-        <header>
-          <h1> Budget Tracker </h1>
-          <nav>
-            <ul>
-              <li> <a href='/'> Dashboard </a> </li>
-              <li> <a href='/about'> About </a> </li>
-            </ul>
-          </nav>
-        </header>
         <BrowserRouter>
           <div>
-            <Route exact path='/' component={AboutContainer} />
+            <Route exact path='/' component={() => <DashboardContainer app={this.getApp()} />} />
             <Route exact path='/about' component={AboutContainer} />
-            <Route
-              exact
-              path='/dashboard'
-              component={() => <DashboardContainer app={this.getApp()}/>}/>
           </div>
         </BrowserRouter>
       </main>
