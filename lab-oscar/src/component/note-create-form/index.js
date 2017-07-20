@@ -19,8 +19,8 @@ class NoteCreateForm extends React.Component {
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
     this.props.handleNoteCreate(this.state);
   }
 
@@ -31,6 +31,7 @@ class NoteCreateForm extends React.Component {
         <input
           name="content"
           type="text"
+          placeholder='What needs to done?'
           value={this.state.content}
           onChange={this.handleChange}
         />

@@ -13,4 +13,17 @@
   margin-left: 10%;
   font-size: 22px;
   font-family: monospace;
+  // text-transform:capitalize;
+}
+.list-item button {
+  margin-left: 10px;
+  width: 10px;
+  border-radius: 10px;
+  background-color: red;
+  text-align: left;
+}
+.list-item div img {
+  margin-bottom: -10px;
+  margin-left: 10px;
+  width: 25px;
 }

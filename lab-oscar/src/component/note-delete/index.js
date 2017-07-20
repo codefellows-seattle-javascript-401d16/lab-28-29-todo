@@ -17,11 +17,13 @@ class NoteItemDelete extends React.Component {
   }
 
   render() {
-    console.log('this new item', this.props.noteItem);
     return (
       <div>
-        {this.props.noteItem.content}
-        <button onClick={this.itemDelete} type="button">delete</button>
+        {this.props.noteItem.content.toUpperCase()}
+        <img
+          src='https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Close_Icon_Dark-128.png'
+          alt='delete'
+          onClick={this.itemDelete}/>
       </div>
     );
   }
