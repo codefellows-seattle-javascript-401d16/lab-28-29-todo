@@ -15,7 +15,6 @@ class NoteList extends React.Component {
     console.log('note-list', this.props.app.setState);
     return (
       <div className='note-list'>
-        <p> Hello note-list </p>
         <NoteItem notes={this.props.app.state.notes} app={this.props.app} />
 
       </div>
