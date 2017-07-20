@@ -6,6 +6,8 @@ class NoteCreateForm extends React.Component {
     super(props);
     this.state = {
       content: '',
+      editing: false,
+      completed: false,
     };
     this.noteCreate = this.noteCreate.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -20,10 +22,12 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    console.log('TEST', this.state);
     this.noteCreate(this.state);
   }
 
   noteCreate(note){
+    console.log('NOTE', note);
     note.id = uuid();
     this.props.app.setState(state => ({
       notes: [...state.notes, note],
