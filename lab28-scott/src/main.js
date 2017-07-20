@@ -35,11 +35,10 @@ class App extends React.Component{
   handleNoteCreate(note){
     console.log('note', note);
     note.id = uuid();
-    console.log('note id', note.id);
     this.setState(state => ({
       notes: [...state.notes, note],
     }));
-    console.log('nrbeak');
+    console.log('notes from main:', this.state.notes);
   }
 
   render(){
@@ -50,6 +49,9 @@ class App extends React.Component{
           <NoteCreateFormContainer
             app={this.getApp()}
             noteCreate={this.handleNoteCreate}
+          />
+          <NoteListContainer
+            app={this.getApp()}
           />
           <NoteItemContainer
             app={this.getApp()}
