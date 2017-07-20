@@ -1,40 +1,44 @@
-import React from 'react';
-import ReactDom from 'react-dom';
+import React from 'react'
+import ReactDom from 'react-dom'
+import {BrowserRouter, Route, Link} from 'react-router-dom'
 
-import Dashboard from './component/dashboard-container';
+import DashboardContainer from './component/dashboard-container'
+import AboutContainer from './component/about-container'
 
 class App extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      words: '',
       notes: [],
-    };
-    this.getApp = this.getApp.bind(this);
+    }
+    this.getApp = this.getApp.bind(this)
   }
 
-  ComponentDidUpdate(){
-    console.log('###STATE###', this.state);
+  componentDidUpdate(){
+    console.log('###STATE###', this.state)
   }
 
   getApp() {
     return {
       state: this.state,
       setState: this.setState.bind(this),
-    };
+    }
   }
 
   render() {
     return (
-      <main>
-        <div>
-          <h1>Notes</h1>
-          <Dashboard app={this.getApp()}/>
-        </div>
+      <main className='app'>
+        <h1>To-Do</h1>
+        <BrowserRouter>
+          <div>
+            <Route exact path='/' component={() => <DashboardContainer app={this.getApp()} />} />
+            <Route exact path='/about' component={AboutContainer} />
+          </div>
+        </BrowserRouter>
       </main>
-    );
+    )
   }
 }
 
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(<App />, document.getElementById('root'))
