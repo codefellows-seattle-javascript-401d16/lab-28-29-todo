@@ -20,7 +20,7 @@ export default class NoteList extends React.Component {
   render() {
     return (
       <div className="note-list">
-        <h1>To Dos</h1>
+        <h3>To Dos</h3>
         <ul>
           {renderIf(
             this.props.notes.length > 0,

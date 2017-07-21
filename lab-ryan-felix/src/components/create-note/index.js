@@ -41,6 +41,7 @@ export default class CreateNote extends React.Component {
         onSubmit={this.handleSubmit}
         className='create-note-form'
       >
+        <h4>Add a to-do item</h4>
         <input
           type="text"
           placeholder="new todo"
