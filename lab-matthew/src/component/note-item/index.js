@@ -1,36 +1,59 @@
 import React from 'react';
+import NoteCreateForm from '../note-create-form';
 
 class NoteItem extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      defaultView: true,
+      editView: false,
+    };
 
-    this.handleDelete = this.handleDelete.bind(this);
+    this.handleView = this.handleView.bind(this);
   }
 
-  handleDelete(e){
-    e.preventDefault();
-    // this.props.notes.;
-    console.log('e', e.target.parentElement.value);
-    let array = this.props.notes;
-    array.splice(e.target.parentElement.value, 1);
-    this.props.app.setState(state => ({
-      notes: array,
+  handleView(e){
+    this.state.defaultView === true ?
+    this.setState(state => ({
+      defaultView: false,
+      editView: true,
+    }))
+    :
+    this.setState(state => ({
+      defaultView: true,
+      editView: false,
     }));
   }
 
+
   render() {
-
     return (
+      this.state.defaultView === true ?
+        <p>
+          <span onDoubleClick = {this.handleView}>
+            {this.props.currentNote.title}
+            <br></br>
+            {this.props.currentNote.content}
+            </span>
+            <button onClick = {() => this.props.noteRemove(this.props.currentNote)}>
+            -
+            </button>
+        </p>
 
-      <ul>
-        {this.props.notes.map((item, i) =>
-          <li key={i} value={i}>
-            {item.title}<br/>
-            {item.content}
-          <button onClick={this.handleDelete.bind(this)}>-</button>
-          </li>
-        )}
-      </ul>
+      :
+
+      <span onDoubleClick = {this.handleView}>
+        {this.props.currentNote.title}
+        <br></br>
+        {this.props.currentNote.content}
+        <button onClick = {() => this.props.noteRemove(this.props.currentNote)}>
+        -
+        </button>
+        <NoteCreateForm
+          handleSubmit = {this.props.handleSubmit}
+        />
+      </span>
+
     );
   }
 }
