@@ -2,10 +2,10 @@ import './_dashboard-container.scss';
 import React from 'react';
 import uuid from 'uuid/v1';
 
-import Modal from '../modal';
+// import Modal from '../modal';
 import Navbar from '../navbar';
-import ExpenseList from '../expense-list';
-import ExpenseForm from '../expense-form';
+import NoteList from '../note-list';
+import NoteForm from '../note-form';
 
 let renderIf = (test, component) => test ? component : undefined;
 
@@ -15,61 +15,61 @@ class DashboardContainer extends React.Component {
     this.state = {
       showErrors: true,
     };
-    this.expenseCreate = this.expenseCreate.bind(this);
-    this.expenseRemove = this.expenseRemove.bind(this);
-    this.expenseUpdate = this.expenseUpdate.bind(this);
+    this.noteCreate = this.noteCreate.bind(this);
+    this.noteRemove = this.noteRemove.bind(this);
+    this.noteUpdate = this.noteUpdate.bind(this);
   }
   //methods
-  expenseCreate(expense) {
-    expense.id = uuid();
+  noteCreate(note) {
+    note.id = uuid();
     let {app} = this.props;
     app.setState(prevState => ({
-      expenses: prevState.expenses.concat([expense]),
+      notes: prevState.notes.concat([note]),
     }));
   }
-  expenseRemove(expense) {
+  noteRemove(note) {
     let {app} = this.props;
     app.setState(prevState => ({
-      expenses: prevState.expenses.filter((item) => {
-        return item.id !== expense.id;
+      notes: prevState.notes.filter((item) => {
+        return item.id !== note.id;
       }),
     }));
   }
-  expenseUpdate(expense) {
+  noteUpdate(note) {
     let {app} = this.props;
     app.setState(prevState => ({
-      expenses: prevState.expenses.map((item) => {
-        return item.id == expense.id ? expense : item;
+      notes: prevState.notes.map((item) => {
+        return item.id == note.id ? note : item;
       }),
     }));
   }
   render() {
     let {app} = this.props;
-    let totalSpent = app.state.expenses.reduce((p, c) => {
-      return p + c.price;
-    }, 0);
-    let remainingBudget = app.state.total - totalSpent;
+    // let totalSpent = app.state.expenses.reduce((p, c) => {
+    //   return p + c.price;
+    // }, 0);
+    // let remainingBudget = app.state.budget - totalSpent;
 
     return (
       <div className='dashboard-container'>
         <Navbar />
-        <p> Total Budget: {app.state.total} </p>
-        <p> Total Spent: {totalSpent}</p>
-        <p> Remaining Budget: {remainingBudget}</p>
-        <ExpenseForm
-          handleSubmit={this.expenseCreate}
-          submitTitle='Add Expense' />
-        <ExpenseList
-          expenseRemove={this.expenseRemove}
-          expenseUpdate={this.expenseUpdate}
-          expenses={app.state.expenses} />
+        <p> Total Count: {app.state.count} </p>
+        {/*<p> Total Spent: {totalSpent}</p>
+        <p> Remaining Budget: {remainingBudget}</p>*/}
+        <NoteForm
+          handleSubmit={this.noteCreate}
+          submitContent='Add Note' />
+        <NoteList
+          noteRemove={this.noteRemove}
+          noteUpdate={this.noteUpdate}
+          notes={app.state.notes} />
 
-        {renderIf(remainingBudget < 0 && this.state.showErrors,
+        {/*renderIf(remainingBudget < 0 && this.state.showErrors,
           <Modal close={() => this.setState({showErrors: false})}>
             <p> You have no money! </p>
             <p> Current Balance: {remainingBudget} </p>
           </Modal>
-        )}
+        )*/}
       </div>
     );
   }

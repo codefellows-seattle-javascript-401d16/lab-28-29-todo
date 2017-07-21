@@ -13,8 +13,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      budget: 400,
-      expenses: [],
+      count: 0,
+      notes: [],
     };
     this.getApp = this.getApp.bind(this);
   }
