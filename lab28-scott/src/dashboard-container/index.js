@@ -3,14 +3,17 @@ import uuid from 'uuid/v1';
 import NoteCreateForm from '../note-create-form-container';
 import NoteUpdateForm from '../note-update-form-container';
 import NoteList from '../note-list-container';
+import Modal from '../modal-container';
+
+let renderIf = (test, component) => test ? component : undefined;
 
 class DashboardContainer extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-
+      showErr: true,
     };
-    console.log('CONTAINER', this.props);
+    console.log('DASH this.props: ', this.props);
     this.noteCreate = this.noteCreate.bind(this);
     this.noteUpdate = this.noteUpdate.bind(this);
     this.noteRemove = this.noteRemove.bind(this);
@@ -22,6 +25,7 @@ class DashboardContainer extends React.Component{
     note.id = uuid();
     this.props.app.setState(prevState => ({
       notes: [...prevState.notes, note],
+      totalNotes: prevState.totalNotes + 1,
     }));
   }
 
@@ -43,11 +47,26 @@ class DashboardContainer extends React.Component{
     }));
   }
 
+
   render(){
+
+    let {app} = this.props;
+    let totalNotes = app.state.totalNotes;
+    let remainingNotes = app.state.maxNotes - totalNotes;
+
     return(
       <div>
         <p>this is Dashboard!</p>
         <NoteCreateForm noteCreate={this.noteCreate}/>
+
+        {renderIf(remainingNotes === 0,
+          <Modal close={() => this.setState({showErr: false})}>
+            <h2>Buy more Note credits!</h2>
+          </Modal>
+        )}
+
+        <p>Total Notes: {totalNotes}</p>
+        <p>Remaining Notes: {remainingNotes}</p>
         <div className='note-list'>
           <NoteList
             notes={this.props.app.state.notes}
