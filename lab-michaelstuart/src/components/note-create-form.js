@@ -17,8 +17,7 @@ export default class NoteCreateForm extends React.Component {
   }
 
   handleChange(e) {
-    const content = e.target.value;
-    this.setState({ content });
+    this.setState({ content: e.target.value });
   }
 
   clearForm() {

@@ -1,21 +1,13 @@
 import React from 'react';
 import NoteItem from './note-item';
 
-export default class NoteList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <ul>
-        {this.props.notes.map(note =>
-          <NoteItem
-            key={note.id}
-            note={note}
-            removeNote={this.props.removeNote}
-            updateNote={this.props.updateNote} />)}
-      </ul>
-    )
-  }
-}
+export default props => (
+  <ul>
+    {props.notes.map(note =>
+      <NoteItem
+        key={note.id}
+        note={note}
+        removeNote={props.removeNote}
+        updateNote={props.updateNote} />)}
+  </ul>
+)
