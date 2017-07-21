@@ -1,7 +1,7 @@
 import React from 'react';
-import './_note-create-form.scss';
+import './_note-update-form.scss';
 
-class NoteCreateForm extends React.Component {
+class NoteUpdateForm extends React.Component {
   constructor(props){
     super(props);
 
@@ -23,7 +23,7 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    return this.props.handleNoteCreate(this.state);
+    return this.props.handleNoteUpdate(this.state);
   }
 
   render(){
@@ -60,4 +60,4 @@ class NoteCreateForm extends React.Component {
   }
 }
 
-export default NoteCreateForm;
+export default NoteUpdateForm;

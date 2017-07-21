@@ -52,7 +52,7 @@ class DashboardContainer extends React.Component {
       <Navbar />
         <NoteCreateForm
           handleNoteCreate={this.noteCreate}
-          submitTitle='update note'
+          submitTitle='Create Note'
            />
         <NoteList
         app={this.props.app}
