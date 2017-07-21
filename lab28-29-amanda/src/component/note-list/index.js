@@ -1,21 +1,18 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import NoteItem from '../note-item';
-import NoteForm from '../note-form';
 
 class NoteList extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
+    console.log('we are here', this.props.notes);
   }
-
   render(){
-    console.log('hello');
     return(
       <div className='note-list'>
         <ul>
           {this.props.notes.map((item, i) =>
             <li key={i}>
-              {item.title}
+              <h1>{item.title}</h1>
             </li>
           )}
         </ul>

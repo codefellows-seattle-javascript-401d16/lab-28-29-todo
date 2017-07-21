@@ -1,4 +1,4 @@
-import './style/main.scss';
+// import './style/main.scss';
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
@@ -32,9 +32,7 @@ class App extends React.Component {
     return(
       <main className='app'>
         <div>
-          <NoteItem app={this.getApp()}
-          />
-          <NoteList notes={this.state.notes} />
+          <NoteItem app={this.getApp()} />
           <div className="inputBox"> </div>
         </div>
       </main>
@@ -43,4 +41,3 @@ class App extends React.Component {
 }
 
 ReactDom.render(<App />, document.getElementById('root'));
-document.body.appendChild;
