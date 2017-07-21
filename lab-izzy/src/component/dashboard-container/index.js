@@ -1,11 +1,9 @@
-import React from 'react';
 import uuid from 'uuid';
+import React from 'react';
 
 import Modal from '../modal';
-// import NoteItem from '../note-item';
 import NoteList from '../note-list';
 import NoteForm from '../note-form';
-
 
 class DashboardContainer extends React.Component {
   constructor(props){
@@ -65,13 +63,5 @@ class DashboardContainer extends React.Component {
     );
   }
 }
-
-
-
-
-
-
-
-
 
 export default DashboardContainer;
