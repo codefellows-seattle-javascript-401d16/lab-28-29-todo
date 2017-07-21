@@ -7,8 +7,6 @@ class NoteList extends React.Component{
     this.state = {
 
     };
-    console.log('props from LIST: ', props);
-    console.log('this from LIST: ', this.props);
   }
 
   render(){

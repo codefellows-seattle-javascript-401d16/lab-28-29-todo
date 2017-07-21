@@ -2,7 +2,6 @@ import React from 'react';
 
 class NoteCreateForm extends React.Component{
   constructor(props){
-    console.log('props', props);
     super(props);
     this.state = {
       title: '',

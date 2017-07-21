@@ -11,7 +11,7 @@ class DashboardContainer extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      showErr: true,
+      showModal: true,
     };
     console.log('DASH this.props: ', this.props);
     this.noteCreate = this.noteCreate.bind(this);
@@ -59,8 +59,8 @@ class DashboardContainer extends React.Component{
         <p>this is Dashboard!</p>
         <NoteCreateForm noteCreate={this.noteCreate}/>
 
-        {renderIf(remainingNotes === 0,
-          <Modal close={() => this.setState({showErr: false})}>
+        {renderIf(remainingNotes === 0 && this.state.showModal,
+          <Modal close={() => this.setState({showModal: false})}>
             <h2>Buy more Note credits!</h2>
           </Modal>
         )}

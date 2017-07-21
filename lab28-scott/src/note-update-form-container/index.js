@@ -9,7 +9,6 @@ class NoteUpdateForm extends React.Component{
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    console.log('UPDATE:', this.props);
   }
 
   //Method to update
@@ -22,7 +21,6 @@ class NoteUpdateForm extends React.Component{
 
   handleFormSubmit(e){
     e.preventDefault();
-    console.log('updateSTATE:', this.state);
     this.props.noteUpdate(this.state);
   }
 

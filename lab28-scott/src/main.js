@@ -15,7 +15,7 @@ class App extends React.Component{
     this.state = {
       notes: [],
       totalNotes: 0,
-      maxNotes:1,
+      maxNotes:5,
     };
     this.getApp = this.getApp.bind(this);
   }
