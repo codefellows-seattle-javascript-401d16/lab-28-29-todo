@@ -54,11 +54,13 @@ class DashboardContainer extends React.Component {
           app={this.props.app}
           handleNoteCreate={this.noteCreate}
           submitTitle='Create Note'
+          renderif={this.renderif}
            />
         <NoteList
         app={this.props.app}
         noteRemove={this.noteRemove}
         handleNoteUpdate={this.noteUpdate}
+        renderIf={this.renderIf}
         />
       </div>
     );

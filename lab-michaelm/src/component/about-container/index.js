@@ -7,7 +7,8 @@ class AboutContainer extends React.Component {
     return (
       <div className='about-container'>
       <Navbar />
-        <p> aslkdfj alskfj alksfjdlkajdf  cool </p>
+        <h1> ToDo App </h1>
+        <p>This is an app that lets you create update and delete notes.</p>
       </div>
     );
   }

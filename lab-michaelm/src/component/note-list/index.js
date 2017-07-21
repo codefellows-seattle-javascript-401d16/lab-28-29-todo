@@ -3,11 +3,6 @@ import './_note-list.scss';
 import NoteItem from '../note-item';
 
 class NoteList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
   render() {
     return(
       <div className="note-list">
@@ -16,6 +11,7 @@ class NoteList extends React.Component {
         app={this.props.app}
         noteRemove={this.props.noteRemove}
         handleNoteUpdate={this.props.handleNoteUpdate}
+        renderIf={this.props.renderIf}
         />
       </div>
     );
