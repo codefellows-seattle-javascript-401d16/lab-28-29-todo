@@ -35,6 +35,14 @@ class App extends React.Component {
     }))
     console.log(this.state.notes)
   }
+
+  noteUpdate(note) {
+    let notes = this.state.notes.map(n => {
+      return n.id == note.id ? note : n
+    })
+    this.setState({ notes })
+  }
+
   noteDelete(id) {
     let notes = this.state.notes.filter(n => n.id !== id)
 
@@ -46,7 +54,11 @@ class App extends React.Component {
       <div className="note-container">
         <h1>To Do</h1>
         <NoteCreateForm noteCreate={this.noteCreate} />
-        <NoteList notes={this.state.notes} noteDelete={this.noteDelete} />
+        <NoteList
+          notes={this.state.notes}
+          noteDelete={this.noteDelete}
+          noteUpdate={this.noteUpdate}
+        />
       </div>
     )
   }

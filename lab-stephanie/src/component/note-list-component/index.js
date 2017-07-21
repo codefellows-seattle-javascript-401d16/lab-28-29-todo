@@ -12,7 +12,11 @@ class NoteList extends React.Component {
         {this.props.notes.map((n, i) => {
           return (
             <li key={i}>
-              <NoteItem note={n} noteDelete={this.props.noteDelete} />
+              <NoteItem
+                note={n}
+                noteDelete={this.props.noteDelete}
+                noteUpdate={this.props.noteUpdate}
+              />
             </li>
           )
         })}
