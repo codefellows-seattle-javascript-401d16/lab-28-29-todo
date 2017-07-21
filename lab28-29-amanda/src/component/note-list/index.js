@@ -9,14 +9,13 @@ class NoteList extends React.Component {
   }
 
   render(){
-    console.log(this.props.notes);
+    console.log('hello');
     return(
       <div className='note-list'>
         <ul>
           {this.props.notes.map((item, i) =>
             <li key={i}>
               {item.title}
-              <button type='submit'> remove note </button>
             </li>
           )}
         </ul>

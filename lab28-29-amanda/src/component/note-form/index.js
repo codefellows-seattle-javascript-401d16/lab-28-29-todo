@@ -23,7 +23,6 @@ class NoteForm extends React.Component {
   }
 
   render() {
-
     return (
       <form
         className='note-form'
@@ -37,11 +36,10 @@ class NoteForm extends React.Component {
         />
         <button type= 'submit'> add note </button>
         <button type= 'submit'> remove note </button>
-
       </form>
     );
   }
 }
-// <button type='submit'> {this.props.submitTitle} </button>
+
 
 export default NoteForm;
