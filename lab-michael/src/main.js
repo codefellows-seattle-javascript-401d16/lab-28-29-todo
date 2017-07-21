@@ -7,6 +7,7 @@ import uuid from 'uuid'
 
 import DashboardContainer from './component/dashboard-container'
 import TestContainer from './component/test-container'
+import NoteDeleteForm from './component/note-delete-form'
 
 class App extends React.Component {
   constructor(props){
@@ -44,19 +45,27 @@ class App extends React.Component {
           component={()=> <DashboardContainer app={this.getAppState()}/>}/>
           </div>
         </BrowserRouter>
-        {this.state.notes.map((note, i) => {
-            console.log(note);
-            return (
-              <li key={i}>
-              {note.id}
-              </li>
-            )
-          })}
       </main>
     )
   }
 }
 
+// <div>
+// <NoteDeleteForm app={this.getAppState()}/>
+// </div>
+//saving this! this renders things to the page
+// {this.state.notes.map((note, i) => {
+//   console.log(note);
+//   return (
+//     <li key={i}>
+//     Subject:
+//     {note.subject}
+//     Comment :
+//     {note.textContent}
+//     </li>
+//
+//   )
+// })}
 
 
 ReactDom.render(<App />, document.getElementById('app'))
