@@ -1,14 +1,14 @@
-// import './style/main.scss';
+import './style/main.scss';
 
 // npm modules
-import React from 'react';
-import ReactDom from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
+import React from 'react'; // react
+import ReactDom from 'react-dom'; // lets you render to dom
+import {BrowserRouter, Route} from 'react-router-dom'; // handles routing
 
 // app modules
 import DashboardContainer from './component/dashboard-container';
 
-class App extends React.Component {
+class App extends React.Component { // creates class called App that inherits from React
   constructor(props){
     super(props);
     this.state = {

@@ -1,3 +1,5 @@
+import './_note-create-form.scss';
+
 import React from 'react';
 import uuid from 'uuid/v1';
 
@@ -29,9 +31,17 @@ class NoteCreateForm extends React.Component {
     }));
   }
 
+  componentDidMount(){
+    this.setState({
+      title: this.props.note ? this.props.note.title : this.state.title,
+      content: this.props.note ? this.props.note.content : this.state.content,
+    });
+  }
+
   render(){
+    console.log('this.props.note', this.props);
     return(
-      <form onSubmit={this.handleSubmit} >
+      <form className="note-create-form" onSubmit={this.handleSubmit} >
 
         <input
           name='title'
@@ -44,8 +54,10 @@ class NoteCreateForm extends React.Component {
         <input
           name='content'
           type='text'
-          placeholder='make a note'
-          value={this.state.content}
+          placeholder='content'
+          value={
+            this.props.note ? this.props.note.content : this.state.content
+          }
           onChange={this.handleChange}
           />
 
