@@ -42,7 +42,7 @@ class NoteItem extends React.Component {
       <div onDoubleClick={this.handleUpdate}>
         {renderIf(
           this.state.editing,
-          <div>
+          <div className="note-item-update">
             <input
               name="update"
               type="text"

@@ -41,12 +41,12 @@ class RedditApp extends React.Component {
   render() {
     return (
       <div className="reddit">
-        <h3>Programmer Humor</h3>
+        <h3>Programmer Humor (Reddit)</h3>
         <a href={this.state.url} target="_blank">
+          <img src={this.state.thumbnail[0]} />
           <h6>
             {this.state.title}
           </h6>
-          <img src={this.state.thumbnail[0]} />
         </a>
       </div>
     )

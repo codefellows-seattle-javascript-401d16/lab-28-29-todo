@@ -1,7 +1,9 @@
 @import "./_vars.scss";
-
+* {
+  box-sizing: border-box;
+}
 .reddit {
-  width: 17%;
+  width: 20%;
   position: fixed;
 }
 
@@ -16,16 +18,24 @@ img {
 }
 
 .note-item {
+  padding: $pad;
   display: inline-block;
-  width: 52%;
-  height: 1.5em;
+  width: 50%;
+  height: 2.29em;
   border: 1px solid $color-primary;
-  margin-left: 2%;
+  margin-top: 2%;
+  margin-left: 5%;
 }
 
 .note-item-delete {
   display: inline-block;
   width: 10%;
+}
+
+.note-item-component {
+  margin-top: 2%;
+  padding: 0;
+  height: 1.6em;
 }
 /*modal*/
 
