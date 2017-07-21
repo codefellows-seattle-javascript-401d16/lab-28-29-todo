@@ -3,12 +3,19 @@ import React from 'react';
 class NoteForm extends React.Component {
   constructor(props){
     super(props);
-    let content = props.note ? props.note.content : '';
-
-    this.state = {content};
+    console.log('props', props);
+    this.state = {
+      content: '',
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClearInput = this.handleClearInput.bind(this);
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.handleSubmit(this.state.content);
   }
 
   handleChange(e) {
@@ -16,9 +23,8 @@ class NoteForm extends React.Component {
     this.setState({content});
   }
 
-  handleSubmit(e){
-    e.preventDefault();
-    this.props.handleSubmit(this.state);
+  handleClearInput(e){
+    this.textInput.value = '';
   }
 
   render() {
@@ -31,10 +37,14 @@ class NoteForm extends React.Component {
           name='note'
           type='text'
           value={this.state.content}
-          placeholder='create a new to do list'
           onChange={this.handleChange}
-        />
-        <button type='submit'> {this.props.buttonName} </button>
+          ref={input => this.textInput = input}
+          placeholder='create a new to do list' />
+
+        <button type='submit' onClick={this.handleClearInput}>
+          Submit
+        </button>
+
       </form>
     );
   }

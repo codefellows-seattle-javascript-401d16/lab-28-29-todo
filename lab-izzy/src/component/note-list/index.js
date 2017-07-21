@@ -1,26 +1,23 @@
 import React from 'react';
 import NoteItem from '../note-item';
-import NoteForm from '../note-form';
 
-class NoteList extends React.Component {
+class NoteList extends React.Component{
+  constructor(props){
+    super(props);
+  }
+
   render() {
+    // let notes = this.props.notes || [];
     return (
       <div className='note-list'>
         <ul>
-          {this.props.notes.map((item, i) =>
-            <li key={i}>
-              <button onClick={() => this.props.noteRemove(item)}>
-                delete
-              </button>
+          {this.props.notes.map(note =>
 
-              <NoteForm
-                note={item}
-                buttonName='edit note'
-                handleSubmit={(note) => {
-                  note.id = item.id;
-                  this.props.noteUpdate(note);
-                }} />
-            </li>
+            <NoteItem
+              key={note.id}
+              note={note}
+              noteRemove={this.props.noteRemove}
+              noteUpdate={this.props.noteUpdate} />
           )}
         </ul>
       </div>

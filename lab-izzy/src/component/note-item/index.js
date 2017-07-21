@@ -1,30 +1,41 @@
-import React from 'react';
 import uuid from 'uuid';
+import React from 'react';
+import NoteUpdateForm from '../note-update-form';
 
 class NoteItem extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      id: props.note.id,
-      editing: props.note.editing,
-      content: props.note.content,
-      completed: props.note.completed,
-    };
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleDoubleClick = this.handleDoubleClick.bind(this);
   }
 
-  handleDelete(){
-    this.props.noteRemove(this.state.id);
+  handleDelete(e){
+    this.props.noteRemove(this.props.note.id);
+  }
+
+  handleDoubleClick(e){
+    let note = Object.assign({}, this.props.note, {editing: true});
+    this.props.noteUpdate(note);
   }
 
   render() {
     return (
-      <ul>
-        <li>
-          <p>{this.state.content}</p>
-          <button onClick={this.handleDelete}> Delete Note </button>
-        </li>
-      </ul>
+      <li>
+        {this.props.note.editing ? (
+          <NoteUpdateForm
+            note={this.props.note}
+            noteUpdate={this.props.noteUpdate} />
+        ) : (
+          <div>
+            <p onDoubleClick={this.handleDoubleClick}>
+              {this.props.note.content}
+            </p>
+            <button type='delete' className='delete' onClick={this.handleDelete}>
+              Delete Note
+            </button>
+          </div>
+        )}
+      </li>
     );
   }
 }

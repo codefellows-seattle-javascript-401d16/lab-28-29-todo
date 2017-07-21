@@ -14,12 +14,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       notes: [
-        // {
-        //   id: 'Izzy',
-        //   editing: true,
-        //   content: 'I love Code Fellows!',
-        //   completed: false,
-        // },
       ],
     };
 
@@ -31,7 +25,6 @@ class App extends React.Component {
   }
 
   getApp(){
-    console.log('STAAAATE^^^^^^^^', this.state);
     return {
       state: this.state,
       setState: this.setState.bind(this),
@@ -52,9 +45,5 @@ class App extends React.Component {
     );
   }
 }
-
-// identical statements
-// <DashboardContainer app = {this.getApp()} />   <--- JSX
-// new DashboardContainer({app: this.getApp()})  <--- Vanilla JS
 
 ReactDom.render(<App />, document.getElementById('root'));
