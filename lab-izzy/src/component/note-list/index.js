@@ -1,28 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import NoteItem from './component/note-item';
+import NoteForm from '../note-form';
 
-class NoteList extends React.Component {
-  constructor(props){
-    super(props);
-  }
+class NoteList extends React.Component{
 
   render() {
-    let notes = this.props.notes || [];
     return (
+      <div className='note-list'>
+        <ul>
+          {this.props.notes.map((item, i) =>
+            <li key={i}>
+              <button onClick={() => this.props.noteRemove(item)}>
+                delete
+              </button>
 
-      <ul>
-        {notes.map(note => {
-          return <NoteItem key={note.id} note={note} removeNote={this.props.removeNote} />;
-        })}
-      </ul>
+              <p> content: {item.content} </p>
+
+              <NoteForm
+                note={item}
+                buttonName='update note'
+                handleSubmit={(note) => {
+                  note.id = item.id;
+                  this.props.noteUpdate(note);
+                }} />
+            </li>
+          )}
+        </ul>
+      </div>
     );
   }
 }
-
-NoteList.propTypes = {
-  notes: PropTypes.array,
-  removeNote: PropTypes.func,
-};
 
 export default NoteList;

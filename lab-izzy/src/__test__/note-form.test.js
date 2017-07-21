@@ -3,7 +3,7 @@
 
 import React from 'react';
 import {shallow} from 'enzyme';
-import NoteCreateForm from '../component/note-create-form';
+import NoteForm from '../component/note-form';
 
 const event = {
   preventDefault: () => null,
@@ -12,18 +12,18 @@ const event = {
   },
 };
 
-describe('testing NoteCreateForm', () => {
+describe('testing NoteForm', () => {
   test('should have correct default state', () => {
-    let wrapper = shallow(<NoteCreateForm addNote={() => {}} />);
+    let wrapper = shallow(<NoteForm noteAdd={() => {}} />);
     expect(wrapper.state('content')).toBe('');
   });
 
-  test('expect submit to invoke addNote', () => {
+  test('expect submit to invoke noteAdd', () => {
     let newNote = (note) => {
       expect(note.content).toEqual('izzy loves food');
     };
 
-    let wrapper = shallow(<NoteCreateForm addNote={() => {}} handleSubmit={newNote} />);
+    let wrapper = shallow(<NoteForm noteAdd={() => {}} handleSubmit={newNote} />);
     wrapper.state = {content: 'izzy loves food'};
     wrapper.find('form').simulate('submit', event);
   });
@@ -33,7 +33,7 @@ describe('testing NoteCreateForm', () => {
       expect(wrapper.state).toExist();
     };
 
-    let wrapper = shallow(<NoteCreateForm handleChange={changedState} setState={() => this.state = true} />);
-    wrapper.find('.input-change').simulate('change', event);
+    let wrapper = shallow(<NoteForm handleChange={changedState} setState={() => this.state = true} />);
+    wrapper.find('.note-form').simulate('change', event);
   });
 });
