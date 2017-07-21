@@ -6,14 +6,7 @@ import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 // app modules
-// import NoteItem from './component/note-item/index.js';
-import NoteList from './component/note-list/index.js';
-import NoteCreateForm from './component/note-create-form/';
-// Component tree:
-// App
-//  NoteCreateForm
-//  NoteList
-//   NoteItem
+import DashboardContainer from './component/dashboard-container';
 
 class App extends React.Component {
   constructor(props){
@@ -39,12 +32,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <main>
+      <main className='app'>
         <BrowserRouter>
           <div>
             <p> TODO Notes </p>
-            <NoteCreateForm app={this.getApp()} />
-            <NoteList app={this.getApp()} />
+            <DashboardContainer app={this.getApp()} />
           </div>
         </BrowserRouter>
       </main>

@@ -1,25 +1,31 @@
 import React from 'react';
-
-
 import NoteCreateForm from '../note-create-form';
 import NoteItem from '../note-item';
 
 class NoteList extends React.Component {
-  constructor(props){
-    super(props);
-    console.log('app', this.props);
-  }
-
-
   render(){
-    console.log('note-list', this.props.app.setState);
     return (
       <div className='note-list'>
-        <NoteItem notes={this.props.app.state.notes} app={this.props.app} />
+        <ul>
+          {this.props.notes.map((item, i) =>
+            <li key={i}>
+              <NoteItem
+                currentNote={item}
+                handleSubmit={(note) => {
+                  note.id = item.id;
+                  this.props.noteUpdate(note);
+                }}
+                noteRemove={this.props.noteRemove}
+                app={this.props.app} />
 
+              
+            </li>
+          )}
+        </ul>
       </div>
     );
   }
 }
 
+// <NoteItem notes={this.props.app.state.notes} app={this.props.app} />
 export default NoteList;
