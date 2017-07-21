@@ -1,0 +1,28 @@
+@import "./_vars.scss";
+/*modal*/
+
+.modal {
+  position: fixed;
+  height: 100%;
+  background: rgba(100, 100, 100, 0.7);
+}
+
+.modal main {
+  position: fixed;
+  padding: $pad;
+  height: 50%;
+  width: 50%;
+  background: $color-white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal button {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  width: auto;
+  padding: 1em;
+  background: #aaa;
+}

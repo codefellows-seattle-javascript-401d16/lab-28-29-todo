@@ -1,6 +1,8 @@
 import React from 'react'
 let update = false
 
+let renderIf = (t, c) => (t ? c : undefined)
+
 class NoteItem extends React.Component {
   constructor(props) {
     super(props)
@@ -23,22 +25,23 @@ class NoteItem extends React.Component {
   handleBlur(e) {
     this.setState({
       content: e.target.value,
+      editing: false,
     })
-    update = false
   }
 
   handleDelete() {
     this.props.noteDelete(this.props.note.id)
   }
   handleUpdate() {
-    update = true
+    this.setState(state => ({ editing: !state.editing }))
   }
 
   render() {
     return (
-      <div onClick={this.handleUpdate}>
-        {update
-          ? <div>
+      <div onDoubleClick={this.handleUpdate}>
+        {renderIf(
+          this.state.editing,
+          <div>
             <input
               name="update"
               type="text"
@@ -47,10 +50,15 @@ class NoteItem extends React.Component {
               onBlur={this.handleBlur}
             />
           </div>
-          : <div>
+        )}
+
+        {renderIf(
+          !this.state.editing,
+          <div>
             {this.props.note.content}
             <button onClick={this.handleDelete}>x</button>
-          </div>}
+          </div>
+        )}
       </div>
     )
   }

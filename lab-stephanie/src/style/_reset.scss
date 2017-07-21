@@ -1,0 +1,16 @@
+@import "./_vars.scss";
+
+html,
+body {
+  position: relative;
+  text-align: center;
+}
+
+body * {
+  display: block;
+}
+
+script,
+link {
+  display: none;
+}
