@@ -11,13 +11,16 @@ class NoteUpdateForm extends React.Component {
       completed: false,
       content: '',
     };
+    console.log('note update form props:\n',this.props);
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e){
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      id: this.props.noteID
     });
   }
 
@@ -28,9 +31,9 @@ class NoteUpdateForm extends React.Component {
 
   render(){
     return (
-      <form className="note-create-form" onSubmit={this.handleSubmit} >
+      <form className="note-update-form" onSubmit={this.handleSubmit} >
         <input
-          placeholder="type a note here"
+          placeholder="new text here"
           name='content'
           type='text'
           value={this.state.content}

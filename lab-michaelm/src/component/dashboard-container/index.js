@@ -11,6 +11,7 @@ let renderIf = (test, component) => test ? component : undefined;
 class DashboardContainer extends React.Component {
   constructor(props){
     super(props);
+    console.log('dashboard props:\n',this.props);
     this.state = {
       showErrors: true,
     };
@@ -47,18 +48,20 @@ class DashboardContainer extends React.Component {
   }
 
   render(){
+    console.log('dashboard THIS:\n',this);
     return (
       <div className='dashboard-container'>
       <Navbar />
         <NoteCreateForm
+          app={this.props.app}
           handleNoteCreate={this.noteCreate}
           submitTitle='Create Note'
            />
         <NoteList
         app={this.props.app}
         noteRemove={this.noteRemove}
-        noteUpdate={this.noteUpdate}
-           />
+        handleNoteUpdate={this.noteUpdate}
+        />
       </div>
     );
   }

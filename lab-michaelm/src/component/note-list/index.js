@@ -5,6 +5,7 @@ import NoteItem from '../note-item';
 class NoteList extends React.Component {
   constructor(props) {
     super(props);
+    console.log('note list props:\n',this.props);
     this.state = {
     };
   }
@@ -15,7 +16,7 @@ class NoteList extends React.Component {
         notes={this.props.app.state.notes}
         app={this.props.app}
         noteRemove={this.props.noteRemove}
-        noteUpdate={this.props.noteUpdate}
+        handleNoteUpdate={this.props.handleNoteUpdate}
         />
       </div>
     );

@@ -11,6 +11,7 @@ import DashboardContainer from './component/dashboard-container';
 class App extends React.Component {
   constructor(props){
     super(props);
+    console.log('main props:\n',this.props);
     this.state = {
       notes: [],
     };
