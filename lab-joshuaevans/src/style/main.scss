@@ -1,0 +1,33 @@
+*{
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+form {
+  text-align: center;
+}
+
+input{
+  text-align: center;
+}
+
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+div{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.note-container{
+  margin: 0 auto;
+  width: 30%;
+  border: 3px solid lightgrey;
+}
