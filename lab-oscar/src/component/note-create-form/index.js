@@ -68,7 +68,7 @@ class NoteCreateForm extends React.Component {
           <input
             name="content"
             type="text"
-            placeholder='What needs to done?'
+            placeholder='What needs to be done?'
             value={this.state.content}
             onChange={this.handleChange}
           />

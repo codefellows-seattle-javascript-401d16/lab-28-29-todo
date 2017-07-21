@@ -67,7 +67,7 @@ class NoteItemDelete extends React.Component {
             submitName='Update Note'
             note={this.props.noteItem}
             handleSubmit={(note) => { note.id = this.props.noteItem.id
-              this.noteUpdate(note)}}/></span>
+              this.noteUpdate(note);}}/></span>
         }
       </div>
     );

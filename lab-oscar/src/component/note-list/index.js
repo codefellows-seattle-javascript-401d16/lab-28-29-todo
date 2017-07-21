@@ -19,10 +19,10 @@ class NoteList extends React.Component {
             return (
               <li key={i}>
                 <div>
-                <NoteItemDelete noteItem={item} notes={this.props.app}/>
-              </div>
+                  <NoteItemDelete noteItem={item} notes={this.props.app}/>
+                </div>
               </li>
-            )
+            );
           })}
         </ul>
       </div>
