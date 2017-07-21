@@ -17,14 +17,17 @@ class NoteCreateForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleErrorBox = this.handleErrorBox.bind(this);
+    this.handleCloseErrorBox = this.handleCloseErrorBox.bind(this);
   }
 
   handleErrorBox(){
-    console.log('testing mouseover');
     const errorState = this.state.errorClose;
     this.setState({errorClose: !errorState});
   }
 
+  handleCloseErrorBox(){
+    this.setState({error: null});
+  }
   handleChange(e){
     let {name, value, type} = e.target;
     this.setState({
@@ -50,7 +53,10 @@ class NoteCreateForm extends React.Component {
             <div className='error-on-submit'>
               <div>
                 {this.state.error}
-                <a href="#" onMouseOver={this.handleErrorBox}
+                <a href="#"
+                  onClick={this.handleCloseErrorBox}
+                  onMouseOver={this.handleErrorBox}
+                  onMouseOut={this.handleErrorBox}
                   className={this.state.errorClose ? 'active-error-close-box' : 'error-close-box'}
                 >X</a>
               </div>

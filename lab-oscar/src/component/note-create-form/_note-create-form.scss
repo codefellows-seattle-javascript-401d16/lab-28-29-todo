@@ -53,7 +53,17 @@ $color-button-update-border: #66ccff;
   position: relative;
   left: 35%;
   color: #e0acac;
-  font-style: italic;
+  font-family: sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+}
+.active-error-close-box {
+  position: relative;
+  left: 35%;
+  color: #7c7e7f;
+  font-family: sans-serif;
+  font-size: 15px;
+  text-decoration: none;
 }
 .error-on-submit {
   margin: 0 auto;
