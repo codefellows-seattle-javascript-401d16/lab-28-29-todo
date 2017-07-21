@@ -3,7 +3,7 @@ import uuid from 'uuid/v1';
 import NoteForm from '../note-form';
 import NoteList from '../note-list';
 
-class NoteContainer extends React.Component {
+class NoteItem extends React.Component {
   constructor(props){
     super(props);
 
@@ -30,12 +30,11 @@ class NoteContainer extends React.Component {
 
   render(){
     let {app} = this.props;
+
     console.log('app', app);
     return(
-      <div className='note-container'>
-        <NoteForm
-          handleSubmit={this.noteCreate}
-        />
+      <div className='note-item'>
+        <NoteForm handleSubmit={this.noteCreate}/>
 
         <NoteList
           noteRemove={this.noteRemove}
@@ -46,4 +45,4 @@ class NoteContainer extends React.Component {
   }
 }
 
-export default NoteContainer;
+export default NoteItem;
