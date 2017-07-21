@@ -6,7 +6,6 @@ import {BrowserRouter, Route} from 'react-router-dom'
 
 import NoteContainer from './component/note-container'
 import NoteCreateForm from './component/note-create-form'
-import NoteItem from './component/note-item'
 import NoteList from './component/note-list'
 
 
@@ -18,18 +17,12 @@ class App extends React.Component{
     }
 
     this.getApp = this.getApp.bind(this)
-    this.noteRemove = this.noteRemove.bind(this)
   }
 
   componentDidUpdate(){
       console.log('^^^:::STATE:::^^^', this.state)
     }
 
-  noteRemove(id) {
-    let notes = this.state.notes;
-    notes = notes.filter(note => note.id !== id);
-    this.setState({ notes });
-  }
 
   getApp(){
     return{
@@ -49,7 +42,6 @@ class App extends React.Component{
               component={() => <NoteContainer app={this.getApp()}/>} />
           </div>
         </BrowserRouter>
-        <NoteList notes={this.state.notes} noteRemove={this.noteRemove}/>
       </main>
     )
   }

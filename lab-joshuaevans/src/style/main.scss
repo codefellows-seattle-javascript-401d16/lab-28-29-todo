@@ -1,4 +1,5 @@
 *{
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -9,11 +10,18 @@ form {
 }
 
 input{
-  border: 2px solid black;
-  border-radius: 12px;
-  height: 3em;
+  text-align: center;
 }
-button{
-  width: 30%;
-  font-size: 2em;
+
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+div{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
