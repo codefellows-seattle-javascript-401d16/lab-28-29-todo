@@ -38,7 +38,7 @@ class App extends React.Component{
           <div>
             <Route
               exact
-              path=''
+              path='/'
               component={() => <NoteContainer app={this.getApp()}/>} />
           </div>
         </BrowserRouter>

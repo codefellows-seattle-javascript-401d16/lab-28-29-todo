@@ -46,9 +46,9 @@ class NoteList extends React.Component{
             note = {item}
             submitTitle='Update Note'
             placeHolder='update your note'
-            handleSubmit={(note) => {
-              note.id = item.id
-              this.props.noteEdit(note)
+            handleSubmit={(data) => {
+              data.id = item.id
+              this.props.noteEdit(data)
             }} />
           </div>
         )}
