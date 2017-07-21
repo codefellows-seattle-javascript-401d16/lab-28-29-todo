@@ -56,8 +56,12 @@ class NoteItem extends React.Component {
         {renderIf(
           !this.state.editing,
           <div>
-            {this.props.note.content}
-            <button onClick={this.handleDelete}>x</button>
+            <div className="note-item">
+              {this.props.note.content}
+            </div>
+            <button onClick={this.handleDelete} className="note-item-delete">
+              x
+            </button>
           </div>
         )}
       </div>
