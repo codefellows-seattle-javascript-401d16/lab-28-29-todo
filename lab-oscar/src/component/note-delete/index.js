@@ -9,9 +9,11 @@ class NoteItemDelete extends React.Component {
 
     this.state = {
       defaultView: true,
+      activeClass: false,
     };
     this.itemDelete = this.itemDelete.bind(this);
     this.handleView = this.handleView.bind(this);
+    this.toggleClass = this.toggleClass.bind(this);
   }
 
   handleView() {
@@ -19,6 +21,12 @@ class NoteItemDelete extends React.Component {
       defaultView: false,
     });
   }
+
+  toggleClass() {
+    const currentState = this.state.activeClass;
+    this.setState({activeClass: !currentState});
+  }
+
   itemDelete(e){
     let notes = this.props.notes.state.notes;
     let newNotes = notes.filter((element) => {
@@ -31,22 +39,23 @@ class NoteItemDelete extends React.Component {
     this.setState({
       defaultView: true,
     });
+
     this.props.notes.setState(prevNotes => ({
       notes: prevNotes.notes.map((item) => {
         return item.id === note.id ? note : item;
       }),
     }));
   }
-
   render() {
     return (
       <div>
 
         {this.state.defaultView == true ?
-          <span>
-            <div onClick={this.handleView} >
-              {this.props.noteItem.content}
-            </div>
+
+
+          <span onDoubleClick={this.handleView} >
+            <span onClick={this.toggleClass} className={this.state.activeClass ? 'complete-checkbox': 'completed-checkbox'}>00</span>
+            {this.props.noteItem.content.toUpperCase()}
             <img
               src='https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Close_Icon_Dark-128.png'
               alt='delete'
@@ -54,6 +63,8 @@ class NoteItemDelete extends React.Component {
 
           :
           <span><NoteCreateForm
+            updateClass='update-class'
+            submitName='Update Note'
             note={this.props.noteItem}
             handleSubmit={(note) => { note.id = this.props.noteItem.id
               this.noteUpdate(note)}}/></span>

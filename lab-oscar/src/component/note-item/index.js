@@ -8,8 +8,10 @@ import NoteCreateForm from '../note-create-form';
 class NoteItem extends React.Component {
   constructor(props){
     super(props);
+
     this.noteCreate = this.noteCreate.bind(this);
   }
+
 
   noteCreate(note){
     note.id = uuid();

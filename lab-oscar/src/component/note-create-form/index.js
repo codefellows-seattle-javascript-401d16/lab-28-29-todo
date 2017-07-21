@@ -5,33 +5,60 @@ import React from 'react';
 class NoteCreateForm extends React.Component {
   constructor(props){
     super(props);
-    console.log('note', props.note);
+    console.log('note', props.updateClass);
     let content = props.note ? props.note.content : '';
 
     this.state = {
-      content: content
+      content: content,
+      error:null,
+      errorClose: null,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleErrorBox = this.handleErrorBox.bind(this);
+  }
+
+  handleErrorBox(){
+    console.log('testing mouseover');
+    const errorState = this.state.errorClose;
+    this.setState({errorClose: !errorState});
   }
 
   handleChange(e){
     let {name, value, type} = e.target;
     this.setState({
       [name]: value,
+      error: null,
     });
   }
 
   handleSubmit(event) {
+    console.log('testing validation', event.target);
     event.preventDefault();
-    this.props.handleSubmit(this.state);
-  }
+    {this.state.content === '' ? this.setState(
+      {error: 'Please enter some text'})
+      :
+      this.props.handleSubmit(this.state);}
 
+  }
   render(){
     return (
-      <div className='input-form'>
+      <div className={this.props.updateClass ? this.props.updateClass : 'input-form'}>
         <form onSubmit={this.handleSubmit} >
+          {this.state.error ?
+            <div className='error-on-submit'>
+              <div>
+                {this.state.error}
+                <a href="#" onMouseOver={this.handleErrorBox}
+                  className={this.state.errorClose ? 'active-error-close-box' : 'error-close-box'}
+                >X</a>
+              </div>
+            </div>
+            :
+            null
+          }
+
           <input
             name="content"
             type="text"
