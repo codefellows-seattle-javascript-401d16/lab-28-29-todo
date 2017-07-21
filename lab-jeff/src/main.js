@@ -1,13 +1,10 @@
 import './style/main.scss';
 
 import React from 'react';
-import uuid from 'uuid/v1';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-import NoteList from './component/note-list/';
-import NoteItem from './component/note-item/';
-import NoteCreateForm from './component/note-create-form/';
+import DashboardContainer from './component/dashboard-container';
 
 // constructor
 class App extends React.Component {
@@ -16,9 +13,7 @@ class App extends React.Component {
     this.state = {
       notes: [],
     };
-
-
-    this.getApp = this.getApp.bind(this);
+    // this.getApp = this.getApp.bind(this);
   }
 
   //hooks
@@ -42,9 +37,7 @@ class App extends React.Component {
       <main className='app'>
         <BrowserRouter>
           <div>
-            <h1>To Do App</h1>
-            <NoteCreateForm app={this.getApp()} />
-            <NoteList app={this.getApp()} />
+            <Route exact path='/' component={() => <DashboardContainer app={this.getApp()}/>}/>
           </div>
         </BrowserRouter>
       </main>

@@ -19,6 +19,14 @@ class DashboardContainer extends React.Component {
     }));
   }
 
+  noteUpdate(updatedNote) {
+    this.props.app.setState((state) => ({
+      notes: state.notes.map((item) => {
+        return item.id == updatedNote.id ? updatedNote : item;
+      }),
+    }));
+  }
+
   noteDelete(note) {
     this.props.app.setState(state => ({
       notes: state.notes.filter(item => item.id != note.id ? true: false),
