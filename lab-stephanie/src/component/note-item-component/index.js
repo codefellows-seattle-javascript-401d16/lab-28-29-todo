@@ -22,6 +22,7 @@ class NoteItem extends React.Component {
     })
     this.props.note.content = this.state.content
   }
+
   handleBlur(e) {
     this.setState({
       content: e.target.value,

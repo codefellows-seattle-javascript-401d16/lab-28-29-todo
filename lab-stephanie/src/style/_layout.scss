@@ -1,4 +1,19 @@
 @import "./_vars.scss";
+
+.reddit {
+  width: 17%;
+  position: fixed;
+}
+
+.reddit p,
+img {
+  display: inline;
+}
+
+.reddit img {
+  width: 100%;
+  height: 100%;
+}
 /*modal*/
 
 .modal {

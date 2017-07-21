@@ -6,6 +6,7 @@ import ReactDom from 'react-dom'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import NoteList from './component/note-list-component'
+import RedditApp from './component/reddit-api-component'
 import NoteCreateForm from './component/note-create-form-component'
 
 class App extends React.Component {
@@ -52,6 +53,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="note-container">
+        <RedditApp />
         <h1>To Do</h1>
         <NoteCreateForm noteCreate={this.noteCreate} />
         <NoteList
