@@ -4,8 +4,14 @@ class NoteItem extends React.Component{
   constructor(props){
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
-    console.log(this.props.app.state.notes);
-    console.log(this.props.note.id);
+    this.handleView = this.handleView.bind(this);
+  }
+
+  handleView(){
+    console.log('edit');
+    this.props.app.setState(state => ({
+      notes: state.notes.map(note => note.id == this.props.note.id ? this.props.note : note),
+    }));
   }
 
   handleDelete() {
@@ -16,10 +22,13 @@ class NoteItem extends React.Component{
 
   render(){
     return(
-      <p>
-        {this.props.note.content}
-        <button onClick={() => this.handleDelete(this.props.note)}> Delete </button>
-      </p>
+      <section>
+        <p>
+          {this.props.note.content}
+          <button onClick={this.handleDelete}> Delete </button>
+        </p>
+        <button onClick={this.handleView}>Update</button>
+      </section>
     );
   }
 }
