@@ -5,6 +5,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 //import child containers
 import AboutContainer from './about-container/index.js';
 import DashboardContainer from './dashboard-container/index.js';
+import NavBar from './navbar-container/index.js';
 
 //holding my main application state and the routes
 //structure by hooks, methods, render
@@ -37,15 +38,9 @@ class App extends React.Component{
   render(){
     return(
       <main>
-        <h1>ToDo App!</h1>
-        <nav>
-          <ul>
-            <li><a href='/'> Dashboard </a></li>
-            <li><a href='/about'> About </a></li>
-          </ul>
-        </nav>
         <BrowserRouter>
           <div>
+            <NavBar />
             <Route
               exact path='/'
               component={() => <DashboardContainer app={this.getApp()} />}

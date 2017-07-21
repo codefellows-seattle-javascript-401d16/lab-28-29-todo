@@ -18,6 +18,7 @@ class DashboardContainer extends React.Component{
 
   //METHODS - for all CRUD operations
   noteCreate(note){
+    console.log('hit noteCreate');
     note.id = uuid();
     this.props.app.setState(prevState => ({
       notes: [...prevState.notes, note],
@@ -25,17 +26,16 @@ class DashboardContainer extends React.Component{
   }
 
   noteUpdate(updatedNote){
-    console.log('CONUPDATE props: ', this.props.app);
-    console.log('DASH updated: ', updatedNote);
+    console.log('hit updateNote');
     this.props.app.setState(prevState => ({
       notes: prevState.notes.map((item) => {
-        console.log(updatedNote.id);
         return item.id == updatedNote.id ? updatedNote : item;
       }),
     }));
   }
 
   noteRemove(note){
+    console.log('hit noteRemove');
     this.props.app.setState(prevState => ({
       notes: prevState.notes.filter((item) => {
         return item.id !== note.id;
