@@ -11,7 +11,12 @@ class NoteList extends React.Component {
   render() {
     return(
       <div className="note-list">
-        <NoteItem notes={this.props.app.state.notes} app={this.props.app}/>
+        <NoteItem
+        notes={this.props.app.state.notes}
+        app={this.props.app}
+        noteRemove={this.props.noteRemove}
+        noteUpdate={this.props.noteUpdate}
+        />
       </div>
     );
 
