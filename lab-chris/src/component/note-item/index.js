@@ -4,7 +4,7 @@ class NoteItem extends React.Component{
   constructor(props){
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
-    console.log('note items', this.props.notes);
+    console.log('note items', this.props.note);
   }
 
   handleDelete(e){
@@ -18,8 +18,8 @@ class NoteItem extends React.Component{
   render(){
     return(
       <p>
-        {this.props.notes.content}
-        <button onClick={() => this.props.handleDelete(this.props.note)}> Delete </button>
+        {this.props.note.content}
+        <button onClick={() => this.props.note.handleDelete(this.props.note)}> Delete </button>
       </p>
     );
   }
