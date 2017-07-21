@@ -1,5 +1,5 @@
 import React from 'react';
-import uuid from 'uuid/v1';
+
 
 class NoteCreateForm extends React.Component {
   constructor(props) {
@@ -17,34 +17,26 @@ class NoteCreateForm extends React.Component {
 
   handleChange(e) {
     this.setState({
-      [e.target.name]: e.target.value,
+      content: e.target.value,
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.NoteCreate(this.state);
+    this.props.handleNoteCreate(this.state);
   }
 
-  // noteCreate(note) {
-  //   note.id = uuid();
-  //   this.props.app.setState(state => ({
-  //     notes: [...state.notes, note],
-  //   }));
-  // }
 
   render(){
     return(
-      <form className='note-create-form'
-        onSubmit={this.handleSubmit} >
-
+      <form onSubmit={this.handleSubmit} >
+        <label> To Do </label>
         <input
-          name='content'
           type='text'
           value={this.state.content}
           onChange={this.handleChange}
+          placeholder = 'Enter your To Do'
         />
-
         <button type='submit'> submit </button>
       </form>
     );
