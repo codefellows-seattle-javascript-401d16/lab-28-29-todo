@@ -5,7 +5,6 @@ import NoteUpdateForm from '../note-update-form';
 class NoteItem extends React.Component {
 
   render() {
-    console.log('note item THIS:\n',this);
     return (
       <ul className="note-item">
         {this.props.notes.map((item, i) =>

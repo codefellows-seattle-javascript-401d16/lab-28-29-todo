@@ -11,7 +11,6 @@ let renderIf = (test, component) => test ? component : undefined;
 class DashboardContainer extends React.Component {
   constructor(props){
     super(props);
-    console.log('dashboard props:\n',this.props);
     this.state = {
       showErrors: true,
     };
@@ -48,7 +47,6 @@ class DashboardContainer extends React.Component {
   }
 
   render(){
-    console.log('dashboard THIS:\n',this);
     return (
       <div className='dashboard-container'>
       <Navbar />

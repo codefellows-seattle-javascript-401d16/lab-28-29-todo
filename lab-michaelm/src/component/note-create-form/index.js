@@ -4,7 +4,6 @@ import './_note-create-form.scss';
 class NoteCreateForm extends React.Component {
   constructor(props){
     super(props);
-    console.log('note create form props:\n',this.props);
 
     this.state = {
       id: '',

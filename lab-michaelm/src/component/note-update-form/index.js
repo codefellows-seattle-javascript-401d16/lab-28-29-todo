@@ -11,7 +11,6 @@ class NoteUpdateForm extends React.Component {
       completed: false,
       content: '',
     };
-    console.log('note update form props:\n',this.props);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
