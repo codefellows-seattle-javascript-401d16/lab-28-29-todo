@@ -17,14 +17,12 @@ export default class Note extends React.Component {
   addNote(content) {
     const notes = [...this.state.notes]
     const id = uuid.v1();
-    const note = { content, id };
-    notes.push(note);
+    notes.push({ content, id });
     this.setState({ notes })
   }
 
   removeNote(id) {
-    let notes = this.state.notes;
-    notes = notes.filter(note => note.id !== id);
+    const notes = this.state.notes.filter(note => note.id !== id);
     this.setState({ notes });
   }
 

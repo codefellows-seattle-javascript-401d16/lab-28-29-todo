@@ -13,17 +13,14 @@ export default class NoteItem extends React.Component {
   }
 
   handleDoubleClick() {
-    const note = Object.assign({}, this.props.note, { editing: true });
-    this.props.updateNote(note);
+    this.props.updateNote(Object.assign({}, this.props.note, { editing: true }));
   }
 
   render() {
     return (
       <li>
         {this.props.note.editing ? (
-          <NoteUpdateForm
-            note={this.props.note}
-            updateNote={this.props.updateNote}/>
+          <NoteUpdateForm note={this.props.note} updateNote={this.props.updateNote}/>
         ) : (
           <span>
             <p onDoubleClick={this.handleDoubleClick}>{this.props.note.content}</p>

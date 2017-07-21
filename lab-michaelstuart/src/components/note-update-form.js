@@ -13,27 +13,26 @@ export default class NoteUpdateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const note = {
+    this.props.updateNote({
       id: this.props.note.id,
       content: this.state.content,
       editing: false,
-    }
-    this.props.updateNote(note);
+    });
   }
 
   handleCancel(e) {
     e.preventDefault();
-    const note = {
+    this.props.updateNote({
       id: this.props.note.id,
       content: this.props.note.content,
       editing: false,
-    }
-    this.props.updateNote(note);
+    });
   }
 
   handleChange(e) {
-    const content = e.target.value;
-    this.setState({ content });
+    this.setState({
+      content: e.target.value,
+    });
   }
 
   render() {
