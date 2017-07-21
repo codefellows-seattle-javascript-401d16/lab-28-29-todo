@@ -4,23 +4,24 @@ class NoteItem extends React.Component{
   constructor(props){
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    console.log('note items', this.props.notes);
   }
 
   handleDelete(e){
-
+    this.props.setState(prev => ({
+      notes: prev.notes.filter((item) => {
+        return item.id !== note.id
+      }),
+    }));
   }
 
   render(){
     return(
-      <ul>
-        {this.props.app.notes.map((note) =>
-          <li key={note.id}>
-            console.log(note);
-            {note.content}
-            <button onClick={this.handleDelete}> Delete </button>
-          </li>
-        )}
-      </ul>    );
+      <p>
+        {this.props.notes.content}
+        <button onClick={() => this.props.handleDelete(this.props.note)}> Delete </button>
+      </p>
+    );
   }
 }
 

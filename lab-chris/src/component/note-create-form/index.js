@@ -22,13 +22,11 @@ class NoteCreateForm extends React.Component {
   }
 
   handleSubmit(e){
-    console.log('submit hit', this);
     e.preventDefault();
     this.NoteCreate(this.state);
   }
 
   NoteCreate(note){
-    console.log('create hit', this);
     console.log('props', this.props);
     note.id = uuid();
     this.props.app.setState(state => ({

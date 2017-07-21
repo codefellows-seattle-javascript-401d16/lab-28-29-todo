@@ -30,12 +30,10 @@ class App extends React.Component {
   render(){
     return(
       <main>
-        <BrowserRouter>
-          <div>
-
-            <Route exact path='/' component={() => <NoteCreate app={this.getApp()}/>} />
-          </div>
-        </BrowserRouter>
+        <div>
+          <NoteCreate app={this.getApp()}/>
+          <NoteList app={this.getApp()}/>
+        </div>
       </main>
     );
   }
