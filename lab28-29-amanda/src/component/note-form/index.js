@@ -34,13 +34,10 @@ class NoteForm extends React.Component {
           value={this.state.title}
           onChange={this.handelChange}
         />
-
-        <button type= 'submit'> add note </button>
-        <button type= 'submit'> remove note </button>
+        <button type='submit'> submit </button>
       </form>
     );
   }
 }
-
 
 export default NoteForm;

@@ -1,22 +1,25 @@
 import React from 'react';
-import uuid from 'uuid/v1';
+import uuid from 'uuid';
 import NoteForm from '../note-form';
 import NoteList from '../note-list';
+
 
 class NoteItem extends React.Component {
   constructor(props){
     super(props);
-
+    console.log('testing', this.props);
     this.noteCreate=this.noteCreate.bind(this);
     this.noteRemove=this.noteRemove.bind(this);
+    this.noteUpdate=this.noteUpdate.bind(this);
   }
-
   noteCreate(note){
-    let {app} = this.props;
+    console.log('this value', note);
+    // let {app} = this.props;
     note.id = uuid();
-    app.setState( prevState => ({
-      notes: [...prevState.notes, note],
-    }));
+    this.props.app.setState(state =>
+      ({
+        notes: [...state.notes, note],
+      }));
   }
 
   noteRemove(note){
@@ -28,19 +31,30 @@ class NoteItem extends React.Component {
     }));
   }
 
+  noteUpdate(note){
+    let {app} = this.props;
+    app.setState(prevState => ({
+      notes: prevState.notes.map((item) => {
+        return item.id == note.id ? note : item;
+      }),
+    }));
+  }
   render(){
     let {app} = this.props;
-
-    console.log('app', app);
+    
+    console.log('this.state', this.props.app);
     return(
-      <div className='note-item'>
-        <NoteForm handleSubmit={this.noteCreate}/>
+      <li>
+        <div className='note-item'>
 
-        <NoteList
-          noteRemove={this.noteRemove}
-          notes={app.state.notes}
-        />
-      </div>
+          <NoteForm
+            handleSubmit={this.noteCreate}
+          />
+
+          <NoteList
+            notes={app.state.notes} />
+        </div>
+      </li>
     );
   }
 }
