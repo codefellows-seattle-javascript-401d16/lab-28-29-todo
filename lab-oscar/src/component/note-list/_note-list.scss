@@ -3,6 +3,10 @@
   width: 50%;
   margin: 0 auto;
   border-radius: 10px;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTop6SAfbwNUYwtIPA2wk4QYmUUM3RmZwcc2VmxvTSlJd6g9iGY');
+  background-repeat: no-repeat;
+  background-size: 100%;
+
 }
 .list-item h1 {
   font-size: 22px;
@@ -10,19 +14,33 @@
   text-align: center;
 }
 .list-item ul li {
-  margin-left: 10%;
+  margin-left: 12%;
   font-size: 22px;
   font-family: monospace;
-  // text-transform:capitalize;
+  margin-bottom: 10px;
+  list-style-image: url('https://cdn0.iconfinder.com/data/icons/hamburg/16/pencil.png');
 }
-.list-item button {
-  margin-left: 10px;
-  width: 10px;
-  border-radius: 10px;
-  background-color: red;
-  text-align: left;
+.completed-checkbox {
+  border-radius: 100%;
+  border: 2px solid #b9bbbf;
+  width:10px;
+  height: 5px;
+  background-color: #fff;
+  color: #fff;
+  margin-right: 15px;
+  cursor: pointer;
 }
-.list-item div img {
+.complete-checkbox{
+  border-radius: 100%;
+  border: 2px solid #b9bbbf;
+  width:10px;
+  height: 5px;
+  background-color: #a4f442;
+  color: #a4f442;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.list-item img {
   margin-bottom: -10px;
   margin-left: 10px;
   width: 25px;
