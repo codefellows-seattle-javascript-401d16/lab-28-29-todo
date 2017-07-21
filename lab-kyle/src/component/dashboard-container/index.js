@@ -15,22 +15,16 @@ class DashboardContainer extends React.Component {
 
   noteCreate(note) {this.props.app.setState(state => ({notes: [...state.notes, note]}))}
 
-  noteUpdate(note) {
-    this.props.app.setState(state => ({notes: state.notes.map(item => {
-      console.log('item.id', item.id)
-      console.log('note.id', note.id)
-      return item.id === note.id ? note : item})}))
-  }
+  noteUpdate(note) {this.props.app.setState(state => ({notes: state.notes.map(item => item.id === note.id ? note : item)}))}
 
   noteRemove(note) {this.props.app.setState(state => ({notes: state.notes.filter(item => item.id !== note.id)}))}
 
   render() {
-    let {app} = this.props
     return (
       <div className='dashboard-container'>
         <NoteForm handleSubmit={this.noteCreate} buttonText='submit'/>
         <NoteList
-          notes={app.state.notes}
+          notes={this.props.app.state.notes}
           noteUpdate={this.noteUpdate}
           noteRemove={this.noteRemove}
         />
