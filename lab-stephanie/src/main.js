@@ -6,6 +6,7 @@ import ReactDom from 'react-dom'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import NoteList from './component/note-list-component'
+import RedditApp from './component/reddit-api-component'
 import NoteCreateForm from './component/note-create-form-component'
 
 class App extends React.Component {
@@ -35,6 +36,14 @@ class App extends React.Component {
     }))
     console.log(this.state.notes)
   }
+
+  noteUpdate(note) {
+    let notes = this.state.notes.map(n => {
+      return n.id == note.id ? note : n
+    })
+    this.setState({ notes })
+  }
+
   noteDelete(id) {
     let notes = this.state.notes.filter(n => n.id !== id)
 
@@ -44,9 +53,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="note-container">
+        <RedditApp />
         <h1>To Do</h1>
         <NoteCreateForm noteCreate={this.noteCreate} />
-        <NoteList notes={this.state.notes} noteDelete={this.noteDelete} />
+        <NoteList
+          notes={this.state.notes}
+          noteDelete={this.noteDelete}
+          noteUpdate={this.noteUpdate}
+        />
       </div>
     )
   }
