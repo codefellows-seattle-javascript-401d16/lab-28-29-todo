@@ -41,7 +41,8 @@ class NoteContainer extends React.Component {
       <div className='note-container'>
         <NoteCreateForm
           handleSubmit={this.noteCreate}
-          submitTitle='Note Me'
+          placeHolder='write your note'
+
          />
         <NoteList
           noteEdit={this.noteEdit}

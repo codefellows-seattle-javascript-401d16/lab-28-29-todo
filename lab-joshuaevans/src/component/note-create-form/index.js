@@ -3,6 +3,8 @@ import uuid from 'uuid/v1';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 class NoteCreateForm extends React.Component{
   constructor(props){
@@ -34,13 +36,22 @@ class NoteCreateForm extends React.Component{
         <TextField
           name='content'
           type='text'
+          hintText={this.props.placeHolder}
           onChange={this.handleChange}
           value={this.state.content}
           style={{width: '100%'}}
           />
       </MuiThemeProvider><br/>
       <MuiThemeProvider>
-          <RaisedButton type='submit' className='buttons' label={this.props.submitTitle} labelStyle={{fontSize: '2em'}} style={{verticalAlign: 'middle', lineHeight: '36px', width: '20%'}} />
+      <FloatingActionButton
+        mini={false}
+        disabled={false}
+        disabledColor={true}
+        type='submit'
+        backgroundColor='lightgrey'
+        style={{width: 'auto'}}>
+          <ContentAdd viewBox='0 10 24 24'/>
+        </FloatingActionButton>
       </MuiThemeProvider><br />
       </form>
     )
