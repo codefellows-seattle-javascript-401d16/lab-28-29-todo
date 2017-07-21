@@ -25,7 +25,7 @@ class NoteItem extends React.Component {
     return (
       <div className='note-form'>
         <h1>Create a Note</h1>
-        <NoteCreateForm handleNoteCreate={this.noteCreate} />
+        <NoteCreateForm handleSubmit={this.noteCreate} submitName="Add Note" />
       </div>
     );
   }

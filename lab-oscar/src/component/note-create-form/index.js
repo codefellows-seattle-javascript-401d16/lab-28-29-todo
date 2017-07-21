@@ -5,8 +5,11 @@ import React from 'react';
 class NoteCreateForm extends React.Component {
   constructor(props){
     super(props);
+    console.log('note', props.note);
+    let content = props.note ? props.note.content : '';
+
     this.state = {
-      content: '',
+      content: content
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -14,30 +17,31 @@ class NoteCreateForm extends React.Component {
   }
 
   handleChange(e){
+    let {name, value, type} = e.target;
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.handleNoteCreate(this.state);
+    this.props.handleSubmit(this.state);
   }
 
   render(){
     return (
       <div className='input-form'>
-      <form onSubmit={this.handleSubmit} >
-        <input
-          name="content"
-          type="text"
-          placeholder='What needs to done?'
-          value={this.state.content}
-          onChange={this.handleChange}
-        />
-        <button type='submit'>Add Note </button>
-      </form>
-    </div>
+        <form onSubmit={this.handleSubmit} >
+          <input
+            name="content"
+            type="text"
+            placeholder='What needs to done?'
+            value={this.state.content}
+            onChange={this.handleChange}
+          />
+          <button type='submit'>{this.props.submitName}</button>
+        </form>
+      </div>
     );
   }
 }
