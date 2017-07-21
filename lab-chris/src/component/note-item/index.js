@@ -4,14 +4,13 @@ class NoteItem extends React.Component{
   constructor(props){
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
-    console.log('note items', this.props.note);
+    console.log(this.props.app.state.notes);
+    console.log(this.props.note.id);
   }
 
-  handleDelete(e){
-    this.props.setState(prev => ({
-      notes: prev.notes.filter((item) => {
-        return item.id !== note.id
-      }),
+  handleDelete() {
+    this.props.app.setState(state => ({
+      notes: state.notes.filter(note => note.id !== this.props.note.id),
     }));
   }
 
@@ -19,7 +18,7 @@ class NoteItem extends React.Component{
     return(
       <p>
         {this.props.note.content}
-        <button onClick={() => this.props.note.handleDelete(this.props.note)}> Delete </button>
+        <button onClick={() => this.handleDelete(this.props.note)}> Delete </button>
       </p>
     );
   }
