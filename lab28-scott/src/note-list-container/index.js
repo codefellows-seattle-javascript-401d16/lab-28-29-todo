@@ -1,4 +1,5 @@
 import React from 'react';
+import NoteUpdateForm from '../note-update-form-container';
 
 class NoteList extends React.Component{
   constructor(props){
@@ -24,6 +25,10 @@ class NoteList extends React.Component{
                   onClick={() => this.props.noteRemove(note)}>
                   Delete Note
                 </button>
+                <NoteUpdateForm
+                  noteUpdate={this.props.noteUpdate}
+                  note={note}
+                />
               </li>
             );
           })}

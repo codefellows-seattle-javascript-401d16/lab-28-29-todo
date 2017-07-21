@@ -22,9 +22,10 @@ class NoteCreateForm extends React.Component{
 
   handleFormSubmit(e){
     e.preventDefault();
-    console.log('createVALUE:', e.target.value);
-    console.log('this.state.id', this.state.id);
-    console.log('this.props', this.props);
+    console.log('break');
+    // console.log('createVALUE:', e.target.value);
+    // console.log('this.state.id', this.state.id);
+    // console.log('this.props', this.props);
     console.log('form was submitted');
     this.props.noteCreate(this.state);
   }

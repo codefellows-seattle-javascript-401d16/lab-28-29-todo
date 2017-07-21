@@ -1,6 +1,7 @@
 import React from 'react';
 import uuid from 'uuid/v1';
 import NoteCreateForm from '../note-create-form-container';
+import NoteUpdateForm from '../note-update-form-container';
 import NoteList from '../note-list-container';
 
 class DashboardContainer extends React.Component{
@@ -11,6 +12,7 @@ class DashboardContainer extends React.Component{
     };
     console.log('CONTAINER', this.props);
     this.noteCreate = this.noteCreate.bind(this);
+    this.noteUpdate = this.noteUpdate.bind(this);
     this.noteRemove = this.noteRemove.bind(this);
   }
 
@@ -19,6 +21,17 @@ class DashboardContainer extends React.Component{
     note.id = uuid();
     this.props.app.setState(prevState => ({
       notes: [...prevState.notes, note],
+    }));
+  }
+
+  noteUpdate(updatedNote){
+    console.log('CONUPDATE props: ', this.props.app);
+    console.log('DASH updated: ', updatedNote);
+    this.props.app.setState(prevState => ({
+      notes: prevState.notes.map((item) => {
+        console.log(updatedNote.id);
+        return item.id == updatedNote.id ? updatedNote : item;
+      }),
     }));
   }
 
@@ -39,6 +52,7 @@ class DashboardContainer extends React.Component{
           <NoteList
             notes={this.props.app.state.notes}
             noteRemove={this.noteRemove}
+            noteUpdate={this.noteUpdate}
           />
         </div>
       </div>

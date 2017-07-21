@@ -3,9 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 //import child containers
-import NoteCreateFormContainer from './note-create-form-container/index.js';
-import NoteItemContainer from './note-item-container/index.js';
-import NoteListContainer from './note-list-container/index.js';
 import AboutContainer from './about-container/index.js';
 import DashboardContainer from './dashboard-container/index.js';
 
