@@ -2,6 +2,7 @@ import React from 'react';
 import uuid from 'uuid';
 
 import Modal from '../modal';
+// import NoteItem from '../note-item';
 import NoteList from '../note-list';
 import NoteForm from '../note-form';
 
@@ -28,22 +29,20 @@ class DashboardContainer extends React.Component {
     }));
   }
 
-  noteRemove(id){
+  noteRemove(note){
     let {app} = this.props;
     app.setState(prevState => ({
       notes: prevState.notes.filter((item) => {
-        return item.id !== id;
+        return item.id !== note.id;
       }),
     }));
   }
 
-  noteUpdate(newNote){
+  noteUpdate(note){
     let {app} = this.props;
-
     app.setState(prevState => ({
-
-      notes: prevState.notes.map((note) => {
-        return note.id == newNote.id ? newNote : note;
+      notes: prevState.notes.map((item) => {
+        return item.id == note.id ? note : item;
       }),
     }));
   }
@@ -54,7 +53,8 @@ class DashboardContainer extends React.Component {
     return (
       <div className='dashboard-container'>
         <NoteForm
-          onSubmit={this.noteAdd} />
+          handleSubmit={this.noteAdd}
+          buttonName='add note'/>
 
         <NoteList
           noteRemove={this.noteRemove}

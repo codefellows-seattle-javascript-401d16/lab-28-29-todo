@@ -10,12 +10,12 @@ class NoteForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleClearInput = this.handleClearInput.bind(this);
+    // this.handleClearInput = this.handleClearInput.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.handleSubmit(this.state.content);
+    this.props.noteAdd(Object.assign({}, this.state));
   }
 
   handleChange(e) {
@@ -23,9 +23,9 @@ class NoteForm extends React.Component {
     this.setState({content});
   }
 
-  handleClearInput(e){
-    this.textInput.value = '';
-  }
+  // handleClearInput(e){
+  //   this.textInput.value = '';
+  // }
 
   render() {
     return (
@@ -38,10 +38,9 @@ class NoteForm extends React.Component {
           type='text'
           value={this.state.content}
           onChange={this.handleChange}
-          ref={input => this.textInput = input}
           placeholder='create a new to do list' />
 
-        <button type='submit' onClick={this.handleClearInput}>
+        <button type='submit'>
           Submit
         </button>
 
