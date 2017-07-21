@@ -1,6 +1,6 @@
 ## Note Create and Delete App
 
-This is a simple application which lets users create and delete notes.
+This is a simple application which lets users create, update, and delete notes.
 
 ## Installation
 
