@@ -57,9 +57,14 @@ class NoteItemDelete extends React.Component {
             <span onClick={this.toggleClass} className={this.state.activeClass ? 'complete-checkbox': 'completed-checkbox'}>00</span>
             {this.props.noteItem.content.toUpperCase()}
             <img
+              className="button-delete"
               src='https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Close_Icon_Dark-128.png'
               alt='delete'
-              onClick={this.itemDelete}/></span>
+              onClick={this.itemDelete}/>
+              <img className="button-edit"
+                src='https://cdn0.iconfinder.com/data/icons/hamburg/16/pencil.png'
+                alt='Edit'
+                onDoubleClick={this.handleView}/></span>
 
           :
           <span><NoteCreateForm

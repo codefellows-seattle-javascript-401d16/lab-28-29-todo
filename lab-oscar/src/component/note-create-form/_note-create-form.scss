@@ -1,7 +1,4 @@
-$color-button-add: #DDFF99;
-$color-button-add-border: #ccff66;
-$color-button-update: #99ddff;
-$color-button-update-border: #66ccff;
+@import "../../style/_vars.scss";
 
 .input-form {
   width: 60%;
@@ -14,7 +11,7 @@ $color-button-update-border: #66ccff;
 .input-form input[type=text] {
   width: 60%;
   height: 30px;
-  font-family: monospace;
+  font-family: $fontface-main;
   font-size: 18px;
 }
 .input-form button {
@@ -24,7 +21,7 @@ $color-button-update-border: #66ccff;
   margin-left: 1px;
   width: 38%;
   height: 37px;
-  font-family: monospace;
+  font-family: $fontface-main;
   font-size: 17px;
   margin-bottom: 5px;
 }
@@ -34,7 +31,7 @@ $color-button-update-border: #66ccff;
 .update-class input[type=text]{
   width: 60%;
   height: 30px;
-  font-family: monospace;
+  font-family: $fontface-main;
   font-size: 20px;
 }
 .update-class button {
@@ -44,7 +41,7 @@ $color-button-update-border: #66ccff;
   margin-left: 1px;
   width: 37%;
   height: 37px;
-  font-family: monospace;
+  font-family: $fontface-main;
   font-size: 17px;
   margin-bottom: 5px;
 
@@ -52,16 +49,16 @@ $color-button-update-border: #66ccff;
 .error-close-box {
   position: relative;
   left: 35%;
-  color: #e0acac;
-  font-family: sans-serif;
+  color: $error-close-box;
+  font-family: $fontface-sans-serif;
   font-size: 14px;
   text-decoration: none;
 }
 .active-error-close-box {
   position: relative;
   left: 35%;
-  color: #7c7e7f;
-  font-family: sans-serif;
+  color: $error-close-box-mouseover;
+  font-family: $fontface-sans-serif;
   font-size: 15px;
   text-decoration: none;
 }
@@ -69,14 +66,14 @@ $color-button-update-border: #66ccff;
   margin: 0 auto;
   width: 95%;
   height: 40px;
-  background-color: #f2dede;
-  border: 1px solid #e8b3b0;
+  background-color: $error-box-background;
+  border: 1px solid $error-box-border;
   border-radius: 5px;
   margin-bottom: 5px;
-  color: #a94442;
+  color: $error-box-text;
   padding-left: 20px;
   padding-top: 20px;
   font-weight: bold;
   font-size: 16px;
-  font-family: monospace;
+  font-family: $fontface-main;
 }
