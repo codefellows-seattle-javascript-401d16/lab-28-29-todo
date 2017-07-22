@@ -1,0 +1,24 @@
+@import "../../style/_vars.scss";
+
+.dashboard-container {
+  .dashboard-main {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: $pad * 2;
+
+    .ledger {
+      height: $pad * 5;
+      margin-bottom: $pad;
+      p {
+        float: left;
+        height: 100%;
+        padding-top: $pad;
+        text-align: center;
+        width: calc(100% / 3 - 0.5em);
+        border: 1px $color-black solid;
+      }
+      p:last-child { float: right; }
+      p:first-child { margin-right: $pad * 1.5; }
+    }
+  }
+}

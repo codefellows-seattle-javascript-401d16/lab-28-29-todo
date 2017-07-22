@@ -3,6 +3,7 @@ import React from 'react';
 class NoteForm extends React.Component {
   constructor(props){
     super(props);
+
     let content = props.note ? props.note.content : '';
 
     this.state = {content};
@@ -16,7 +17,7 @@ class NoteForm extends React.Component {
     this.props.handleSubmit(this.state);
   }
 
-  handleChange(e) {
+  handleChange(e){
     let content = e.target.value;
     this.setState({content});
   }

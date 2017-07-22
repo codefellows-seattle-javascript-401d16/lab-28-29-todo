@@ -1,15 +1,2 @@
-$color-primary: #ff7a7a;
-
-* {
-  box-sizing: border-box;
-  font-size: 1em;
-  font-family: sans-serif;
-}
-body {
-  background: $color-primary;
-  font-size: 16px;
-}
-
-button {
-  width: 15%;
-}
+@import './_base.scss';
+@import './_reset.scss';

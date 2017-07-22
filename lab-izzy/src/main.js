@@ -6,15 +6,15 @@ import './style/main.scss';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-import DashboardContainer from './component/dashboard-container';
 import AboutContainer from './component/about-container';
+import DashboardContainer from './component/dashboard-container';
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      notes: [
-      ],
+      total: 10,
+      notes: [],
     };
 
     this.getApp = this.getApp.bind(this);
@@ -34,12 +34,14 @@ class App extends React.Component {
   render() {
     return (
       <main className='app'>
+
         <BrowserRouter>
           <div>
             <Route exact path='/' component={() =>
               <DashboardContainer app={this.getApp()} />} />
             <Route exact path='/about' component={AboutContainer} />
           </div>
+
         </BrowserRouter>
       </main>
     );

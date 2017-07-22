@@ -1,0 +1,33 @@
+@import './_vars.scss';
+
+* {
+  // box model
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: none;
+  outline: none;
+  display: block;
+  position: static;
+  box-sizing: border-box;
+
+  // font stuff
+  font-size: 1em;
+  font-style: normal;
+  white-space: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-family: 'Roboto Slab', serif;
+
+  // color
+  background: none;
+  color: $color-darkgrey;
+
+  // other
+  list-style: none;
+}
+
+form *:focus {
+  border: none;
+  outline: none;
+}

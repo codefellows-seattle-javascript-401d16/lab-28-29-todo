@@ -2,8 +2,12 @@ import uuid from 'uuid';
 import React from 'react';
 
 import Modal from '../modal';
+import Navbar from '../navbar';
 import NoteList from '../note-list';
 import NoteForm from '../note-form';
+import './_dashboard-container.scss';
+
+let renderIf = (t, c) => t ? c : undefined;
 
 class DashboardContainer extends React.Component {
   constructor(props){
@@ -13,12 +17,12 @@ class DashboardContainer extends React.Component {
       showErrors: true,
     };
 
-    this.noteAdd = this.noteAdd.bind(this);
+    this.noteCreate = this.noteCreate.bind(this);
     this.noteRemove = this.noteRemove.bind(this);
     this.noteUpdate = this.noteUpdate.bind(this);
   }
 
-  noteAdd(note){
+  noteCreate(note){
     note.id = uuid();
 
     let {app} = this.props;
@@ -36,11 +40,11 @@ class DashboardContainer extends React.Component {
     }));
   }
 
-  noteUpdate(note){
+  noteUpdate(updatedNote){
     let {app} = this.props;
     app.setState(prevState => ({
       notes: prevState.notes.map((item) => {
-        return item.id == note.id ? note : item;
+        return item.id == updatedNote.id ? updatedNote : item;
       }),
     }));
   }
@@ -50,15 +54,24 @@ class DashboardContainer extends React.Component {
 
     return (
       <div className='dashboard-container'>
-        <NoteForm
-          handleSubmit={this.noteAdd}
-          buttonName='add note'/>
+        <Navbar />
 
-        <NoteList
-          noteRemove={this.noteRemove}
-          noteUpdate={this.noteUpdate}
-          notes={app.state.notes} />
+        <main className='dashboard-main'>
 
+          <div className='ledger'>
+
+          </div>
+
+          <NoteForm
+            handleSubmit={this.noteCreate}
+            buttonName='add note' />
+
+          <NoteList
+            notes={app.state.notes}
+            noteUpdate={this.noteUpdate}
+            noteRemove={this.noteRemove} />
+
+        </main>
       </div>
     );
   }
