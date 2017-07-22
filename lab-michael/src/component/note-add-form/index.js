@@ -7,10 +7,8 @@ class NoteAddForm extends React.Component {
       subject: '',
       textContent:'',
     }
-    // date: new Date(),
-
     this.handleChange = this.handleChange.bind(this)
-    this.handleAdd = this.handleAdd.bind(this)
+    this.handleNoteAdd = this.handleNoteAdd.bind(this)
   }
 
 
@@ -21,15 +19,16 @@ class NoteAddForm extends React.Component {
   }
 
 
-  handleAdd(e){
+  handleNoteAdd(e){
     e.preventDefault()
     this.props.handleNoteAdd(this.state)
   }
 
 
   render(){
+    {console.log('NOTEEEEE', this.props.note);}
     return(
-      <form onSubmit={this.handleAdd}>
+      <form onSubmit={this.handleNoteAdd}>
         <input
           name='subject'
           type='text'
@@ -45,7 +44,7 @@ class NoteAddForm extends React.Component {
           placeholder='Content'
           onChange={this.handleChange}
         />
-        <button className='add-button' type='Add Note'> Add Note </button>
+        <button className='add-button' type='submit'> {this.props.submitTitle} </button>
       </form>
     )
   }
