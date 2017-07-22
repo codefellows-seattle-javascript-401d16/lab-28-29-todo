@@ -1,0 +1,12 @@
+@import '../../style/_vars.scss';
+
+.dashboard-form {
+  width: 33%;
+  float: right;
+}
+
+.title {
+  display: inline-block;
+  padding-right: $pad;
+  color: $color-grey;
+}

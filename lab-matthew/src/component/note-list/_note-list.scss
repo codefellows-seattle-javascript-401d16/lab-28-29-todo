@@ -1,0 +1,8 @@
+@import "../../style/_vars.scss";
+
+ul {
+  width: 50%;
+  list-style: none;
+  margin-top: $pad * 7;
+  float: left;
+}

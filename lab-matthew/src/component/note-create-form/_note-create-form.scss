@@ -1,0 +1,10 @@
+@import "../../style/_vars.scss";
+
+.note-create-form {
+  float: right;
+  padding-right: $pad * 2;
+  button {
+    display: inline-block;
+    color: white;
+  }
+}
