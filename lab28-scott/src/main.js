@@ -1,4 +1,4 @@
-import uuid from 'uuid/v1';
+import './style/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
@@ -42,7 +42,7 @@ class App extends React.Component{
       <main>
         <BrowserRouter>
           <div>
-            <NavBar />
+            <NavBar className='navbar'/>
             <Route
               exact path='/'
               component={() => <DashboardContainer app={this.getApp()} />}

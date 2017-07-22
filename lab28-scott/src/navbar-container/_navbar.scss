@@ -1,0 +1,40 @@
+@import "../style/_base.scss";
+@import "../style/_var.scss";
+
+header {
+  background-color: $color-primary;
+  height: 10%;
+}
+.navbar, h1, ul, li {
+  height: 100%
+}
+
+.navbar {
+  float: left;
+  border-bottom: $color-lightgrey 1px solid;
+  background: $color-primary;
+}
+
+
+h1 {
+  float: left;
+  width: 50%;
+  font-size: 1.8em;
+}
+
+ul {
+  float: left;
+  width: 50%;
+  li {
+    float: left;
+    width: 50%;
+    text-align: center;
+    padding-top: $pad;
+    padding-bottom: $pad;
+    border-left: $color-lightgrey 1px solid;
+    font-size: 1em;
+    &:hover {
+      background-color: $color-tertiary;
+    }
+  }
+}
