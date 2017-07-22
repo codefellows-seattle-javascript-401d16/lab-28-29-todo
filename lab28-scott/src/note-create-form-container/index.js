@@ -1,3 +1,4 @@
+import './_note-create-form.scss';
 import React from 'react';
 
 class NoteCreateForm extends React.Component{

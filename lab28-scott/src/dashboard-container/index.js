@@ -1,3 +1,4 @@
+import './_dashboard.scss';
 import React from 'react';
 import uuid from 'uuid/v1';
 import NoteCreateForm from '../note-create-form-container';
@@ -55,8 +56,8 @@ class DashboardContainer extends React.Component{
     let remainingNotes = app.state.maxNotes - totalNotes;
 
     return(
-      <div>
-        <p>this is Dashboard!</p>
+      <div className='search-form'>
+        <p className='intro'>Something on your mind, no pen in sight...no problem! <br></br><strong>Jot</strong> it down!</p>
         <NoteCreateForm noteCreate={this.noteCreate}/>
 
         {renderIf(remainingNotes === 0 && this.state.showModal,

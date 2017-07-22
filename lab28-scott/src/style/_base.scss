@@ -48,12 +48,23 @@ textarea, input {
     color: $color-lightgrey;
   }
 }
+//all inputs style
+input {
+  border: 1px solid $color-darkgrey;
+
+  &:hover {
+    border: 1px solid $color-tertiary;
+    &::placeholder {
+      color: $color-tertiary;
+    }
+  }
+}
 
 //adjust button styles
 button,input[type="submit"] {
   background: $color-lightgrey;
   padding: $pad;
-  border: 1px $color-black;
+  border: 1px solid $color-darkgrey;
 
   &:hover {
     background: $color-secondary;
