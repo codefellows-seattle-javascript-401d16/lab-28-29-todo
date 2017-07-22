@@ -22,15 +22,14 @@ class NoteItem extends React.Component {
         {renderIf(!this.state.editing,
           <div>
 
-            <div className='note-title'>
-              <p> {note.title} </p>
-            </div>
+            <p className='note-title'> {note.title} </p>
+
 
             <p> {note.content} </p>
             <button onClick = {() => this.props.noteRemove(note)}>
             -
             </button>
-            
+
           </div>
         )}
 

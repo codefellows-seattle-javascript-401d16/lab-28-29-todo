@@ -8,9 +8,18 @@
     p {
       width: auto;
       padding-left: $pad;
+      padding-right: $pad;
+
     }
     button {
-      color: white;
+      color: green;
+      background-color: $color-primary;
+      width: $pad * 4;
+      float: right;
+      height: 50%;
+    }
+    button:hover {
+      color: red;
     }
 }
 
