@@ -35,7 +35,7 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}
           placeholder='create a new to do list' />
 
-        <button type='submit'>
+        <button type='submit' className='child'>
           {this.props.buttonName}
         </button>
 

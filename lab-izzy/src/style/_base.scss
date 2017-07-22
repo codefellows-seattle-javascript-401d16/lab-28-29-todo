@@ -31,6 +31,11 @@ label {
   font-weight: bolder;
 }
 
+input {
+  padding: $pad;
+  margin-bottom: 0.5em;
+}
+
 textarea, input {
   padding: $pad;
   resize: none;
@@ -47,12 +52,28 @@ textarea, input {
   }
 }
 
-// button {
-//   align-items: center;
-// }
+@mixin centerer {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.note-form {
+  position: relative;
+  width: 60%;
+  height: 150px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+.child {
+  @include centerer;
+  padding: 13px;
+}
 
 button, input[type="submit"] {
-  width: 25%;
+  width: 30%;
   border: none;
   padding: $pad;
   border-radius: 3px;
@@ -69,7 +90,10 @@ button, input[type="submit"] {
 
 // lists
 li { display: list-item; }
-ul li { list-style: disc; }
+ul li {
+  list-style: disc;
+  list-style-type: none;
+ }
 ol li { list-style: decimal; }
 ul, ol, li { margin-left: $pad * 2; }
 ol ul li , ul ul li { list-style: square; }
