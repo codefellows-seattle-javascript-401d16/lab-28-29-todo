@@ -1,5 +1,9 @@
 @import "./_vars.scss";
 
+// *{
+//   border: 1px dotted red;
+// }
+
 
 // content
 html, body{position: relative;}
@@ -14,9 +18,9 @@ body {
   font-size: 16px;
 }
 
-@for $i from 1 through 6 {
+@for $i from 6 through 1 {
   h#{$i} {
-    font-size: calc(1em * $i * 1.09)
+    font-size: 9/($i + 2) * 1em;;
   }
 }
 

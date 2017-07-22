@@ -1,3 +1,5 @@
+import './_note-list.scss';
+
 import React from 'react';
 import NoteCreateForm from '../note-create-form';
 import NoteItem from '../note-item';

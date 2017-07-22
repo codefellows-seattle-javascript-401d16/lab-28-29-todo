@@ -35,7 +35,6 @@ class App extends React.Component { // creates class called App that inherits fr
       <main className='app'>
         <BrowserRouter>
           <div>
-            <p> TODO Notes </p>
             <DashboardContainer app={this.getApp()} />
           </div>
         </BrowserRouter>

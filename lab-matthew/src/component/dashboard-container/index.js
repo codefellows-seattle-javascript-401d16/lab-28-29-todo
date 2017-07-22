@@ -1,3 +1,6 @@
+// style
+import './_dashboard-container.scss';
+
 // npm modules
 import React from 'react';
 import uuid from 'uuid/v1';
@@ -51,18 +54,19 @@ class DashboardContainer extends React.Component {
     let {app} = this.props;
 
     return(
-
       <div className='dashboard-container'>
-
-        <p> Dashboard Container </p>
-        <NoteCreateForm
+        <div className='dashboard-form'>
+          <h1 className='title'> TODO Notes </h1>
+          <NoteCreateForm
           handleSubmit={this.noteCreate}
-        />
+          buttonName='add note'
+          />
+        </div>
 
         <NoteList
+          notes={app.state.notes}
           noteRemove={this.noteRemove}
           noteUpdate={this.noteUpdate}
-          notes={app.state.notes}
         />
       </div>
     );

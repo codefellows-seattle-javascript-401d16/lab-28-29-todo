@@ -1,0 +1,21 @@
+@import "../../style/_vars.scss";
+
+.note-item {
+  list-style: none;
+  margin-bottom: 1em;
+  border: 1px solid $color-lightgrey;
+  background: $color-primary;
+    p {
+      width: auto;
+      padding-left: $pad;
+    }
+    button {
+      color: white;
+    }
+}
+
+.note-title {
+  background: $color-secondary;
+  text-align: center;
+  font-size: 2em;
+}
