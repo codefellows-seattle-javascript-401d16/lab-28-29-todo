@@ -13,8 +13,6 @@ class NoteItem extends React.Component {
     this.noteUpdate=this.noteUpdate.bind(this);
   }
   noteCreate(note){
-    console.log('this value', note);
-    // let {app} = this.props;
     note.id = uuid();
     this.props.app.setState(state =>
       ({
@@ -23,8 +21,7 @@ class NoteItem extends React.Component {
   }
 
   noteRemove(note){
-    let {app} = this.props;
-    app.setState(prevState => ({
+    this.props.app.setState(prevState => ({
       notes: prevState.notes.filter((item) => {
         return item.id !== note.id;
       }),
@@ -32,26 +29,27 @@ class NoteItem extends React.Component {
   }
 
   noteUpdate(note){
-    let {app} = this.props;
-    app.setState(prevState => ({
+    this.props.app.setState(prevState => ({
       notes: prevState.notes.map((item) => {
         return item.id == note.id ? note : item;
       }),
     }));
   }
+
   render(){
     let {app} = this.props;
-    
-    console.log('this.state', this.props.app);
+    console.log(this, 'this.props');
     return(
       <li>
         <div className='note-item'>
-
           <NoteForm
+            submitTitle='add note'
             handleSubmit={this.noteCreate}
           />
 
           <NoteList
+            noteRemove={this.noteRemove}
+            noteUpdate={this.noteUpdate}
             notes={app.state.notes} />
         </div>
       </li>

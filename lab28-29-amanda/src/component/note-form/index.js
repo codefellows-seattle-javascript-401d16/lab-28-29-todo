@@ -13,13 +13,13 @@ class NoteForm extends React.Component {
 
   handelChange(e){
     this.setState({
-      title: e.target.value, //[e.target.name]: e.target.value] ISSUE
+      title: e.target.value,
     });
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.handleSubmit(this.state); //note create ISSUE
+    this.props.handleSubmit(this.state);
   }
 
   render() {
@@ -34,7 +34,8 @@ class NoteForm extends React.Component {
           value={this.state.title}
           onChange={this.handelChange}
         />
-        <button type='submit'> submit </button>
+
+        <button type='submit'> {this.props.submitTitle} </button>
       </form>
     );
   }
