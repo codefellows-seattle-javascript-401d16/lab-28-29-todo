@@ -11,3 +11,21 @@
   text-align: center;
   padding-top: $pad * 2;
 }
+
+.note-count {
+  padding-top: $pad;
+
+  width: 100%;
+  p {
+    width: 50%;
+    text-align: center;
+  }
+}
+
+.count-title {
+  background-color: rgba($color-primary, .6);
+}
+
+.count-results {
+  background-color: rgba($color-tertiary, .3);
+}

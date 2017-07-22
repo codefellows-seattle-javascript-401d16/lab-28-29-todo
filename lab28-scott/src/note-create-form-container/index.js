@@ -32,7 +32,7 @@ class NoteCreateForm extends React.Component{
         <input
           type='text'
           name='content'
-          placeholder='Content'
+          placeholder='Jot your thoughts...'
           value={this.state.content}
           onChange={this.handleChange}
         />

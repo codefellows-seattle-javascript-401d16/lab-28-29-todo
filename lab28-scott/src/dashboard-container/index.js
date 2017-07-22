@@ -65,9 +65,12 @@ class DashboardContainer extends React.Component{
             <h2>Buy more Note credits!</h2>
           </Modal>
         )}
-
-        <p>Total Notes: {totalNotes}</p>
-        <p>Remaining Notes: {remainingNotes}</p>
+        <div className='note-count'>
+          <p className='count-title'>Total Notes</p>
+          <p className='count-title'>Remaining Notes</p>
+          <p className='count-results'>{totalNotes}</p>
+          <p className='count-results'>{remainingNotes}</p>
+        </div>
         <div className='note-list'>
           <NoteList
             notes={this.props.app.state.notes}
