@@ -1,3 +1,5 @@
+import './_note-list.scss';
+
 import React from 'react';
 import NoteCreateForm from '../note-create-form';
 import NoteItem from '../note-item';
@@ -8,18 +10,12 @@ class NoteList extends React.Component {
       <div className='note-list'>
         <ul>
           {this.props.notes.map((item, i) =>
-            <li key={i}>
-              <NoteItem
-                currentNote={item}
-                handleSubmit={(note) => {
-                  note.id = item.id;
-                  this.props.noteUpdate(note);
-                }}
-                noteRemove={this.props.noteRemove}
-                app={this.props.app} />
-
-              
-            </li>
+            <NoteItem
+              key={i}
+              note={item}
+              noteRemove={this.props.noteRemove}
+              noteUpdate={this.props.noteUpdate}
+            />
           )}
         </ul>
       </div>
@@ -27,5 +23,4 @@ class NoteList extends React.Component {
   }
 }
 
-// <NoteItem notes={this.props.app.state.notes} app={this.props.app} />
 export default NoteList;

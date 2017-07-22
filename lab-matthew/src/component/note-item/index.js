@@ -1,58 +1,53 @@
+import './_note-item.scss';
+
 import React from 'react';
 import NoteCreateForm from '../note-create-form';
+
+let renderIf = (t, c) => t ? c : undefined;
 
 class NoteItem extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      defaultView: true,
-      editView: false,
+      editing: false,
     };
 
-    this.handleView = this.handleView.bind(this);
   }
-
-  handleView(e){
-    this.state.defaultView === true ?
-    this.setState(state => ({
-      defaultView: false,
-      editView: true,
-    }))
-    :
-    this.setState(state => ({
-      defaultView: true,
-      editView: false,
-    }));
-  }
-
 
   render() {
+    let {note} = this.props;
     return (
-      this.state.defaultView === true ?
-        <p>
-          <span onDoubleClick = {this.handleView}>
-            {this.props.currentNote.title}
-            <br></br>
-            {this.props.currentNote.content}
-            </span>
-            <button onClick = {() => this.props.noteRemove(this.props.currentNote)}>
+
+      <li className="note-item" onDoubleClick={() => this.setState(state => ({editing: !state.editing}))}>
+        {renderIf(!this.state.editing,
+          <div>
+
+            <p className='note-title'> {note.title} </p>
+
+
+            <p> {note.content} </p>
+            <button onClick = {() => this.props.noteRemove(note)}>
             -
             </button>
-        </p>
 
-      :
+          </div>
+        )}
 
-      <span onDoubleClick = {this.handleView}>
-        {this.props.currentNote.title}
-        <br></br>
-        {this.props.currentNote.content}
-        <button onClick = {() => this.props.noteRemove(this.props.currentNote)}>
-        -
-        </button>
-        <NoteCreateForm
-          handleSubmit = {this.props.handleSubmit}
-        />
-      </span>
+        {renderIf(this.state.editing,
+          <NoteCreateForm
+            buttonName='update note'
+            note={note}
+            editing={this.state.editing}
+            handleSubmit={(data) => {
+              data.id = note.id;
+              this.props.noteUpdate(data);
+              this.setState({
+                editing: false,
+              });
+            }}
+            />
+          )}
+      </li>
 
     );
   }

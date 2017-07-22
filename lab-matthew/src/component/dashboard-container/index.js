@@ -1,3 +1,6 @@
+// style
+import './_dashboard-container.scss';
+
 // npm modules
 import React from 'react';
 import uuid from 'uuid/v1';
@@ -5,6 +8,8 @@ import uuid from 'uuid/v1';
 // app modules
 import NoteList from '../note-list';
 import NoteCreateForm from '../note-create-form';
+
+let renderIf = (t, c) => t ? c : undefined;
 
 class DashboardContainer extends React.Component {
   constructor(props) {
@@ -20,7 +25,6 @@ class DashboardContainer extends React.Component {
   //methods
   noteCreate(note) {
     note.id = uuid();
-    // immutably add new note to the note array on app state
     let {app} = this.props;
     app.setState(state => ({
       notes: state.notes.concat([note]),
@@ -50,19 +54,19 @@ class DashboardContainer extends React.Component {
     let {app} = this.props;
 
     return(
-
       <div className='dashboard-container'>
-
-        <p> Dashboard Container </p>
-        <NoteCreateForm
+        <div className='dashboard-form'>
+          <h1 className='title'> TODO Notes </h1>
+          <NoteCreateForm
           handleSubmit={this.noteCreate}
-        />
+          buttonName='add note'
+          />
+        </div>
 
         <NoteList
+          notes={app.state.notes}
           noteRemove={this.noteRemove}
           noteUpdate={this.noteUpdate}
-          handleSubmit={this.noteCreate}
-          notes={app.state.notes}
         />
       </div>
     );
