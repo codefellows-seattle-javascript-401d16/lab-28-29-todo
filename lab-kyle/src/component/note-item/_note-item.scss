@@ -1,0 +1,43 @@
+@import "../../style/_vars.scss";
+
+.note-item {
+  position: relative;
+  border: 2px solid $color-darkgrey;
+  border-radius: 10px;
+  background: $color-lightgrey;
+  padding: $pad;
+  padding-top: 0;
+  margin-bottom: $pad;
+
+  .button-delete-div {
+    display: block;
+    width: 100%;
+  }
+
+  .button-delete {
+    float: right;
+    border: none;
+    background: none;
+    width: auto;
+    font-weight: bolder;
+    color: $color-secondary;
+    margin: 0;
+  }
+
+  p {
+    margin-left: $pad;
+    margin-bottom: $pad * 2;
+  }
+
+  .note-form {
+    display: inline-block;
+    width: 87%;
+  }
+}
+
+.button-cancel {
+  display: inline-block;
+  background: $color-secondary;
+  color: $color-lightgrey;
+  width: 13%;
+}
