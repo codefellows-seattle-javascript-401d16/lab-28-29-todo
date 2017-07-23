@@ -1,40 +1,34 @@
-// import './style/main.scss';
 import React from 'react';
 import ReactDom from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
-import NoteForm from './component/note-form';
-import NoteItem from './component/note-item';
-import NoteList from './component/note-list';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 
+import NoteDashboard from './component/note-dashboard';
+import NoteAbout from './component/note-about';
 
 class App extends React.Component {
-  constructor(props){
+
+  constructor(props) {
     super(props);
     this.state = {
       notes: [],
     };
-
     this.getApp = this.getApp.bind(this);
   }
 
-  componentDidUpdate(){
-    console.log('::::STATE::::', this.state);
-  }
+  componentDidUpdate() {console.log('###STATE###', this.state);}
 
-  getApp(){
-    return{
-      state: this.state,
-      setState: this.setState.bind(this),
-    };
-  }
+  getApp() {return {state: this.state, setState: this.setState.bind(this)};}
 
-  render(){
-    return(
+  render() {
+    return (
       <main className='app'>
-        <div>
-          <NoteItem app={this.getApp()} />
-          <div className="inputBox"> </div>
-        </div>
+        <h1>To-Do</h1>
+        <BrowserRouter>
+          <div>
+            <Route exact path='/' component={() => <NoteDashboard app={this.getApp()} />} />
+            <Route exact path='/about' component={NoteAbout} />
+          </div>
+        </BrowserRouter>
       </main>
     );
   }

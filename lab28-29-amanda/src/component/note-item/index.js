@@ -1,67 +1,30 @@
 import React from 'react';
-import uuid from 'uuid';
-import NoteForm from '../note-form';
-import NoteList from '../note-list';
 
-let renderIf = (t, c) => t ? c : undefined;
+import NoteForm from '../note-form';
+
+let renderIf = (test, component) => test ? component : undefined;
 
 class NoteItem extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    console.log('testing', this.props);
-    this.noteCreate=this.noteCreate.bind(this);
-    this.noteRemove=this.noteRemove.bind(this);
-    this.noteUpdate=this.noteUpdate.bind(this);
-  }
-  noteCreate(note){
-    note.id = uuid();
-    this.props.app.setState(state =>
-      ({
-        notes: [...state.notes, note],
-      }));
+
+    this.state = {edit: false};
+
+    this.handleDblClick = this.handleDblClick.bind(this);
   }
 
-  noteRemove(note){
-    this.props.app.setState(prevState => ({
-      notes: prevState.notes.filter((item) => {
-        return item.id !== note.id;
-      }),
-    }));
-  }
+  handleDblClick(e) {this.setState({edit: true});}
 
-  noteUpdate(note){
-    this.props.app.setState(prevState => ({
-      notes: prevState.notes.map((item) => {
-        return item.id == note.id ? note : item;
-      }),
-    }));
-  }
-
-  render(){
-    let {app} = this.props;
-    console.log(this, 'this.props');
-    return(
-      <li
-        className='note-item'>
-        onDoubleClick={() => this.props.app.setState({editing: !state.editing}))}>
-
-          <NoteForm
-            submitTitle='add note'
-            handleSubmit={this.noteCreate}
-          />
-
-          <NoteList
-            noteRemove={this.noteRemove}
-            noteUpdate={this.noteUpdate}
-            notes={app.state.notes} />
-        </div>
-      </li>
+  render() {
+    return (
+      <div className='note-item'>
+        <button onClick={() => this.props.noteRemove(this.props.item)} > X </button>
+        <p onDoubleClick={this.handleDblClick}>{this.props.item.content}</p>
+        {renderIf(this.state.edit === true, <NoteForm note={this.props.item} handleSubmit={this.props.noteUpdate} buttonText='Update' />)}
+        {renderIf(this.state.edit === true, <button onClick={() => this.setState({edit: false})} > Cancel </button>)}
+      </div>
     );
   }
 }
-
-this.props.app.setState;
-this.props.app.state.edidint;
-
 
 export default NoteItem;

@@ -1,42 +1,40 @@
 import React from 'react';
+import uuid from 'uuid/v1';
 
 class NoteForm extends React.Component {
-  constructor(props){
+  constructor (props) {
     super(props);
-    this.state = {
-      title: '',
-    };
 
-    this.handelChange=this.handelChange.bind(this);
-    this.handleSubmit=this.handleSubmit.bind(this);
+    let id = props.note ? props.note.id : uuid();
+    let content = props.note ? props.note.content : '';
+    let editing = props.note ? props.note.editing : false;
+    let completed = props.note ? props.note.completed : false;
+    this.state = {id, content, editing, completed};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handelChange(e){
-    this.setState({
-      title: e.target.value,
-    });
-  }
+  handleChange(e) {this.setState({ [e.target.name]: e.target.value });}
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
     this.props.handleSubmit(this.state);
   }
 
   render() {
     return (
-      <form
-        className='note-form'
-        onSubmit={this.handleSubmit}>
-
-        <input
-          name='note'
-          type='text'
-          value={this.state.title}
-          onChange={this.handelChange}
-        />
-
-        <button type='submit'> {this.props.submitTitle} </button>
-      </form>
+      <div className='note-create-form'>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            name='content'
+            type='text'
+            value={this.state.content}
+            onChange={this.handleChange}
+          />
+          <button type='submit'>{this.props.buttonText}</button>
+        </form>
+      </div>
     );
   }
 }
