@@ -10,18 +10,24 @@ class NoteItem extends React.Component {
 
     this.state = {edit: false};
 
-    this.handleDblClick = this.handleDblClick.bind(this);
+    this.handleDoubleClick = this.handleDoubleClick.bind(this);
   }
 
-  handleDblClick(e) {this.setState({edit: true});}
+  handleDoubleClick(e) {this.setState({edit: true});}
 
   render() {
     return (
       <div className='note-item'>
-        <button onClick={() => this.props.noteRemove(this.props.item)} > X </button>
-        <p onDoubleClick={this.handleDblClick}>{this.props.item.content}</p>
-        {renderIf(this.state.edit === true, <NoteForm note={this.props.item} handleSubmit={this.props.noteUpdate} buttonText='Update' />)}
-        {renderIf(this.state.edit === true, <button onClick={() => this.setState({edit: false})} > Cancel </button>)}
+        <button onClick={() => this.props.noteRemove(this.props.item)} > delete </button>
+
+        <p onDoubleClick={this.handleDoubleClick}>{this.props.item.content}</p>
+
+        {renderIf(this.state.edit === true,
+          <NoteForm note={this.props.item} handleSubmit={this.props.noteUpdate} buttonText='update' />)}
+
+        {renderIf(this.state.edit === true,
+          <button onClick={() => this.setState({edit: false})}> delete </button>)}
+
       </div>
     );
   }

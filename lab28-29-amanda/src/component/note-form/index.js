@@ -7,9 +7,9 @@ class NoteForm extends React.Component {
 
     let id = props.note ? props.note.id : uuid();
     let content = props.note ? props.note.content : '';
-    let editing = props.note ? props.note.editing : false;
+    let edit = props.note ? props.note.edit : false;
     let completed = props.note ? props.note.completed : false;
-    this.state = {id, content, editing, completed};
+    this.state = {id, content, edit, completed};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,7 +24,7 @@ class NoteForm extends React.Component {
 
   render() {
     return (
-      <div className='note-create-form'>
+      <div className='note-form'>
         <form onSubmit={this.handleSubmit}>
           <input
             name='content'
@@ -32,7 +32,7 @@ class NoteForm extends React.Component {
             value={this.state.content}
             onChange={this.handleChange}
           />
-          <button type='submit'>{this.props.buttonText}</button>
+          <button type='submit' className='note-form-button'>{this.props.buttonText}</button>
         </form>
       </div>
     );

@@ -13,7 +13,6 @@ class NoteList extends React.Component {
         <ul>
           {this.props.notes.map((item, i) =>
             <li key={i}>
-              <h3>To-Do</h3>
               <NoteItem
                 notes={this.props.notes}
                 item={item}

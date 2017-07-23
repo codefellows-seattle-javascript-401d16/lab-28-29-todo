@@ -1,27 +1,30 @@
-@import "./_vars.scss"
+@import "./_vars.scss";
 
 * {
+  // box model
   position: static;
+  display: block;
   margin: 0;
   padding: 0;
-  box-sizing: border-box,
   width: 100%;
   border: none;
   outline: none;
+  box-sizing: border-box;
 
-  //font
+  // font
+  font-family: $font-sans-serif;
   font-size: 1em;
   font-weight: normal;
   font-style: normal;
   text-decoration: none;
   white-space: normal;
-  font-family: $sans-serif;
 
-  //color
-  backgroud: none:
-  color: $black;
-  list-style: none;
+  // color
+  background: none;
+  color: $color-black;
 
+  // other
+  list-style: none !important;
 }
 
 form *:focus {

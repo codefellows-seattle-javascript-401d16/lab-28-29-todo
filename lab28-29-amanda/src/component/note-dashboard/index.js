@@ -13,11 +13,14 @@ class NoteDashboard extends React.Component {
     this.noteRemove = this.noteRemove.bind(this);
   }
 
-  noteCreate(note) {this.props.app.setState(state => ({notes: [...state.notes, note]}));}
+  noteCreate(note)
+  {this.props.app.setState(state => ({notes: [...state.notes, note]}));}
 
-  noteUpdate(note) {this.props.app.setState(state => ({notes: state.notes.map(item => item.id === note.id ? note : item)}));}
+  noteUpdate(note)
+  {this.props.app.setState(state => ({notes: state.notes.map(item => item.id === note.id ? note : item)}));}
 
-  noteRemove(note) {this.props.app.setState(state => ({notes: state.notes.filter(item => item.id !== note.id)}));}
+  noteRemove(note)
+  {this.props.app.setState(state => ({notes: state.notes.filter(item => item.id !== note.id)}));}
 
   render() {
     return (
