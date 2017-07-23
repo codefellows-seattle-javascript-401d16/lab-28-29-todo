@@ -1,4 +1,4 @@
-import "../style/_vars.scss"
+@import "../../style/_vars.scss";
 
 
 .note-form {
@@ -6,11 +6,13 @@ import "../style/_vars.scss"
   input{
     display: inline-block;
     margin-left: $pad;
-    width: calc(50% - 0.5em)
+    width: 50%
   }
 
-  .submit {
+    button {
     display: inline-block;
+    background: $color-secondary;
+    width: 25%;
   }
 
 }

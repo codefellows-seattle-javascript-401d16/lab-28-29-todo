@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './_note-dashboard.scss';
 import NoteForm from '../note-form';
 import NoteList from '../note-list';
 

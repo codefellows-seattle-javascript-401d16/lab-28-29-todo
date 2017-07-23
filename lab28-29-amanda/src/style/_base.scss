@@ -36,7 +36,6 @@ textarea, input {
   margin-bottom: $pad;
   resize: none;
   margin: $pad;
-  width: 30%;
 
   &:focus {
     border-bottom: 1px solid $color-darkgrey;
@@ -51,9 +50,7 @@ button,input[type="submit"] {
   background: $color-primary;
   padding: $pad;
   border: none;
-  width: 10%;
-  margin-left: $pad;
-  float: left;
+  float: right;
 
   &:hover {
     background: $color-secondary;

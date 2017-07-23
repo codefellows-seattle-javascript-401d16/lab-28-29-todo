@@ -1,0 +1,33 @@
+@import "../../style/_vars.scss";
+
+.note-item {
+  list-style: none;
+  margin: $pad;
+  float: left;
+  font: 16px;
+  margin-bottom: $pad;
+
+  .button-delete-div {
+    display: block;
+    width: 100%;
+  }
+
+.button-delete {
+    background: $color-delete;
+    display: inline-block;
+    width: 25%;
+}
+
+  .button-cancel {
+      background: $color-secondary;
+      display: inline-block;
+      width: 25%;
+      border: $color-lightgrey;
+  }
+
+  p {
+    display: inline-block;
+    margin: $pad;
+    font-style: italic !important;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './_note-list.scss';
 import NoteItem from '../note-item';
 
 class NoteList extends React.Component {
