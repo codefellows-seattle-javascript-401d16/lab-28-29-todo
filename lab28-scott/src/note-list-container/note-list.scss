@@ -1,0 +1,20 @@
+@import '../style/_base.scss';
+@import '../style/_var.scss';
+
+.note-list, h2, .note, p {
+  width: 100%;
+  padding-top: $pad;
+}
+
+.note-list {
+  h2 {
+    text-align: center;
+  }
+  button {
+    width: 50%;
+    float: left;
+  }
+  input {
+    margin-top: 1em;
+  }
+}

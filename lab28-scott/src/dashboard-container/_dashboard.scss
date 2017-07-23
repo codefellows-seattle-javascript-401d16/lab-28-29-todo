@@ -1,0 +1,49 @@
+@import '../style/_base.scss';
+@import '../style/_var.scss';
+
+.search-form {
+  width: 100%;
+
+}
+
+.intro {
+  width: 100%;
+  text-align: center;
+  padding-top: $pad * 2;
+}
+
+.note-count {
+  padding-top: $pad;
+
+  width: 100%;
+  p {
+    width: 50%;
+    text-align: center;
+  }
+}
+
+.count-title {
+  background-color: rgba($color-primary, .6);
+}
+
+.count-results {
+  background-color: rgba($color-tertiary, .3);
+}
+
+.modal {
+  width: 100%;
+  h2 {
+    text-align: center;
+  }
+  img {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    height: 40%;
+  }
+  button {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+}
