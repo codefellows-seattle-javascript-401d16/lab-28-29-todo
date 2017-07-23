@@ -30,7 +30,7 @@ class NoteUpdateForm extends React.Component{
         <input
           type='text'
           name='content'
-          placeholder='New Content'
+          placeholder='Update your note...'
           value={this.state.content}
           onChange={this.handleChange}
         />

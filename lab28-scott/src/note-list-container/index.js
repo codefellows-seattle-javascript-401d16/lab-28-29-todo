@@ -1,3 +1,4 @@
+import './note-list.scss';
 import React from 'react';
 import NoteUpdateForm from '../note-update-form-container';
 
@@ -11,22 +12,23 @@ class NoteList extends React.Component{
 
   render(){
     return(
-      <div>
-        <h2> Your Notes </h2>
+      <div className='note-list'>
+        <h2>
+        * Your Notes *
+        </h2>
         <ul className='note'>
           {this.props.notes.map((note, i) => {
             return(
               <li key={i}>
-                <p>Title: {note.title}</p>
                 <p>Content: {note.content}</p>
-                <button
-                  onClick={() => this.props.noteRemove(note)}>
-                  Delete Note
-                </button>
                 <NoteUpdateForm
                   noteUpdate={this.props.noteUpdate}
                   note={note}
                 />
+                <button
+                  onClick={() => this.props.noteRemove(note)}>
+                  Delete Note
+                </button>
               </li>
             );
           })}
