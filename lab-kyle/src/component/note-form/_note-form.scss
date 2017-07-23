@@ -1,0 +1,17 @@
+@import '../../style/_vars.scss';
+
+.note-form {
+  input {
+    display: inline-block;
+    margin-right: $pad;
+    width: 83%;
+    border-radius: 5px;
+  }
+
+  button {
+    display: inline-block;
+    background: $color-secondary;
+    color: $color-lightgrey;
+    width: 15%;
+  }
+}

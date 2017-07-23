@@ -1,20 +1,20 @@
+import './_note-form.scss'
 import React from 'react'
+import uuid from 'uuid/v1'
 
 class NoteForm extends React.Component {
-
-  constructor (props) {
+  constructor(props) {
     super(props)
 
+    let id = props.note ? props.note.id : uuid()
     let content = props.note ? props.note.content : ''
     let editing = props.note ? props.note.editing : false
     let completed = props.note ? props.note.completed : false
-    this.state = {content, editing, completed}
+    this.state = { id, content, editing, completed }
 
-    console.log('hit create form')
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value })
@@ -27,15 +27,18 @@ class NoteForm extends React.Component {
 
   render() {
     return (
-      <div className='note-create-form'>
+      <div className="note-form">
         <form onSubmit={this.handleSubmit}>
           <input
-            name='content'
-            type='text'
+            name="content"
+            type="text"
             value={this.state.content}
             onChange={this.handleChange}
+            placeholder="Enter a To-Do item"
           />
-          <button type='submit'>Add Note</button>
+          <button type="submit">
+            {this.props.buttonText}
+          </button>
         </form>
       </div>
     )
