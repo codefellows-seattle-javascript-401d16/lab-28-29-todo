@@ -57,12 +57,12 @@ label {
 textarea,
 input {
   padding: $pad;
-  border: 1px solid $color-darkgrey;
+  border: 2px solid $color-darkgrey;
   margin-bottom: $pad;
   resize: none;
 
   &:focus {
-    border: 1px solid $color-darkgrey;
+    border: 2px solid $color-darkgrey;
   }
 
   &::placeholder {
