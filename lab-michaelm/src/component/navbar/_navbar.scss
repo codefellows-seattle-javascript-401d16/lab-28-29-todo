@@ -1,0 +1,72 @@
+@import "../../style/_vars.scss";
+
+header {
+  position: relative;
+  width: 100%;
+  height: 8vw;
+  background: rgb(110,113,119);
+  background: -moz-linear-gradient(top,  rgba(110,113,119,1) 0%, rgba(122,125,132,1) 50%, rgba(122,125,132,1) 51%, rgba(181,186,195,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(110,113,119,1) 0%,rgba(122,125,132,1) 50%,rgba(122,125,132,1) 51%,rgba(181,186,195,1) 100%);
+  background: linear-gradient(to bottom,  rgba(110,113,119,1) 0%,rgba(122,125,132,1) 50%,rgba(122,125,132,1) 51%,rgba(181,186,195,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6e7177', endColorstr='#b5bac3',GradientType=0 );
+  h1{
+    color: $color-primary;
+    width: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 25%;
+    top: 50%;
+    text-align: center;
+    font-size: 5vw;
+    text-shadow: 0 0 20px black
+  }
+  nav{
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    right: 2%;
+    top: 0;
+    ul{
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      :hover{
+        opacity: .60;
+        border-width: 2px;
+        }
+      a{
+        display: block;
+        margin: 2% 0;
+        height: 42%;
+        width: 100%;
+        font-size: 3vw;
+        border: $button-border;
+        border-radius: 10px;
+        position: relative;
+        background: $button-color;
+        .dash{
+          transform: translate(-50%,-50%);
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          text-align: center;
+          list-style: none;
+          margin: 0;
+          width: 100%;
+        }
+        .about{
+          transform: translate(-50%,-50%);
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          text-align: center;
+          list-style: none;
+          margin: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

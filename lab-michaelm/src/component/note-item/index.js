@@ -10,6 +10,7 @@ class NoteItem extends React.Component {
 
     this.state = {
       editing: false,
+      id: '',
     };
   }
 
@@ -18,19 +19,20 @@ class NoteItem extends React.Component {
       <ul className="note-item">
         {this.props.notes.map((item, i) =>
           <li
-            onDoubleClick={() => this.setState(state => ({editing: !state.editing}))}
+            onDoubleClick={() =>
+              this.setState(state => ({
+                editing: !state.editing,
+                id: item.id,
+              }))}
             key={i}
             value={i}
           >
-            {renderIf(!this.state.editing,
-              <div>
-                {item.content}
-                <button onClick={() => this.props.noteRemove(item)}>delete</button>
-              </div>
-            )}
-            {renderIf(this.state.editing,
+            <div>
+              {item.content}
+            <button onClick={() => this.props.noteRemove(item)}>delete</button>
+          </div>
+            {renderIf(this.state.editing && item.id === this.state.id,
               <div onDoubleClick={() => this.setState(state => ({editing: state.editing}))}>
-                {item.content}
                 <NoteUpdateForm
                   app={this.props.app}
                   submitTitle='update'

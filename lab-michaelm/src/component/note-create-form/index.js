@@ -30,11 +30,11 @@ class NoteCreateForm extends React.Component {
     return (
       <form className="note-create-form" onSubmit={this.handleSubmit} >
 
-        <input
+        <textarea
           autoFocus
           placeholder="type a note here"
           name='content'
-          type='text'
+          type='textfield'
           value={this.state.content}
           onChange={this.handleChange}
           />
