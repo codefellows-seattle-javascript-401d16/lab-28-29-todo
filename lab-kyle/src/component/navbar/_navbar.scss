@@ -1,0 +1,29 @@
+@import '../../style/_vars.scss';
+@import '../../style/_base.scss';
+
+.navbar {
+  position: relative;
+  background: $color-primary;
+  padding: $pad * 2;
+
+  h1 {
+    color: $color-lightgrey;
+  }
+
+  nav {
+    position: absolute;
+    right: $pad;
+    top: $pad * 4;
+    width: auto;
+  }
+
+  li {
+    display: inline-block;
+    width: auto;
+  }
+
+  a {
+    color: $color-lightgrey;
+    font-size: 1.25em;
+  }
+}
