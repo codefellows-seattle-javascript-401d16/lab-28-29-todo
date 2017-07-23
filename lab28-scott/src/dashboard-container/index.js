@@ -62,7 +62,8 @@ class DashboardContainer extends React.Component{
 
         {renderIf(remainingNotes === 0 && this.state.showModal,
           <Modal close={() => this.setState({showModal: false})}>
-            <h2>Buy more Note credits!</h2>
+            <h2>Buy more credits to keep jotting!</h2>
+            <img className='credit-image' src='http://www.reimagine-consulting.com/wp-content/uploads/2014/04/orange-money-icon-postit.png' />
           </Modal>
         )}
         <div className='note-count'>
