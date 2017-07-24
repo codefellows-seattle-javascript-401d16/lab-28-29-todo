@@ -1,24 +1,4 @@
-$color-primary: #999;
-
-* {
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 1em;
-}
-
-button {
-  width: 15%;
-}
-
-form button {
-  width: 100%;
-}
-
-form {
-  width: 30%;
-}
-
-body {
-  background: $color-primary;
-  font-size: 16px;
-}
+@import "./_base.scss";
+@import "./_layout.scss";
+@import "./_reset.scss";
+@import "./_vars.scss";
