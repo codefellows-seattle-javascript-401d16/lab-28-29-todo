@@ -1,3 +1,4 @@
+import './_note-create-form.scss';
 import React from 'react';
 
 
@@ -30,14 +31,14 @@ class NoteCreateForm extends React.Component {
   render(){
     return(
       <form onSubmit={this.handleSubmit} >
-        <label> To Do </label>
-        <input
+        <label className="form-label"> To Do </label>
+        <input className="form-input"
           type='text'
           value={this.state.content}
           onChange={this.handleChange}
           placeholder = 'Enter your To Do'
         />
-        <button type='submit'> submit </button>
+        <button className="form-button" type='submit'> submit </button>
       </form>
     );
   }

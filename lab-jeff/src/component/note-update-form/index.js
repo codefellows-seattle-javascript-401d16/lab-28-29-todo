@@ -1,3 +1,4 @@
+import './_note-update-form.scss';
 import React from 'react';
 
 let renderIf = (test, component) => test ? component : undefined;
@@ -33,7 +34,7 @@ class NoteUpdateForm extends React.Component {
     return (
       <form className="note-update-form" onSubmit={this.handleSubmit} >
 
-        <textarea
+        <textarea className="update-area"
           autoFocus
           placeholder="enter new text"
           name='content'
@@ -42,7 +43,7 @@ class NoteUpdateForm extends React.Component {
           onChange={this.handleChange}
         />
 
-        <button type='submit'> {this.props.submitTitle} </button>
+        <button className="update-button" type='submit'> {this.props.submitTitle} </button>
 
       </form>
     );
