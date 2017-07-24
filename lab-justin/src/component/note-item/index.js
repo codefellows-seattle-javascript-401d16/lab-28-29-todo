@@ -1,35 +1,29 @@
 import React from 'react';
 
+import NoteCreateForm from '../note-create-form';
+
+let renderIf = (test, component) => test ? component : undefined;
+
 class NoteItem extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
-    this.handleDelete = this.handleDelete.bind(this);
+    this.state = {edit: false};
+
+    this.handleDblClick = this.handleDblClick.bind(this);
   }
 
-  handleDelete(e){
-    e.preventDefault();
-    // this.props.notes.;
-    console.log('e', e.target.parentElement.value);
-    let array = this.props.notes;
-    array.splice(e.target.parentElement.value, 1);
-    this.props.app.setState(state => ({
-      notes: array,
-    }));
-  }
+  handleDblClick(e) {this.setState({edit: true})}
 
   render() {
-
     return (
-
-      <ul>
-        {this.props.notes.map((item, i) =>
-          <li key={i} value={i}>
-            {item.content}
-            <button onClick={this.handleDelete}>delete</button>
-          </li>
-        )}
-      </ul>
+      <div className='note-item'>
+        
+        <p onDoubleClick={this.handleDblClick}>{this.props.item.content}</p>
+        <button onClick={() => this.props.noteRemove(this.props.item)} > delete </button>
+        {renderIf(this.state.edit === true, <NoteCreateForm note={this.props.item} handleSubmit={this.props.noteUpdate} buttonText='Update' />)}
+        {renderIf(this.state.edit === true, <button onClick={() => this.setState({edit: false})} > Cancel </button>)}
+      </div>
     );
   }
 }

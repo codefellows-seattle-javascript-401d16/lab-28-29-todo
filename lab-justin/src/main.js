@@ -1,52 +1,32 @@
-// import './style/main.scss';
-
-// npm modules
 import React from 'react';
 import ReactDom from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 
-// app modules
-// import NoteItem from './component/note-item/index.js';
-import NoteList from './component/note-list/index.js';
-import NoteCreateForm from './component/note-create-form/';
-// Component tree:
-// App
-//  NoteCreateForm
-//  NoteList
-//   NoteItem
+import DashboardContainer from './component/dashboard-container';
+import AboutContainer from './component/about-container';
 
 class App extends React.Component {
-  constructor(props){
+
+  constructor(props) {
     super(props);
     this.state = {
       notes: [],
     };
-
     this.getApp = this.getApp.bind(this);
-
   }
 
-  componentDidUpdate(){
-    console.log(':::STATE:::', this.state);
-  }
+  componentDidUpdate() {console.log('###STATE###', this.state)};
 
-  getApp(){
-    return {
-      state: this.state,
-      setState: this.setState.bind(this),
-    };
-  }
-
-
+  getApp() {return {state: this.state, setState: this.setState.bind(this)}};
 
   render() {
     return (
-      <main>
+      <main className='app'>
+        <h1>My Notes</h1>
         <BrowserRouter>
           <div>
-            <p> My Notes </p>
-            <NoteCreateForm app={this.getApp()} />
-            <NoteList app={this.getApp()} />
+            <Route exact path='/' component={() => <DashboardContainer app={this.getApp()} />} />
+            <Route exact path='/about' component={AboutContainer} />
           </div>
         </BrowserRouter>
       </main>
