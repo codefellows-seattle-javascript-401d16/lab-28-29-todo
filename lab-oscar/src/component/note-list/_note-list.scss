@@ -1,5 +1,7 @@
+@import "../../style/_vars.scss";
+
 .list-item {
-  border: 2px solid #000;
+  border: 2px solid $color-black;
   width: 50%;
   margin: 0 auto;
   border-radius: 10px;
@@ -10,37 +12,45 @@
 }
 .list-item h1 {
   font-size: 22px;
-  font-family: fantasy, sans-serif, serif;
+  font-family: $fontface-fantasy;
   text-align: center;
 }
 .list-item ul li {
+  display: inline-block;
   margin-left: 12%;
   font-size: 22px;
-  font-family: monospace;
+  font-family: $fontface-main;
   margin-bottom: 10px;
-  list-style-image: url('https://cdn0.iconfinder.com/data/icons/hamburg/16/pencil.png');
+
 }
 .completed-checkbox {
   border-radius: 100%;
-  border: 2px solid #b9bbbf;
+  border: 2px solid $not-completed-button-border;
   width:10px;
   height: 5px;
-  background-color: #fff;
-  color: #fff;
+  background-color: $color-white;
+  color: $color-white;
   margin-right: 15px;
   cursor: pointer;
 }
 .complete-checkbox{
   border-radius: 100%;
-  border: 2px solid #b9bbbf;
+  border: 2px solid $not-completed-button-border;
   width:10px;
   height: 5px;
-  background-color: #a4f442;
-  color: #a4f442;
+  background-color: $completed-button-background;
+  color: $completed-button-background;
   margin-right: 15px;
   cursor: pointer;
 }
-.list-item img {
+.button-edit{
+  display: inline-block;
+  margin-bottom: -3px;
+  margin-left: 10px;
+  width: auto;
+}
+.button-delete {
+  display: inline-block;
   margin-bottom: -10px;
   margin-left: 10px;
   width: 25px;
