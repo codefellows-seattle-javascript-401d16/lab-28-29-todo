@@ -7,6 +7,7 @@
     * Install Yarn: `sudo apt-get install yarn`
     * Clone this repository: `git clone https://github.com/0smium/lab-28-29-todo.git`
     * Navigate to the newly created 'lab-26-29-todo' folder
+    * Switch to the correct branch: `git checkout lab-steve-29`
     * Navigate to the the 'lab-steve' directory
     * Install all node dependencies for the project: `yarn install`
     * Use:
