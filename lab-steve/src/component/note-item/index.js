@@ -8,30 +8,20 @@ class NoteItem extends React.Component {
     super(props);
     this.state = {
       editing: false,
+      complete: false,
     };
   }
   render() {
     let {note} = this.props;
     return (
-      <li onDoubleClick={() => this.setState(state => ({editing: !state.editing}))}>
-        {renderIf(!this.state.editing,
-          <div>
-            <p>id: {note.id}</p>
-            <p>content: {note.content}</p>
-            <button onClick={() => this.props.noteRemove(note)}>
-              Delete
-            </button>
-          </div>
-        )}
-        {renderIf(this.state.editing,
-          <NoteForm
-            note={note}
-            submitContent='Update Note'
-            handleSubmit={(data) => {
-              data.id = note.id,
-              this.props.noteUpdate(data);
-            }} />
-        )}
+      <li>
+        <div>
+          <p>id: {note.id}</p>
+          <p>content: {note.content}</p>
+          <button onClick={() => this.props.noteRemove(note)}>
+            Delete
+          </button>
+        </div>
       </li>
     );
   }

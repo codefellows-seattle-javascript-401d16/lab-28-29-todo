@@ -17,7 +17,6 @@ class DashboardContainer extends React.Component {
     };
     this.noteCreate = this.noteCreate.bind(this);
     this.noteRemove = this.noteRemove.bind(this);
-    this.noteUpdate = this.noteUpdate.bind(this);
   }
   //methods
   noteCreate(note) {
@@ -35,14 +34,6 @@ class DashboardContainer extends React.Component {
       }),
     }));
   }
-  noteUpdate(note) {
-    let {app} = this.props;
-    app.setState(prevState => ({
-      notes: prevState.notes.map((item) => {
-        return item.id == note.id ? note : item;
-      }),
-    }));
-  }
   render() {
     let {app} = this.props;
 
@@ -55,7 +46,6 @@ class DashboardContainer extends React.Component {
           submitContent='Add Note' />
         <NoteList
           noteRemove={this.noteRemove}
-          noteUpdate={this.noteUpdate}
           notes={app.state.notes} />
       </div>
     );

@@ -12,7 +12,6 @@ class NoteList extends React.Component {
               key={i}
               note={item}
               noteRemove={this.props.noteRemove}
-              noteUpdate={this.props.noteUpdate}
             />
           )}
         </ul>

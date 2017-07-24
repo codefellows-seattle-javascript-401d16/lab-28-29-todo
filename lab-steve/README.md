@@ -1,13 +1,13 @@
 ## Lab-Steve Lab-29 Documentation - React Note Manager
 
-### This app is built on the MERN stack utilizing webpack and creates a note creator and list with the ability to delete and update notes.  A note is updated by double-clicking on its content.
+### This app is built on the MERN stack utilizing webpack and creates a note creator and list with the ability to delete, but not update notes.
 
   * Installation:
     * Install Node.JS: `sudo apt-get install node`
     * Install Yarn: `sudo apt-get install yarn`
     * Clone this repository: `git clone https://github.com/0smium/lab-28-29-todo.git`
     * Navigate to the newly created 'lab-26-29-todo' folder
-    * Switch to the correct branch: `git checkout lab-steve-29`
+    * Switch to the correct branch: `git checkout lab-steve`
     * Navigate to the the 'lab-steve' directory
     * Install all node dependencies for the project: `yarn install`
     * Use:
