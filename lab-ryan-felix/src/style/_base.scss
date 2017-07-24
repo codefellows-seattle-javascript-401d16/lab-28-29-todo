@@ -1,0 +1,54 @@
+html, body { position: relative; }
+head, script, link  { display: none; }
+p { display: inline-block; }
+span,em,strong { display: inline; }
+em { font-style: italic; }
+strong { font-weight: bold; }
+
+
+@for $i from 6 to 1 {
+  h#{$i} {
+    font-size: 9/($i + 2) * 1em;
+    margin-bottom: $pad;
+  }
+}
+
+body {
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  background-color: $color-background;
+  color: $color-darkergrey;
+}
+
+
+ul,ol,li { margin-left: $pad * 2; }
+li { display: list-item; }
+ul li { list-style: disc; }
+ol li { list-style: decimal; }
+ol ol li , ul ol li { list-style: lower-alpha; }
+ol ul li , ul ul li { list-style: square; }
+
+.create-note-form {
+  margin-left: 3em;
+  margin-top: 3em;
+}
+
+.create-note-form > input {
+  margin-bottom: 1em;
+  .invalid {
+    border: 2px solid $color-error;
+  }
+}
+
+.note > .delete-note:hover {
+  cursor: pointer;
+}
+
+.note-list {
+  margin-top: 3em;
+  margin-left: 3em;
+}
+
+.note-list > h1 {
+  margin-bottom: 1em;
+}
