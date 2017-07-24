@@ -16,6 +16,7 @@
   text-align: center;
 }
 .list-item ul li {
+  display: inline-block;
   margin-left: 12%;
   font-size: 22px;
   font-family: $fontface-main;
@@ -43,11 +44,13 @@
   cursor: pointer;
 }
 .button-edit{
+  display: inline-block;
   margin-bottom: -3px;
   margin-left: 10px;
   width: auto;
 }
 .button-delete {
+  display: inline-block;
   margin-bottom: -10px;
   margin-left: 10px;
   width: 25px;
