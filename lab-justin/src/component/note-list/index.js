@@ -10,10 +10,12 @@ class NoteList extends React.Component {
   render() {
     return (
       <div className='note-list'>
+        <h3>Notes</h3>
         <ul>
           {this.props.notes.map((item, i) =>
+            
             <li key={i}>
-              <h3>Notes</h3>
+              
               <NoteItem
                 notes={this.props.notes}
                 item={item}
