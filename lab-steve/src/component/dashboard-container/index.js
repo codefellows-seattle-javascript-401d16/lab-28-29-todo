@@ -45,17 +45,11 @@ class DashboardContainer extends React.Component {
   }
   render() {
     let {app} = this.props;
-    // let totalSpent = app.state.expenses.reduce((p, c) => {
-    //   return p + c.price;
-    // }, 0);
-    // let remainingBudget = app.state.budget - totalSpent;
 
     return (
       <div className='dashboard-container'>
         <Navbar />
-        <p> Total Count: {app.state.count} </p>
-        {/*<p> Total Spent: {totalSpent}</p>
-        <p> Remaining Budget: {remainingBudget}</p>*/}
+        <p> Total Count: {app.state.notes.length} </p>
         <NoteForm
           handleSubmit={this.noteCreate}
           submitContent='Add Note' />
@@ -63,13 +57,6 @@ class DashboardContainer extends React.Component {
           noteRemove={this.noteRemove}
           noteUpdate={this.noteUpdate}
           notes={app.state.notes} />
-
-        {/*renderIf(remainingBudget < 0 && this.state.showErrors,
-          <Modal close={() => this.setState({showErrors: false})}>
-            <p> You have no money! </p>
-            <p> Current Balance: {remainingBudget} </p>
-          </Modal>
-        )*/}
       </div>
     );
   }

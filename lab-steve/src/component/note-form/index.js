@@ -3,10 +3,10 @@ import React from 'react';
 class NoteForm extends React.Component {
   constructor(props) {
     super(props);
-    let editing = props.note ? props.note.editing : false;
-    let completed = props.note ? props.note.completed : false;
-    let content = props.note ? props.note.content : 'default';
-    this.state = { editing, completed, content };
+    // let editing = props.note ? props.note.editing : false;
+    // let completed = props.note ? props.note.completed : false;
+    let content = props.note ? props.note.content : '';
+    this.state = { content };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -38,22 +38,6 @@ class NoteForm extends React.Component {
       <form
         className='note-create-form'
         onSubmit={this.handleSubmit}>
-        <label> Editing?
-          <input
-            name='editing'
-            type='checkbox'
-            /*checked={this.state.editing}*/
-            onChange={this.handleChange}
-          />
-        </label>
-        <label> Completed?
-          <input
-            name='completed'
-            type='checkbox'
-            /*checked={this.state.completed}*/
-            onChange={this.handleChange}
-          />
-        </label>
         <label> Content:
           <input
             name='content'

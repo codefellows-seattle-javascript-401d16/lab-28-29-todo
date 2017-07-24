@@ -13,7 +13,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
       notes: [],
     };
     this.getApp = this.getApp.bind(this);

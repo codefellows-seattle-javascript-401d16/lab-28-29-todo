@@ -1,5 +1,6 @@
 import React from 'react';
 import NoteForm from '../note-form';
+import NoteItem from '../note-item';
 
 class NoteList extends React.Component {
   render(){
@@ -7,22 +8,12 @@ class NoteList extends React.Component {
       <div className='note-list'>
         <ul>
           {this.props.notes.map((item, i) =>
-            <li key={i}>
-              <p>id: {item.id}</p>
-              <p>editing: {item.editing}</p>
-              <p>completed: {item.completed}</p>
-              <p>content: {item.content}</p>
-              <NoteForm
-                note={item}
-                submitContent='Update Note'
-                handleSubmit={(note) => {
-                  note.id = item.id,
-                  this.props.noteUpdate(note)
-                }} />
-              <button onClick={() => this.props.noteRemove(item)}>
-              Delete Note
-              </button>
-            </li>
+            <NoteItem
+              key={i}
+              note={item}
+              noteRemove={this.props.noteRemove}
+              noteUpdate={this.props.noteUpdate}
+            />
           )}
         </ul>
       </div>
