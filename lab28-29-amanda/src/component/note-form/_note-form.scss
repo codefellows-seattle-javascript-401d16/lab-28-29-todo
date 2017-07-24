@@ -12,7 +12,9 @@
     button {
     display: inline-block;
     background: $color-secondary;
-    width: 25%;
+    width: 15%;
+    margin-top: $pad;
+    margin-left: $pad;
   }
 
 }

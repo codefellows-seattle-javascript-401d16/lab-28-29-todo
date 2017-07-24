@@ -1,7 +1,12 @@
 @import "../../style/_vars.scss";
 
-.note-dashboard {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: $pad * 3;
+.note-dashboard{
+  .dashboard-main {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: $pad * 2;
+
+
+
+  }
 }

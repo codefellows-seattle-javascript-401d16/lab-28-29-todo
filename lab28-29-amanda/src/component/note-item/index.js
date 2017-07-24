@@ -25,7 +25,7 @@ class NoteItem extends React.Component {
         <p onDoubleClick={this.handleDoubleClick}>{this.props.item.content}</p>
 
         {renderIf(this.state.edit === true,
-          <NoteForm note={this.props.item} handleSubmit={this.props.noteUpdate} buttonText='update' />)}
+          <NoteForm className="button-update" note={this.props.item} handleSubmit={this.props.noteUpdate} buttonText='update' />)}
 
         {renderIf(this.state.edit === true,
           <button className="button-cancel" onClick={() => this.setState({edit: false})}> cancel </button>)}
