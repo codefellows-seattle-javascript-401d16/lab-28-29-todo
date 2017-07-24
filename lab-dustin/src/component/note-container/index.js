@@ -1,21 +1,22 @@
 import React from 'react';
-import NoteCreateForm from '../note-create-form-container';
+import NoteCreateForm from '../note-create-form';
 import NoteListContainer from '../note-list-container';
-import uuid from 'uuid/v1';
 
 class NoteContainer extends React.Component {
   constructor(props) {
     super(props);
+    this.noteCreate = this.noteCreate.bind(this);
     console.log('props', props.app);
   }
-
-
+  noteCreate(note) {
+    this.props.app.setState( state => ({
+      notes: [...state.notes, note],
+    }));
+  }
   render() {
     return (
       <div>
-        <p>sdfafasfsdfasd</p>
-        <NoteCreateForm noteCreate={this.props.noteCreate}/>
-        <NoteListContainer notes={this.props.notes}/>
+        <NoteCreateForm handleNoteCreate={this.noteCreate}/>
       </div>
     );
   }
