@@ -5,19 +5,24 @@ import NoteItem from '../note-item/';
 class NoteList extends React.Component {
   constructor(props){
     super(props);
-    console.log('note list', this.props.app.state);
+  }
+
+  handleUpdate(note){
+    let {app} = this.props;
+    app.setState(prevState => ({
+      notes: prevState.notes.map((item) => {
+        return item.id == note.id ? note : item;
+      }),
+    }));
   }
 
   render(){
     return(
       <div className='note-list'>
-        <ul>
-          {this.props.app.state.notes.map((note, i) =>
-            <li key={i}>
-              <NoteItem note={note} app={this.props.app} />
-            </li>
-          )}
-        </ul>
+        <NoteItem 
+          app={this.props.app}
+          handleUpdate={this.handleUpdate}
+        />
       </div>
     );
   }

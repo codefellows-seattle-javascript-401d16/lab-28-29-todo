@@ -2,12 +2,13 @@
 
 .note-create-form {
   input {
+    margin: $pad;
     display: inline-block;
-    margin-right: $pad;
     width: calc(40% - 0.5em);
   }
 
   button {
+    margin-top: $pad;
     display: inline-block;
     background: $color-success * 0.9 !important;
     width: 20%;
