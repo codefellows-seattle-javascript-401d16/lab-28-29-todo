@@ -1,25 +1,27 @@
-@import "./_vars.scss"
+@import "./_vars.scss";
 
-html,body {position: relative;}
-body * {display: block;}
-head, script, link {display: none;}
-p, blockquote {display: inline-block;}
-span, em, strong { display: inline;}
+html, body { position: relative; }
+head, script, link  { display: none; }
+p { display: inline-block; }
+span,em,strong { display: inline; }
+em { font-style: italic; }
+strong { font-weight: bold; }
 
 body {
-  background: $color-white
-  font-size: 16px;
-}
-
-@for $i from 1 through 6 {
-  h@{$i} {
-    fond-size: calc(1em * i * 1.09);
-  }
+  background: $color-white;
+  font-size: 20px;
+  margin: $pad;
 }
 
 blockquote {
-  border-left: : $pad solid $color-lightgrey;
+  border-left: $pad solid $color-lightgrey;
   padding-left: $pad;
+}
+
+@for $i from 6 through 1 {
+  h#{$i} {
+    font-size: 9/($i + 2) * 1em;;
+  }
 }
 
 label {
@@ -30,34 +32,39 @@ label {
 
 textarea, input {
   padding: $pad;
-  border: 1px solid $color-lightgrey
+  border: 1px solid $color-lightgrey;
+  margin-bottom: $pad;
+  resize: none;
+  margin: $pad;
 
   &:focus {
-    border: 1px solid $color-darkgrey
+    border-bottom: 1px solid $color-darkgrey;
   }
 
   &::placeholder {
-    color: $color-lightgrey
+    color: $color-lightgrey;
   }
 }
 
-button, input[type="submit"]:hover {
-  background: $color-grey;
+button,input[type="submit"] {
+  background: $color-primary;
   padding: $pad;
-  border: none
+  border: none;
+  float: left;
 
   &:hover {
-    background: $color-darkgrey
+    background: $color-secondary;
   }
 
-  &:active: {
-    background: $color-darkgrey
+  &:active {
+    background: $color-darkgrey;
   }
 }
 
-ul ol li { margin-left: $pad *2 ;}
-ul li { list-style: disc;}
-ol li { list-style: decimal;}
-li { display: list-item;}
-ol ol li, ul ol li { list-style: lower-alpha;}
-ol ul ul , ul ul li { list-style: square;}
+// lists
+ul,ol,li { margin-left: $pad * 2; }
+li { display: list-item; }
+ul li { list-style: disc; }
+ol li { list-style: decimal; }
+ol ol li , ul ol li { list-style: lower-alpha; }
+ol ul li , ul ul li { list-style: square; }
