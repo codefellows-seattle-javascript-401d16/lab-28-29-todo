@@ -2,6 +2,7 @@ import React from 'react';
 import uuid from 'uuid/v1';
 import NoteCreateForm from '../note-create-form';
 import NoteList from '../note-list';
+import NavBar from '../navbar';
 
 class DashBoardContainer extends React.Component {
   constructor(props){
@@ -41,6 +42,7 @@ class DashBoardContainer extends React.Component {
     let {app} = this.props;
     return(
       <div className='dashboard-container'>
+        <NavBar/ >
         <NoteCreateForm
           handleSubmit={this.noteCreate}
           submitTitle='Create Note'
