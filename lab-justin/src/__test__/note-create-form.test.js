@@ -1,20 +1,30 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import NoteCreateForm from '../component/note-create-form';
+import NoteCreate from '../component/note-create-form/';
+import NoteItem from '../component/note-item/';
 
-describe('testing NoteCreateForm', () => {
-
-  describe('NoteCreateForm onChange', () => {
-    test('should have correct default state', () => {
-      let wrapper = shallow(<NoteCreateForm handleChange={() => {}} />);
-      expect(wrapper.state('content')).toBe('');
-    });
-  });
-
-  describe('NoteCreateForm onSubmit', () => {
-    test('should have correct default state', () => {
-      let wrapper = shallow(<NoteCreateForm handleSubmit={() => {}} />);
-      expect(wrapper.state('content')).toBe('');
-    });
+describe('test', () => {
+  test('should pass', () => {
+    expect(true).toBe(true);
   });
 });
+
+describe('Note Create form', () => {
+  test('onChange handler', () => {
+    let wrapper = shallow(<NoteCreate handleChange={() => {}} />);
+    expect(wrapper.state('content')).toBe('');
+    wrapper.setState({ content: 'foo' });
+    expect(wrapper.state('content')).toBe('foo');
+  });
+
+  test('onSubmit handler', () => {
+    let wrapper = shallow(<NoteCreate handleSubmit={() => {}} />);
+    expect(wrapper.state('content')).toBe('');
+  });
+});
+
+// describe('Note Item', () => {
+//   test('remove note from state', () => {
+//     let wrapper = shallow(<NoteItem handleDelete={() => {}} />);
+//   });
+// });
