@@ -1,24 +1,6 @@
-01 JS -- Lab 28 Todo
-Submission Instructions
+This is a simple React form styled with created and exported Sass partials. The front end routes use react-router-dom. The application is structured  into modules, the application is in a lift state to lift to better control one way data flow
 
-Work in a fork of this repository
-Work in a branch on your fork
-Write all of your code in a directory named lab- + <your name> e.g. lab-duncan
-Submit a pull request to this repository
-Submit a link to your pull request on canvas
-Submit a question, observation, and how long you spent on canvas
-Learning Objectives
-
-Students will learn to create front end routes using react-router-dom
-Students will learn to restructure their applications into modules
-Students will learn the difference between view state and application state
-Students will learn to lift application state to better control one way data flow
-Students will learn to create and import sass partials
-Requirements
-
-Configuration
-
-Your lab directory must include
+The directory includes:
 
 README.md -- with a documention about your lab
 .babelrc -- with all dependencies and dev-dependencies
@@ -38,39 +20,15 @@ src/style/_base.scss -- base styles
 src/style/_layout.scss -- layout styles
 Feature Tasks
 
-Create the following components and structure them according to the following diagram.
-
-App
-  NoteForm
-  NoteList
-    Noteitem
-App Component
-
-The app component should manage the entire application state.
-The state should contain a notes array
-each note thats added should have the following data
-id: allways should contain the result of uuid.v1()
-editing: false by default
-completed: false by default
-content: user provided content
-NoteForm Component
-
-onSubmit the NoteForm should add a note to the application state
-NoteList Component
-
-should display an unordered list of NoteItem components
-NoteItem
-
-should display the notes content
-should display a delete button
-onClick the note should be removed from the application state
-Test
-
-Test NoteForm
-Test your onChange handler
-Test your onSubmit handler
-Test NoteItem
-Test the NoteItem's functionality defined to remove a note from the App's state
-Documentation
-
-Write a description of the project in your README.md
+The app component manages the entire application state.
+The state should contain a notes array and
+each note added should has the following data
+id: a result of uuid.v1()
+* editing: false by default
+* completed: false by default
+* content: user provided content
+* onSubmit the NoteForm adds a note to the application state
+* displays an unordered list of NoteItem components
+* displays the notes content
+* displays a delete button
+onClick: note is removed from the application state
