@@ -1,0 +1,32 @@
+@import "./_vars.scss";
+
+* {
+  // box model
+  position: static;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+
+  // font
+  font-family: $text-font;
+  font-size: 1em;
+  font-weight: normal;
+  font-style: normal;
+
+
+  // color
+  background: $color-white;
+  color: $color-primary;
+
+  // other
+  list-style: none;
+}
+
+// form *:focus {
+//   border: none;
+//   outline: none;
+// }

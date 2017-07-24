@@ -1,12 +1,14 @@
 import React from 'react'
 
-class NoteAddForm extends React.Component {
+class NoteForm extends React.Component {
   constructor(props){
     super(props)
-    this.state = {
-      subject: '',
-      textContent:'',
-    }
+    let subject = props.note ? props.note.subject: ''
+    let textContent = props.note ? props.note.textContent : ''
+
+    this.state = {subject, textContent}
+
+    
     this.handleChange = this.handleChange.bind(this)
     this.handleNoteAdd = this.handleNoteAdd.bind(this)
   }
@@ -49,4 +51,4 @@ class NoteAddForm extends React.Component {
     )
   }
 }
-export default NoteAddForm
+export default NoteForm

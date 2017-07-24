@@ -1,15 +1,15 @@
-// import './_dashboard-container.scss';
+import './_dashboard-container.scss';
 import React from 'react'
 import uuid from 'uuid/v1'
 
-import NoteAddForm from '../note-add-form'
+import NoteForm from '../note-form'
 import NoteList from '../note-list'
 
 
 class DashboardContainer extends React.Component{
   constructor(props){
     super(props)
-    // console.log('app!',this.props);
+    console.log('app!',this.props);
     this.noteAdd = this.noteAdd.bind(this)
     this.noteRemove = this.noteRemove.bind(this)
     this.noteUpdate = this.noteUpdate.bind(this)
@@ -17,7 +17,7 @@ class DashboardContainer extends React.Component{
 
   noteAdd(note){
     console.log('this.props.app!!!',this.props.app);
-    note.id = new Date()
+    note.id = uuid()
     this.props.app.setState((state)=> ({
       notes:[...state.notes, note],
       noteCount: state.noteCount+1,
@@ -27,6 +27,9 @@ class DashboardContainer extends React.Component{
 
   noteRemove(note){
     let {app} = this.props
+    this.props.app.setState((state)=> ({
+      noteCount: state.noteCount-1,
+    }))
     app.setState(previousState => ({
       notes: previousState.notes.filter((item) => {
         return item.id !== note.id
@@ -47,14 +50,18 @@ class DashboardContainer extends React.Component{
   render(){
     return (
       <div className='dashboard-container'>
-        <NoteAddForm
+
+      <h6> Note Count: {this.props.app.state.noteCount} </h6>
+        <NoteForm
           handleNoteAdd={this.noteAdd}
-          submitTitle='create note'/>
-        <NoteList notes={this.props.app.state.notes}
+          submitTitle='Create Note'/>
+
+
+        <NoteList
+        notes={this.props.app.state.notes}
         handleNoteRemove={this.noteRemove}
         handleNoteUpdate={this.noteUpdate}
         />
-        <p> sup man! </p>
       </div>
     )
   }

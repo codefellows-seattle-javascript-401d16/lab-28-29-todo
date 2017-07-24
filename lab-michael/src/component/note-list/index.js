@@ -1,32 +1,22 @@
+
 import React from 'react'
+import NoteForm from '../note-form'
+import NoteItem from '../note-item'
 
 
-
-import NoteAddForm from '../note-add-form'
-
-class NoteListForm extends React.Component {
-
+class NoteList extends React.Component {
   render(){
     {console.log('this.props',this.props)}
     return(
-      <div>
+      <div className='note-list'>
         <ul>
         {this.props.notes.map((item,i)=>
-          <li key={i}>
-            <p> {item.subject} </p>
-            <p> {item.textContent} </p>
-            <button onClick={() => this.props.handleNoteRemove(item)}>
-            Delete
-            </button>
-
-            <NoteAddForm
-              note={item}
-              submitTitle='update note'
-              handleNoteAdd={(note)=> {
-                note.id = item.id
-                this.props.handleNoteUpdate(note)
-            }} />
-          </li>
+          <NoteItem
+          key={i}
+          note={item}
+          noteRemove={this.props.handleNoteRemove}
+          noteUpdate={this.props.handleNoteUpdate}
+          />
         )}
         </ul>
       </div>
@@ -34,8 +24,4 @@ class NoteListForm extends React.Component {
   }
 }
 
-// {/*submitTitle='update'
-// {/*handleAdd={note => note.id=note.id
-// this.props.handleNoteUpdate(note)
-// }*/}
-export default NoteListForm
+export default NoteList

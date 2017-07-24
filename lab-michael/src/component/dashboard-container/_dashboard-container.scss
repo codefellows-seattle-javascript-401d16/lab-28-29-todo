@@ -1,0 +1,16 @@
+@import "../../style/_vars.scss";
+
+
+.dashboard-container {
+  .ledger {
+    height: $pad * 5;
+    p {
+      float: center;
+      height: 100%;
+      font-family: $text-font;
+      // width: calc(100% / 3);
+      // border: 1px $color-black solid;
+      text-align: center;
+    }
+  }
+}
