@@ -1,5 +1,5 @@
 import React from 'react';
-// not currently using modal
+//E
 class Modal extends React.Component {
   render() {
     return (
