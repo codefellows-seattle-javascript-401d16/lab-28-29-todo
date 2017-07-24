@@ -1,0 +1,37 @@
+@import "../../style/_vars.scss";
+.note-update{
+  position: absolute;
+  top: 0;
+  right: 0;
+  form{
+    position: absolute;
+    z-index: 99;
+    width: 30%;
+    height: 8vw;
+    border: $border-primary;
+    right: 0;
+    input{
+      opacity: 1;
+      background: $placeholder-background-color;
+      padding: 0;
+      margin: 0;
+      color: $placeholder-text-color;
+      height: 70%;
+      text-align: center;
+    }
+    button{
+      border: $button-border;
+      background: $button-color;
+      height: 30%;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      &:hover{
+        opacity: .60;
+        background: $button-color-hover;
+        cursor: pointer;
+      }
+    }
+  }
+
+}

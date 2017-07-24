@@ -28,11 +28,11 @@ class NoteItem extends React.Component {
             value={i}
           >
             <div>
-              {item.content}
+              <p>{item.content}</p>
+            </div>
             <button onClick={() => this.props.noteRemove(item)}>delete</button>
-          </div>
             {renderIf(this.state.editing && item.id === this.state.id,
-              <div onDoubleClick={() => this.setState(state => ({editing: state.editing}))}>
+              <div className="note-update" onDoubleClick={() => this.setState(state => ({editing: state.editing}))}>
                 <NoteUpdateForm
                   app={this.props.app}
                   submitTitle='update'

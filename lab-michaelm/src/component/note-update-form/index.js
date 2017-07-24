@@ -34,7 +34,7 @@ class NoteUpdateForm extends React.Component {
     return (
       <form className="note-update-form" onSubmit={this.handleSubmit} >
 
-        <textarea
+        <input
           autoFocus
           placeholder="new text here"
           name='content'
