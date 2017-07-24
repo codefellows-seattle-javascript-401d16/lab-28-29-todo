@@ -1,0 +1,16 @@
+@import "../../style/_vars.scss";
+
+.note-create-form {
+  input {
+    margin: $pad;
+    display: inline-block;
+    width: calc(40% - 0.5em);
+  }
+
+  button {
+    margin-top: $pad;
+    display: inline-block;
+    background: $color-success * 0.9 !important;
+    width: 20%;
+  }
+}
