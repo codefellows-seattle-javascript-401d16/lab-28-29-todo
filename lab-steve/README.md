@@ -1,4 +1,4 @@
-## Lab-Steve Lab-29 Documentation - React Cowsay Browser App
+## Lab-Steve Lab-29 Documentation - React Note Manager
 
 ### This app is built on the MERN stack utilizing webpack and creates a note creator and list with the ability to delete and update notes.  A note is updated by double-clicking on its content.
 
