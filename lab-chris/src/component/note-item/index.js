@@ -1,16 +1,18 @@
+import './note-item.scss';
+
 import React from 'react';
 
 class NoteItem extends React.Component{
   constructor(props){
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleView = this.handleView.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
-  handleView(){
+  handleUpdate(){
     console.log('edit');
-    this.props.app.setState(state => ({
-      notes: state.notes.map(note => note.id == this.props.note.id ? this.props.note : note),
+    this.props.app.setState(item => ({
+      notes: item.notes.map(note => note.id == this.props.note.id ? this.props.note : note),
     }));
   }
 
@@ -27,7 +29,7 @@ class NoteItem extends React.Component{
           {this.props.note.content}
           <button onClick={this.handleDelete}> Delete </button>
         </p>
-        <button onClick={this.handleView}>Update</button>
+        <button onClick={this.handleUpdate}>Update</button>
       </section>
     );
   }

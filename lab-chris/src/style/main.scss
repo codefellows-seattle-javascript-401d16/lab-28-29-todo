@@ -1,5 +1,6 @@
-$color-main: grey;
+@import "./_reset.scss";
+@import "./_base.scss";
 
-body {
-  background: $color-main;
+body{
+  background: $color-primary;
 }

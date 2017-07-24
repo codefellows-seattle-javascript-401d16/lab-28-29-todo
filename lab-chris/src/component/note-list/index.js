@@ -1,3 +1,4 @@
+import './note-list.scss';
 import React from 'react';
 import NoteItem from '../note-item/';
 
@@ -9,7 +10,7 @@ class NoteList extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className='note-list'>
         <ul>
           {this.props.app.state.notes.map((note, i) =>
             <li key={i}>

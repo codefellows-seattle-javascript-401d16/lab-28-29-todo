@@ -1,0 +1,9 @@
+@import "../../style/_vars.scss";
+
+
+button {
+  display: inline-block;
+  background: $color-success * 0.9 !important;
+  width: 10%;
+  margin-left: 1em;
+}
