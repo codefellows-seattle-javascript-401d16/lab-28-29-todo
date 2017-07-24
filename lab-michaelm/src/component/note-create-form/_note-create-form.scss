@@ -1,0 +1,28 @@
+@import "../../style/_vars.scss";
+
+.note-create-form {
+  width: 30%;
+  height: 8vw;
+  border: $border-primary;
+  float: left;
+  input{
+    background: $placeholder-background-color;
+    padding: 0;
+    margin: 0;
+    height: 70%;
+    text-align: center;
+  }
+  button{
+    border: $button-border;
+    background: $button-color;
+    height: 30%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    &:hover{
+      opacity: .60;
+      background: $button-color-hover;
+      cursor: pointer;
+    }
+  }
+}
