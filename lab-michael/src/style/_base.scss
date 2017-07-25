@@ -1,0 +1,74 @@
+@import "./_vars.scss";
+
+// content
+html, body { position: relative; }
+head, script, link  { display: none; }
+p { display: inline-block; }
+span,em,strong { display: inline; }
+em { font-style: italic; }
+strong { font-weight: bold; }
+
+body {
+  background: $color-white;
+  // seting the size of ems on the page
+  font-size: 16px;
+}
+
+blockquote {
+  border-left: $pad solid $color-lightgrey;
+  padding-left: $pad;
+}
+
+@for $i from 6 through 1 {
+  h#{$i} {
+    font-size: 9/($i + 2) * 1em;
+    padding:$pad;
+    text-align:center;
+  }
+}
+
+
+
+textarea, input {
+  padding: $pad;
+  border: 1px solid $color-lightgrey;
+  margin-bottom: $pad;
+  resize: none;
+
+  &:focus {
+    border: 1px solid $color-darkblue;
+  }
+
+  &::placeholder {
+    color: $color-lightgrey;
+  }
+}
+
+button,input[type="submit"] {
+  background: $color-blue;
+  padding: $pad;
+  border: none;
+
+  &:hover {
+    background: $color-darkblue;
+  }
+
+  &:active {
+    background: $color-darkblue;
+  }
+}
+
+.note-text p span {
+  color: $color-blue;
+}
+
+// lists
+ul,ol,li { margin-left: $pad * 2; text-align:left }
+li { display: list-item; }
+ul li { list-style: disc; }
+ol li { list-style: decimal; }
+p {padding: $pad}
+ol ol li , ul ol li { list-style: lower-alpha; }
+ol ul li , ul ul li { list-style: square; }
+.add-button{ width:30%; margin-left:35%;margin-right:30%}
+.delete-button{ width:20%;}
