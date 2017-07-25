@@ -5,7 +5,7 @@ import NoteCreateForm from '../note-create-form';
 class Note extends React.Component {
   constructor(props){
     super(props);
-    this.state= {
+    this.state={
       id: this.props.note.id,
       editing: this.props.note.editing,
       content: this.props.content,
