@@ -33,7 +33,7 @@ class App extends React.Component {
   handleNoteSubmit(note) {
     note.completed = true;
     note.id = uuid();
-    this.setState(state => ({ allNotes: [...state.allNotes, note] }))
+    this.setState(state => ({ allNotes: [...state.allNotes, note] }));
   }
 
   componentDidUpdate() {
@@ -42,10 +42,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <main>
-        <NoteCreateForm app={this.getApp()} handleSubmit={this.handleNoteSubmit} buttonTitle='Add Note' />
-        <NoteList app={this.getApp()} />
-      </main>
+      <div>
+        <header>
+          <h1>Note Manager</h1>
+          <main>
+            <NoteCreateForm app={this.getApp()} handleSubmit={this.handleNoteSubmit} buttonTitle='Add Note' />
+            <NoteList app={this.getApp()} />
+          </main>
+        </header>
+      </div>
     );
   }
 }

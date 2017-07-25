@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NoteForm from '../note-form'
+import NoteForm from '../note-form';
 
 class NoteItem extends React.Component {
   constructor(props) {
@@ -28,23 +28,23 @@ class NoteItem extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ content: event.target.value })
+    this.setState({ content: event.target.value });
   }
 
   handleEdit(event) {
     this.props.curNote.editing = true;
-    this.props.curNote.completed = false
-    this.setState({ view: 'edit' })
+    this.props.curNote.completed = false;
+    this.setState({ view: 'edit' });
   }
 
   handleEditSubmit(editedNote) {
-    this.props.curNote.editing = false
-    this.props.curNote.completed = true
-    this.props.curNote.content = editedNote.content
+    this.props.curNote.editing = false;
+    this.props.curNote.completed = true;
+    this.props.curNote.content = editedNote.content;
     this.props.app.setState(state => ({
-      allNotes: this.props.app.state.allNotes.map(note => note.id === editedNote.id ? this.props.curNote : note)
-    }))
-    this.setState({ view: 'default' })
+      allNotes: this.props.app.state.allNotes.map(note => note.id === editedNote.id ? this.props.curNote : note),
+    }));
+    this.setState({ view: 'default' });
   }
 
   render() {
@@ -53,28 +53,26 @@ class NoteItem extends React.Component {
         <content>
           <span
             onDoubleClick={this.handleEdit}>
-              {this.props.curNote.content}
+            {this.props.curNote.content}
           </span>
-          <input
-            type='button'
+          <button
             name='delete'
-            value='x'
+            className='delete'
             onClick={this.deleteNote}
-          />
+          >X</button>
         </content>
-      :
+        :
         <content>
           <NoteForm
             handleSubmit={this.handleEditSubmit}
             content={this.props.curNote.content}
             buttonTitle='Change'
           />
-          <input
-            type='button'
+          <button
             name='cancel'
             value='Cancel'
             onClick={this.cancelEdit}
-          />
+          >Cancel</button>
         </content>
     );
   }
