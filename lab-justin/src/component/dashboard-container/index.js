@@ -1,5 +1,5 @@
-
 import React from 'react';
+import Navbar from '../navbar';
 
 import NoteCreateForm from '../note-create-form';
 import NoteList from '../note-list';
@@ -35,6 +35,7 @@ class DashboardContainer extends React.Component {
   render() {
     return (
       <div className='dashboard-container'>
+        <Navbar />
         <NoteCreateForm handleSubmit={this.noteCreate} buttonText='submit'/>
         <NoteList
           notes={this.props.app.state.notes}
