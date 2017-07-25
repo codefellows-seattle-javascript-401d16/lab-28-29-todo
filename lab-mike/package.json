@@ -23,5 +23,9 @@
     "enzyme": "^2.9.1",
     "jest": "^20.0.4",
     "react-test-renderer": "^15.6.1"
-  }
+  },
+  "name": "lab-mike",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
 }
