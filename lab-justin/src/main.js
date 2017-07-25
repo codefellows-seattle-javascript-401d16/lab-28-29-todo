@@ -1,3 +1,5 @@
+import './style/main.scss';
+
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
@@ -22,7 +24,6 @@ class App extends React.Component {
   render() {
     return (
       <main className='app'>
-        <h1>My Notes</h1>
         <BrowserRouter>
           <div>
             <Route exact path='/' component={() => <DashboardContainer app={this.getApp()} />} />
