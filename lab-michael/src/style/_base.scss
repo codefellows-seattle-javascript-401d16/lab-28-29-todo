@@ -1,4 +1,4 @@
-@import "./vars.scss";
+@import "./_vars.scss";
 
 // content
 html, body { position: relative; }
@@ -28,12 +28,6 @@ blockquote {
 }
 
 
-// form
-// label {
-//   font-size: 2em;
-//   font-weight: bolder;
-//   margin-bottom: $pad;
-// }
 
 textarea, input {
   padding: $pad;
@@ -62,6 +56,10 @@ button,input[type="submit"] {
   &:active {
     background: $color-darkblue;
   }
+}
+
+.note-text p span {
+  color: $color-blue;
 }
 
 // lists
