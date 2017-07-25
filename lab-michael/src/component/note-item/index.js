@@ -4,7 +4,7 @@ import NoteForm from '../note-form'
 
 let renderIf = (t, c) => t ? c : undefined
 
-class NoteItem extends React.Component {
+class CategoryItem extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -17,9 +17,9 @@ class NoteItem extends React.Component {
     return (
       <li onDoubleClick={() => this.setState(state => ({editing: !state.editing}))}>
         {renderIf(!this.state.editing,
-          <div>
-            <p> Subject: {note.subject} </p>
-            <p> Text Content: {note.textContent} </p>
+          <div className='note-text'>
+            <p> <span>Subject:</span> {note.subject} </p>
+            <p> <span>Text Content:</span> {note.textContent} </p>
             <button className='delete-button'
             onClick={() => this.props.noteRemove(note)}>
               Delete
@@ -39,4 +39,4 @@ class NoteItem extends React.Component {
   }
 }
 
-export default NoteItem
+export default CategoryItem
