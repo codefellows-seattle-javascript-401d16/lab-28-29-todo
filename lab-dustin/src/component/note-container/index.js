@@ -6,17 +6,34 @@ class NoteContainer extends React.Component {
   constructor(props) {
     super(props);
     this.noteCreate = this.noteCreate.bind(this);
-    console.log('props', props.app);
+    this.noteRemove = this.noteRemove.bind(this);
+  }
+  noteRemove(note){
+    console.log('this at noteRemove', this);
+    this.props.app.setState(state => ({
+      notes: state.notes.filter((item) => {
+        return item.id == note.id ? note : item;
+      }),
+    }));
   }
   noteCreate(note) {
+    console.log('++++++++++', this );
     this.props.app.setState( state => ({
       notes: [...state.notes, note],
     }));
   }
+
   render() {
     return (
-      <div>
-        <NoteCreateForm handleNoteCreate={this.noteCreate}/>
+      <div className='note-container'>
+        <NoteCreateForm
+          handleNoteCreate={this.noteCreate}
+        />
+        <NoteListContainer
+          notes={this.props.app.state.notes}
+          noteRemove={this.noteRemove}
+
+        />
       </div>
     );
   }

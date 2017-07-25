@@ -4,9 +4,8 @@ import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 import NoteContainer from './component/note-container';
-import NoteCreateForm from './component/note-create-form';
-import ActualNote from './component/actual-note/note.js';
 import NoteListContainer from './component/note-list-container';
+import NoteCreateForm from './component/note-create-form';
 
 class App extends React.Component{
   constructor(props){
@@ -15,16 +14,16 @@ class App extends React.Component{
       notes: [],
     };
     this.getApp = this.getApp.bind(this);
-    this.noteRemove = this.noteRemove.bind(this);
+    // this.noteRemove = this.noteRemove.bind(this);
   }
   componentDidUpdate(){
     console.log('****STATE****', this.state);
   }
-  noteRemove(id) {
-    let notes = this.state.notes;
-    notes = notes.filter(note => note.id !== id);
-    this.setState({notes});
-  }
+  // noteRemove(id) {
+  //   let notes = this.state.notes;
+  //   notes = notes.filter(note => note.id !== id);
+  //   this.setState({notes});
+  // }
   getApp(){
     return {
       state: this.state,
@@ -34,15 +33,15 @@ class App extends React.Component{
   render() {
     return (
       <main>
-        <h1>h1 isnt broken</h1>
+        <h1> Notes </h1>
         <BrowserRouter>
           <div>
             <Route exact path=''
               component={() => <NoteContainer app={this.getApp()} />} />
           </div>
         </BrowserRouter>
-        <NoteListContainer notes={this.state.notes} noteRemove={this.noteRemove}/>
       </main>
+
     );
   }
 }
