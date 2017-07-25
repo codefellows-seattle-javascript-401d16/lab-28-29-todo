@@ -1,0 +1,30 @@
+@import "../../style/_vars.scss";
+@import "../../style/_base.scss";
+
+.navbar {
+  background: $color-primary;
+
+  main {
+    width: 50%;
+    margin: 0 auto;
+    padding: $pad * 2;
+    position: relative;
+  }
+
+  nav {
+    top: $pad;
+    width: auto;
+    right: $pad;
+    bottom: $pad;
+    height: 100%;
+    position: absolute;
+
+    li {
+      top: 3 * $pad;
+      bottom: $pad;
+      @extend button;
+      width: auto;
+      display: inline-block;
+    }
+  }
+}
