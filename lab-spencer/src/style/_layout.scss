@@ -1,0 +1,27 @@
+@import './_vars.scss';
+#root {
+  text-align: center;
+}
+
+input, button {
+  border-radius: 7%;
+  margin: $font-size * 0.33;
+}
+
+main {
+  margin: 0 auto;
+  margin-top: $font-size * 0.5;
+  width: 75%;
+  border: 1px solid $border-color;
+  border-radius: 3%;
+}
+
+input[name='cancel'] {
+  width: 10%;
+}
+
+.delete {
+  width: auto;
+  padding-left: $font-size / 4;
+  padding-right: $font-size / 4;
+}

@@ -13,10 +13,10 @@ class NoteList extends React.Component {
   render() {
     return (
       <ul>
-        {this.props.getApp().state.allNotes.map((note, i) => {
+        {this.props.app.state.allNotes.map((note, i) => {
           return (
             <li key={i}>
-              <NoteItem getApp={this.props.getApp} curNote={note} />
+              <NoteItem app={this.props.app} curNote={note} />
             </li>
           );
         })}
