@@ -1,19 +1,26 @@
 import React from 'react';
-import uuid from 'uuid/v1';
 
 class NoteItemContainer extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
     }
-
   }
+
+
 
 
   render () {
     return (
       <div>
-        note item container
+        <ul>
+          {this.props.notes.map((item, i) =>
+            <li key={i}>
+              <p>{item.content}</p>
+              <button onClick={() => this.props.noteDelete(item)}>Delete</button>
+            </li>
+          )}
+        </ul>
       </div>
     )
   }

@@ -8,6 +8,7 @@ class DashboardContainer extends React.Component {
   constructor (props) {
     super(props);
     this.noteCreate = this.noteCreate.bind(this);
+    this.noteDelete = this.noteDelete.bind(this);
   }
 
   noteCreate (text) {
@@ -23,12 +24,31 @@ class DashboardContainer extends React.Component {
     }));
   }
 
+  noteDelete (note) {
+    this.props.app.setState((prevState) => ({
+      notes: prevState.notes.filter((item) => {
+        return item.id !== note.id
+      })
+    }))
+  }
+
+  noteUpdate (note) {
+    this.props.app.setState((prevState) => ({
+      notes: prevState.notes.map((item) => {
+        return item.id == note.id ? note : item
+      })
+    }))
+  }
+
   render () {
     return (
       <div>
         <h1>Notes Machine</h1>
         <NoteCreateForm handleNoteCreate={this.noteCreate} />
-        <NoteListContainer />
+        <NoteListContainer
+          noteUpdate={this.noteUpdate}
+          noteDelete={this.noteDelete}
+          notes={this.props.app.state.notes}/>
       </div>
     )
   }

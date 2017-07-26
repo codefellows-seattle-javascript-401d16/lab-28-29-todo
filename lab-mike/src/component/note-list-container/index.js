@@ -1,5 +1,4 @@
 import React from 'react';
-import uuid from 'uuid/v1';
 
 import NoteItemContainer from '../note-item-container';
 
@@ -12,7 +11,11 @@ class NoteListContainer extends React.Component {
     return (
       <div>
         <h1>note list container</h1>
-        <NoteItemContainer />
+        <NoteItemContainer
+          noteUpdate={this.props.noteUpdate}
+          noteDelete={this.props.noteDelete}
+          notes={this.props.notes}
+        />
       </div>
     )
   }
