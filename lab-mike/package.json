@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "lint": "eslint .",
+    "watch": "webpack-dev-server --inline --hot",
+    "build": "webpack",
+    "test": "jest"
+  },
   "dependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
@@ -14,6 +20,7 @@
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.2",
     "sass-loader": "^6.0.6",
+    "superagent": "^3.5.2",
     "uuid": "^3.1.0",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.6.1"
