@@ -1,16 +1,15 @@
 import './style/main.scss';
-//npm modules
+// npm modules
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-//app modules
-import NoteCreateForm from './component/note-create-form';
-import NoteItemContainer from './component/note-item-container';
-import NoteListContainer from './component/note-list-container';
+// app modules
+import DashboardContainer from './component/dashboard-container';
+import AboutContainer from './component/about-container';
 
 class App extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       notes: [],
@@ -21,24 +20,24 @@ class App extends React.Component {
     console.log('__STATE__', this.state)
   }
   getApp () {
-    return ({
+    return {
       state: this.state,
       setState: this.setState.bind(this),
-    })
+    }
   }
 
-  render() {
+  render () {
     return (
-        <main>
-          <BrowserRouter>
-            <div>
-              <Route exact path = '/' component={}
-              <Route exact path'/dashboard' component = {() => <DashboardContainer app={this.getApp()} /> } />
-            </div>
-          </BrowserRouter>
-        </main>
+      <main>
+        <BrowserRouter>
+          <div>
+            <Route exact path='/about' component={AboutContainer} />
+            <Route exact path='/' component={() => <DashboardContainer app={this.getApp()} />} />
+          </div>
+        </BrowserRouter>
+      </main>
     )
   }
 }
 
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(<App />, document.getElementById('root'))
