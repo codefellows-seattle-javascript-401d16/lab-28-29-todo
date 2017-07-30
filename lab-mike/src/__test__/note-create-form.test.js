@@ -4,14 +4,14 @@ import NoteCreateForm from '../component/note-create-form';
 
 describe('testing NoteCreateForm', () => {
   test('should have correct default state', () => {
-    let wrapper = shallow(<NoteCreateForm handleNoteCreate={() => {}} />)
+    let wrapper = shallow(<NoteCreateForm handleNoteCreate={() => {}} />);
     expect(wrapper.state('inputText')).toBe('');
   });
   test('expect submit to invoke handleNoteCreate', () => {
     let noteCreate = (note) => {
       expect(note.inputText).toEqual('');
-    }
-    let wrapper = shallow(<NoteCreateForm handleNoteCreate={noteCreate} />)
+    };
+    let wrapper = shallow(<NoteCreateForm handleNoteCreate={noteCreate} />);
     wrapper.find('button').simulate('click');
   });
   test('testing inputText change onChange handler', () => {
