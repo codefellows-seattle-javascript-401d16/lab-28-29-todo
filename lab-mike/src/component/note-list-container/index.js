@@ -3,10 +3,6 @@ import React from 'react';
 import NoteItemContainer from '../note-item-container';
 
 class NoteListContainer extends React.Component {
-  constructor (props) {
-    super(props);
-  }
-
   render () {
     return (
       <div>
@@ -17,7 +13,7 @@ class NoteListContainer extends React.Component {
           notes={this.props.notes}
         />
       </div>
-    )
+    );
   }
 }
 

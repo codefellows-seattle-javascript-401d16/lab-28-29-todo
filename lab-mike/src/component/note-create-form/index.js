@@ -3,17 +3,19 @@ import React from 'react';
 class NoteCreateForm extends React.Component {
   constructor (props) {
     super(props);
+    let inputText = props.note ? props.note.inputText : '';
     this.state = {
-      inputText: '',
-    }
+      inputText: inputText,
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
+    let {name, value} = e.target;
     this.setState({
-      inputText: e.target.value,
-    })
+      [name]: value,
+    });
   }
 
   handleSubmit(e) {
@@ -27,14 +29,14 @@ class NoteCreateForm extends React.Component {
         <input
           name='inputText'
           type='text'
-          value={this.state.title}
+          value={this.state.inputText}
           onChange={this.handleChange}
-          />
+        />
 
-        <button type='submit'>Submit Text</button>
+        <button type='submit'>{this.props.submitTitle}</button>
 
       </form>
-    )
+    );
   }
 }
 
