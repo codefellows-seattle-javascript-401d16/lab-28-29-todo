@@ -15,10 +15,8 @@ describe('testing NoteCreateForm', () => {
     wrapper.find('button').simulate('click');
   });
   test('testing inputText change onChange handler', () => {
-    let noteCreate = (note) => {637
-      expect(note.inputText).toEqual('1234');
-    }
-    let wrapper = shallow(<NoteCreateForm handleNoteCreate={noteCreate} />)
-    wrapper.find('input').simulate('change', {target: {name: 'inputText', value: '123'}});
+    let wrapper = shallow(<NoteCreateForm handleNoteCreate={() => {}} />);
+    wrapper.find('input').simulate('change', {target: {value: '123'}});
+    expect(wrapper).toMatchSnapshot();
   });
 });
