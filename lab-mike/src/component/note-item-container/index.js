@@ -12,7 +12,6 @@ class NoteItemContainer extends React.Component {
   }
 
   render () {
-    console.log(this.props.note, '*****')
     return (
       <li onDoubleClick={() => this.setState((state) => ({editing: !state.editing}))}>
         {renderIf(!this.state.editing,

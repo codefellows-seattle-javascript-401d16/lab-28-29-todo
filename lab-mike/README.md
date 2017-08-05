@@ -1,45 +1,16 @@
 # Lab 28-29-30
 
-401 JS --  Lab 28 Todo
-===
+The components in this application have the layout
 
-
-## Requirements  
-
-#### Feature Tasks
-Create the following components and structure them according to the following diagram.  
-```
 App
-  NoteCreateForm
-  NoteList
-    Noteitem
-```
-###### App Component
-* The app component should manage the entire **application state**.
-* The state should contain a notes array
-* each note thats added should have the following data
-  * `id`: allways should contain the result of `uuid.v1()`
-  * `editing`: false by default
-  * `completed`: false by default
-  * `content`: user provided content
+  Dashboard
+    NoteForm
+    NoteList
+      NoteItem
+        NoteUpdateForm
 
-###### NoteCreateForm Component
-* `onSubmit` the NoteCreateForm should add a note to the application state
+The app should be started by running yarn watch or yarn build, then navigating to the appropriate end point.
 
-###### NoteList Component
-* should display an unordered list of NoteItem components
+A user can enter their note in the input area and click the add note button. The note is then populated into a list. As more notes get added, the list gets bigger. A note can be deleted by pressing the delete button. A note can be edited by double clicking it's content. The note changes into an input form, and we can edit the text content.
 
-###### NoteItem
-* should display the notes content
-* should display a delete button
-  * `onClick` the note should be removed from the application state
-
-#### Test
-* Test NoteCreateForm
-  * Test your onChange handler
-  * Test your onSubmit handler
-* Test NoteItem
-  * Test the NoteItem's functionality defined to remove a note from the App's state
-
-####  Documentation  
-Write a description of the project in your README.md
+Tests are written for creating a note, updating a note and removing a note and can be run with yarn test.

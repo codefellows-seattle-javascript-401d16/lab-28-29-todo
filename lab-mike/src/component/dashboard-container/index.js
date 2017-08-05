@@ -1,3 +1,4 @@
+import './_dashboard-container.scss';
 import React from 'react';
 import uuid from 'uuid/v1';
 
@@ -38,7 +39,7 @@ class DashboardContainer extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="dashboard-container">
         <h1>Notes Machine</h1>
         <NoteForm handleSubmit={this.noteCreate} submitTitle='Add Note'/>
         <NoteListContainer
