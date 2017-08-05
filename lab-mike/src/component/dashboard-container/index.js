@@ -13,15 +13,10 @@ class DashboardContainer extends React.Component {
     this.noteUpdate = this.noteUpdate.bind(this);
   }
 
-  noteCreate (text) {
+  noteCreate (note) {
+    note.id = uuid();
     this.props.app.setState((prevState) => ({
-      notes: [...prevState.notes,
-        {
-          id: uuid(),
-          completed: false,
-          content: text,
-        },
-      ],
+      notes: prevState.notes.concat([note]),
     }));
   }
 

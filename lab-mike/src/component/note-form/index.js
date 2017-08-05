@@ -3,7 +3,7 @@ import React from 'react';
 class NoteForm extends React.Component {
   constructor (props) {
     super(props);
-    let inputText = this.props.note ? this.props.note.content : '';
+    let inputText = this.props.note ? this.props.note.inputText : '';
     this.state = {
       inputText: inputText,
     };
@@ -20,7 +20,7 @@ class NoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.handleSubmit(this.state.inputText);
+    this.props.handleSubmit(this.state);
   }
 
   render () {

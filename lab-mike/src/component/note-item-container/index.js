@@ -17,7 +17,7 @@ class NoteItemContainer extends React.Component {
       <li onDoubleClick={() => this.setState((state) => ({editing: !state.editing}))}>
         {renderIf(!this.state.editing,
           <div>
-            <p>{this.props.note.content}</p>
+            <p>{this.props.note.inputText}</p>
             <button onClick={() => this.props.noteDelete(this.props.note)}>Delete</button>
           </div>
         )}
