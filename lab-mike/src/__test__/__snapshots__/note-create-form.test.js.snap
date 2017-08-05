@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`testing NoteCreateForm testing inputText change onChange handler 1`] = `
+exports[`testing NoteForm testing inputText change onChange handler 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -9,35 +9,33 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <form
+    className="note-form"
     onSubmit={[Function]}
 >
     <input
         name="inputText"
         onChange={[Function]}
         type="text"
-        value={undefined}
+        value=""
     />
     <button
         type="submit"
-    >
-        Submit Text
-    </button>
+    />
 </form>,
   "nodes": Array [
     <form
+      className="note-form"
       onSubmit={[Function]}
 >
       <input
             name="inputText"
             onChange={[Function]}
             type="text"
-            value={undefined}
+            value=""
       />
       <button
             type="submit"
-      >
-            Submit Text
-      </button>
+      />
 </form>,
   ],
   "options": Object {},
@@ -46,23 +44,24 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 0,
       "_context": Object {},
-      "_currentElement": <NoteCreateForm
-        handleNoteCreate={[Function]}
+      "_currentElement": <NoteForm
+        handleSubmit={[Function]}
 />,
       "_debugID": 5,
       "_hostContainerInfo": null,
       "_hostParent": null,
-      "_instance": NoteCreateForm {
+      "_instance": NoteForm {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "handleChange": [Function],
         "handleSubmit": [Function],
         "props": Object {
-          "handleNoteCreate": [Function],
+          "handleSubmit": [Function],
         },
         "refs": Object {},
         "state": Object {
-          "inputText": "123",
+          "inputText": "",
+          "undefined": "123",
         },
         "updater": Object {
           "enqueueCallback": [Function],
@@ -83,35 +82,33 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <form
+          className="note-form"
           onSubmit={[Function]}
 >
           <input
                     name="inputText"
                     onChange={[Function]}
                     type="text"
-                    value={undefined}
+                    value=""
           />
           <button
                     type="submit"
-          >
-                    Submit Text
-          </button>
+          />
 </form>,
         "_debugID": 6,
         "_renderedOutput": <form
+          className="note-form"
           onSubmit={[Function]}
 >
           <input
                     name="inputText"
                     onChange={[Function]}
                     type="text"
-                    value={undefined}
+                    value=""
           />
           <button
                     type="submit"
-          >
-                    Submit Text
-          </button>
+          />
 </form>,
       },
       "_renderedNodeType": 0,
@@ -124,8 +121,8 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <NoteCreateForm
-    handleNoteCreate={[Function]}
+  "unrendered": <NoteForm
+    handleSubmit={[Function]}
 />,
 }
 `;
