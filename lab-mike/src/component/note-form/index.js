@@ -1,9 +1,10 @@
+import './_note-form.scss';
 import React from 'react';
 
-class NoteCreateForm extends React.Component {
+class NoteForm extends React.Component {
   constructor (props) {
     super(props);
-    let inputText = props.note ? props.note.inputText : '';
+    let inputText = this.props.note ? this.props.note.inputText : '';
     this.state = {
       inputText: inputText,
     };
@@ -20,24 +21,22 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.handleNoteCreate(this.state.inputText);
+    this.props.handleSubmit(this.state);
   }
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit} >
+      <form className='note-form' onSubmit={this.handleSubmit} >
         <input
           name='inputText'
           type='text'
           value={this.state.inputText}
           onChange={this.handleChange}
         />
-
         <button type='submit'>{this.props.submitTitle}</button>
-
       </form>
     );
   }
 }
 
-export default NoteCreateForm;
+export default NoteForm;
