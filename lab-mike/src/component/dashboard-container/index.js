@@ -45,7 +45,7 @@ class DashboardContainer extends React.Component {
     return (
       <div>
         <h1>Notes Machine</h1>
-        <NoteCreateForm handleNoteCreate={this.noteCreate} />
+        <NoteCreateForm handleSubmit={this.noteCreate} submitTitle='Add Note'/>
         <NoteListContainer
           noteUpdate={this.noteUpdate}
           noteDelete={this.noteDelete}

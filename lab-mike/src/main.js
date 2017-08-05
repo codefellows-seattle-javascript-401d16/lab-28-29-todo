@@ -2,7 +2,7 @@ import './style/main.scss';
 // npm modules
 import React from 'react';
 import ReactDom from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 // app modules
 import DashboardContainer from './component/dashboard-container';
@@ -28,9 +28,14 @@ class App extends React.Component {
 
   render () {
     return (
-      <main>
+      <main className='app'>
         <BrowserRouter>
           <div>
+            <nav>
+              <ul>
+                <li><Link to='/about'>About</Link></li>
+              </ul>
+            </nav>
             <Route exact path='/about' component={AboutContainer} />
             <Route exact path='/' component={() => <DashboardContainer app={this.getApp()} />} />
           </div>

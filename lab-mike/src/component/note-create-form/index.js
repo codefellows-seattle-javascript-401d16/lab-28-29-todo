@@ -20,12 +20,12 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.handleNoteCreate(this.state.inputText);
+    this.props.handleSubmit(this.state.inputText);
   }
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit} >
+      <form className='note-form' onSubmit={this.handleSubmit} >
         <input
           name='inputText'
           type='text'
@@ -40,4 +40,4 @@ class NoteCreateForm extends React.Component {
   }
 }
 
-export default NoteCreateForm;
+export default NoteForm;
