@@ -1,3 +1,4 @@
+import './_note-list-container.scss';
 import React from 'react';
 
 import NoteItemContainer from '../note-item-container';

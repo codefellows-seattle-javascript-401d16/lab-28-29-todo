@@ -1,3 +1,4 @@
+import './_note-item-container.scss';
 import React from 'react';
 import NoteForm from '../note-form';
 
@@ -13,7 +14,7 @@ class NoteItemContainer extends React.Component {
 
   render () {
     return (
-      <li onDoubleClick={() => this.setState((state) => ({editing: !state.editing}))}>
+      <li className='note-item-container' onDoubleClick={() => this.setState((state) => ({editing: !state.editing}))}>
         {renderIf(!this.state.editing,
           <div>
             <p>{this.props.note.inputText}</p>

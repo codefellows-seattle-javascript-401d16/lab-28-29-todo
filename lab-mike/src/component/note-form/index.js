@@ -1,3 +1,4 @@
+import './_note-form.scss';
 import React from 'react';
 
 class NoteForm extends React.Component {
@@ -32,9 +33,7 @@ class NoteForm extends React.Component {
           value={this.state.inputText}
           onChange={this.handleChange}
         />
-
         <button type='submit'>{this.props.submitTitle}</button>
-
       </form>
     );
   }
