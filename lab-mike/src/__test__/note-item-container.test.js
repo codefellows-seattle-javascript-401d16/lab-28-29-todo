@@ -8,14 +8,14 @@ let mockNote = {
 };
 
 describe('testing NoteItemContainer', () => {
-  // test('testing delete button functionality', () => {
-  //   let notePropArray = [{
-  //     editing: false,
-  //     content: 'first',
-  //   }];
-  //
-  //   let wrapper = shallow(<NoteItemContainer notes={notePropArray} noteDelete={() => {}}/>);
-  //   wrapper.find('button').simulate('click');
-  //
-  // });
+  test('initial state', () => {
+    let wrapper = mount(<NoteItemContainer note={mockNote} />);
+    expect(wrapper.state('editing')).toEqual(false);
+  });
+  test('testing delete button functionality', () => {
+    let mockDeleteNote = jest.fn();
+    let wrapper = mount(<NoteItemContainer note={mockNote} noteDelete={mockDeleteNote} />);
+    wrapper.find('button').simulate('click');
+    expect(mockDeleteNote).toHaveBeenCalledWith(mockNote);
+  });
 });
