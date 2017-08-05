@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing NoteForm testing inputText change onChange handler 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <form
+    className="note-form"
+    onSubmit={[Function]}
+>
+    <input
+        name="inputText"
+        onChange={[Function]}
+        type="text"
+        value=""
+    />
+    <button
+        type="submit"
+    />
+</form>,
+  "nodes": Array [
+    <form
+      className="note-form"
+      onSubmit={[Function]}
+>
+      <input
+            name="inputText"
+            onChange={[Function]}
+            type="text"
+            value=""
+      />
+      <button
+            type="submit"
+      />
+</form>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <NoteForm
+        handleSubmit={[Function]}
+/>,
+      "_debugID": 5,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": NoteForm {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "handleChange": [Function],
+        "handleSubmit": [Function],
+        "props": Object {
+          "handleSubmit": [Function],
+        },
+        "refs": Object {},
+        "state": Object {
+          "inputText": "",
+          "undefined": "123",
+        },
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 3,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <form
+          className="note-form"
+          onSubmit={[Function]}
+>
+          <input
+                    name="inputText"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+          />
+          <button
+                    type="submit"
+          />
+</form>,
+        "_debugID": 6,
+        "_renderedOutput": <form
+          className="note-form"
+          onSubmit={[Function]}
+>
+          <input
+                    name="inputText"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+          />
+          <button
+                    type="submit"
+          />
+</form>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <NoteForm
+    handleSubmit={[Function]}
+/>,
+}
+`;
