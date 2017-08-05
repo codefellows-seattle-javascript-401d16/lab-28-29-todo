@@ -1,9 +1,9 @@
 import React from 'react';
 
-class NoteCreateForm extends React.Component {
+class NoteForm extends React.Component {
   constructor (props) {
     super(props);
-    let inputText = props.note ? props.note.inputText : '';
+    let inputText = this.props.note ? this.props.note.content : '';
     this.state = {
       inputText: inputText,
     };

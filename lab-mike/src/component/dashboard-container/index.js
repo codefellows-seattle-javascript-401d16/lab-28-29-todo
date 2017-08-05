@@ -1,7 +1,7 @@
 import React from 'react';
 import uuid from 'uuid/v1';
 
-import NoteCreateForm from '../note-create-form';
+import NoteForm from '../note-form';
 import NoteListContainer from '../note-list-container';
 
 
@@ -36,7 +36,7 @@ class DashboardContainer extends React.Component {
   noteUpdate (note) {
     this.props.app.setState((prevState) => ({
       notes: prevState.notes.map((item) => {
-        return item.id == note.id ? note : item;
+        return item.id === note.id ? note : item;
       }),
     }));
   }
@@ -45,7 +45,7 @@ class DashboardContainer extends React.Component {
     return (
       <div>
         <h1>Notes Machine</h1>
-        <NoteCreateForm handleSubmit={this.noteCreate} submitTitle='Add Note'/>
+        <NoteForm handleSubmit={this.noteCreate} submitTitle='Add Note'/>
         <NoteListContainer
           noteUpdate={this.noteUpdate}
           noteDelete={this.noteDelete}
