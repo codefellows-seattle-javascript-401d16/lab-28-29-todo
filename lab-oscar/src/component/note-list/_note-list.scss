@@ -1,0 +1,57 @@
+@import "../../style/_vars.scss";
+
+.list-item {
+  border: 2px solid $color-black;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTop6SAfbwNUYwtIPA2wk4QYmUUM3RmZwcc2VmxvTSlJd6g9iGY');
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+}
+.list-item h1 {
+  font-size: 22px;
+  font-family: $fontface-fantasy;
+  text-align: center;
+}
+.list-item ul li {
+  display: inline-block;
+  margin-left: 12%;
+  font-size: 22px;
+  font-family: $fontface-main;
+  margin-bottom: 10px;
+
+}
+.completed-checkbox {
+  border-radius: 100%;
+  border: 2px solid $not-completed-button-border;
+  width:10px;
+  height: 5px;
+  background-color: $color-white;
+  color: $color-white;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.complete-checkbox{
+  border-radius: 100%;
+  border: 2px solid $not-completed-button-border;
+  width:10px;
+  height: 5px;
+  background-color: $completed-button-background;
+  color: $completed-button-background;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.button-edit{
+  display: inline-block;
+  margin-bottom: -3px;
+  margin-left: 10px;
+  width: auto;
+}
+.button-delete {
+  display: inline-block;
+  margin-bottom: -10px;
+  margin-left: 10px;
+  width: 25px;
+}
